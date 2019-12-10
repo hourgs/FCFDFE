@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using System.Web.UI.WebControls;
 using System.Data;
 using FCFDFE.Content;
@@ -71,7 +72,9 @@ namespace FCFDFE.pages.GM
             if (strC_SN_SYS.Equals(string.Empty))
                 strMessage += "<P> 請先 選擇子系統名稱 </p>";
             if (strPRO_DESC.Equals(string.Empty))
-                strMessage += "<P> 請先 填寫問題描述 </p>";
+                strMessage += "<P> 請先 填寫問題描述 </p >";
+            if (Encoding.Default.GetByteCount(fuUPLOAD_Problem.FileName) > 21)
+                strMessage += "<P> 檔案名稱長度過長</p >";
             if (strMessage.Equals(string.Empty))
             {
                 PROBLEM_DATA prodata = new PROBLEM_DATA();
@@ -121,7 +124,6 @@ namespace FCFDFE.pages.GM
 
                     if (fuUPLOAD_Problem.HasFile)
                     {
-
                         String fileName, saveDir, appPath, savePath, saveResult = "";
                         string strUPLOAD_LOCATE;
                         string strUPLOAD_Problem = fuUPLOAD_Problem.ToString();

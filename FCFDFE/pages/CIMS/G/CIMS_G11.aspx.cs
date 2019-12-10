@@ -46,7 +46,7 @@ namespace FCFDFE.pages.CIMS.G
                                 OVC_PUR_IPURCH = TBM1301.OVC_PUR_IPURCH ?? "",
                                 OVC_PUR_DAPPROVE = DateTime.TryParse(TBM1301.OVC_PUR_DAPPROVE, out dateValue) == false ? "" : TBM1301.OVC_PUR_DAPPROVE,
                                 OVC_DANNOUNCE = TBMRECEIVE_WORK.OVC_DANNOUNCE ?? "",
-                                OVC_PUR_APPROVE=TBM1301.OVC_PUR_APPROVE??"",
+                                OVC_PUR_APPROVE = TBM1301.OVC_PUR_APPROVE ?? "",
                                 OVC_DOPEN = TBMRECEIVE_WORK.OVC_DOPEN ?? "",
                                 ONB_TIMES = TBMRECEIVE_WORK.ONB_TIMES,
                                 OVC_PUR_ASS_VEN_CODE = TBMRECEIVE_WORK.OVC_PUR_ASS_VEN_CODE ?? "",
@@ -61,6 +61,10 @@ namespace FCFDFE.pages.CIMS.G
                 column.ColumnName = "RANK";
                 column.DataType = System.Type.GetType("System.Int32");
                 dt.Columns.Add(column);
+
+                txtQuery5_s.Text = dt.Rows.Count.ToString();
+ 
+                FCommon.AlertShow(PnMessage, "danger", "系統訊息", "無資料");
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     dt.Rows[i]["Rank"] = i + 1;
