@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'SYSTEM.COMMONLINK' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="COMMONLINK">
+          <Key>
+            <PropertyRef Name="CL_SN" />
+          </Key>
+          <Property Name="CL_SN" Type="guid raw" Nullable="false" />
+          <Property Name="CL_LAN" Type="varchar2" MaxLength="20" />
+          <Property Name="CL_TITLE" Type="varchar2" MaxLength="50" />
+          <Property Name="CL_LINK" Type="varchar2" MaxLength="50" />
+          <Property Name="CL_DESC" Type="varchar2" MaxLength="100" />
+          <Property Name="CL_UPLOADLINK" Type="varchar2" MaxLength="50" />
+          <Property Name="CL_KIND" Type="varchar2" MaxLength="20" />
+          <Property Name="CL_ORD" Type="number" Precision="3" Scale="0" />
+        </EntityType>
+        <EntityType Name="INDEXDATA">
+          <Key>
+            <PropertyRef Name="INDEX_CODE" />
+            <PropertyRef Name="YM" />
+          </Key>
+          <Property Name="INDEX_CODE" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="YM" Type="varchar2" MaxLength="6" Nullable="false" />
+          <Property Name="PERIOD" Type="number" Precision="5" Scale="0" />
+          <Property Name="RATE" Type="number" Precision="7" Scale="2" />
+        </EntityType>
+        <EntityType Name="INDEXDESC">
+          <Key>
+            <PropertyRef Name="INDEX_CODE" />
+          </Key>
+          <Property Name="INDEX_CODE" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="UNIT" Type="varchar2" MaxLength="10" />
+          <Property Name="START_TIME" Type="varchar2" MaxLength="10" />
+          <Property Name="NEW_TIME" Type="varchar2" MaxLength="10" />
+          <Property Name="PERIOD" Type="number" Precision="5" Scale="0" />
+          <Property Name="INDEX_DESC" Type="varchar2" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="TBM_FILE">
+          <Key>
+            <PropertyRef Name="OVC_PURCH" />
+            <PropertyRef Name="OVC_KIND" />
+            <PropertyRef Name="OVC_ITEM" />
+            <PropertyRef Name="OVC_TIMES" />
+            <PropertyRef Name="OVC_SUB" />
+          </Key>
+          <Property Name="OVC_PURCH" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="OVC_KIND" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="OVC_ITEM" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="OVC_TIMES" Type="varchar2" MaxLength="3" Nullable="false" />
+          <Property Name="OVC_SUB" Type="varchar2" MaxLength="5" Nullable="false" />
+          <Property Name="OVC_ATTACH_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_FILE_NAME" Type="varchar2" MaxLength="100" />
+          <Property Name="OVC_UP_USER" Type="varchar2" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TBM_PUBLIC_BID">
+          <Key>
+            <PropertyRef Name="OVC_KEY" />
+          </Key>
+          <Property Name="OVC_KEY" Type="varchar2" MaxLength="8" Nullable="false" />
+          <Property Name="OVC_PUB_KIND" Type="varchar2" MaxLength="5" />
+          <Property Name="OVC_BID_SEC" Type="varchar2" MaxLength="100" />
+          <Property Name="OVC_PURCH" Type="varchar2" MaxLength="30" />
+          <Property Name="OVC_NPURCH" Type="varchar2" MaxLength="100" />
+          <Property Name="OVC_PURCH_KIND" Type="varchar2" MaxLength="100" />
+          <Property Name="ONB_BUDGET_MONEY" Type="number" Precision="13" Scale="2" />
+          <Property Name="OVC_BUDGET_RANGE" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_BID_KIND" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_DBID_KIND" Type="varchar2" MaxLength="50" />
+          <Property Name="ONB_UNDER_MONEY" Type="number" Precision="13" Scale="2" />
+          <Property Name="OVC_OPEN_UNDER" Type="varchar2" MaxLength="10" />
+          <Property Name="ONB_DBID_MONEY" Type="number" Precision="13" Scale="2" />
+          <Property Name="OVC_OPEN_DBID" Type="varchar2" MaxLength="10" />
+          <Property Name="ONB_VEN_NUM" Type="number" Precision="5" Scale="0" />
+          <Property Name="OVC_VEN_NAME" Type="varchar2" MaxLength="100" />
+          <Property Name="OVC_VEN_CST" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_LAW58" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_LIMIT_RULE" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_PUBLISH_DATE" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_DBID_DATE" Type="varchar2" MaxLength="10" />
+          <Property Name="ONB_UNDER_PLUS_BUDGET" Type="number" Precision="13" Scale="4" />
+          <Property Name="ONB_DBID_PLUS_UNDER" Type="number" Precision="13" Scale="4" />
+          <Property Name="ONB_DBID_PLUS_BUDGET" Type="number" Precision="13" Scale="4" />
+          <Property Name="OVC_DBID_DATE_IN" Type="varchar2" MaxLength="10" />
+          <Property Name="ONB_JOIN_VEN" Type="number" Precision="13" Scale="2" />
+          <Property Name="ONB_SERIAL" Type="number" Precision="5" Scale="0" />
+          <Property Name="OVC_NOGET_VEN" Type="varchar2" MaxLength="1000" />
+          <Property Name="ONB_VEN_BID_MONEY" Type="number" Precision="13" Scale="2" />
+          <Property Name="OVC_OPEN_DATE" Type="varchar2" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="TBM_PUBLIC_BID_99">
+          <Key>
+            <PropertyRef Name="OVC_KEY" />
+          </Key>
+          <Property Name="OVC_KEY" Type="varchar2" MaxLength="8" Nullable="false" />
+          <Property Name="OVC_A" Type="varchar2" MaxLength="100" />
+          <Property Name="OVC_B" Type="varchar2" MaxLength="5" />
+          <Property Name="OVC_C" Type="varchar2" MaxLength="100" />
+          <Property Name="OVC_D" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_E" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_F" Type="varchar2" MaxLength="200" />
+          <Property Name="OVC_G" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_H" Type="varchar2" MaxLength="200" />
+          <Property Name="OVC_I" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_J" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_K" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_L" Type="varchar2" MaxLength="10" />
+          <Property Name="ONB_M" Type="number" Precision="13" Scale="2" />
+          <Property Name="OVC_N" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_O" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_P" Type="varchar2" MaxLength="5" />
+          <Property Name="ONB_Q" Type="number" Precision="13" Scale="2" />
+          <Property Name="OVC_R" Type="varchar2" MaxLength="100" />
+          <Property Name="OVC_S" Type="varchar2" MaxLength="5" />
+          <Property Name="ONB_T" Type="number" Precision="10" Scale="0" />
+          <Property Name="ONB_U" Type="number" Precision="10" Scale="0" />
+          <Property Name="ONB_V" Type="number" Precision="10" Scale="0" />
+          <Property Name="OVC_W" Type="varchar2" MaxLength="100" />
+          <Property Name="OVC_X" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_Y" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_Z" Type="varchar2" MaxLength="30" />
+          <Property Name="OVC_AA" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_AB" Type="varchar2" MaxLength="100" />
+          <Property Name="OVC_AC" Type="varchar2" MaxLength="1500" />
+          <Property Name="ONB_AD" Type="number" Precision="13" Scale="8" />
+          <Property Name="OVC_AE" Type="varchar2" MaxLength="100" />
+          <Property Name="OVC_AF" Type="varchar2" MaxLength="5" />
+          <Property Name="ONB_AG" Type="number" Precision="13" Scale="2" />
+          <Property Name="OVC_AH" Type="varchar2" MaxLength="5" />
+          <Property Name="ONB_AI" Type="number" Precision="13" Scale="2" />
+          <Property Name="OVC_AJ" Type="varchar2" MaxLength="5" />
+          <Property Name="OVC_AK" Type="varchar2" MaxLength="5" />
+          <Property Name="OVC_AL" Type="varchar2" MaxLength="30" />
+          <Property Name="OVC_AM" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_AN" Type="varchar2" MaxLength="100" />
+          <Property Name="ONB_AO" Type="number" Precision="5" Scale="0" />
+          <Property Name="OVC_AP" Type="varchar2" MaxLength="5" />
+          <Property Name="OVC_AQ" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_AR" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_AS" Type="varchar2" MaxLength="5" />
+          <Property Name="OVC_AT" Type="varchar2" MaxLength="120" />
+          <Property Name="OVC_AU" Type="varchar2" MaxLength="5" />
+          <Property Name="ONB_AV" Type="number" Precision="5" Scale="0" />
+          <Property Name="OVC_AW" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_AX" Type="varchar2" MaxLength="200" />
+          <Property Name="OVC_AY" Type="varchar2" MaxLength="20" />
+          <Property Name="OVC_AZ" Type="varchar2" MaxLength="5" />
+          <Property Name="ONB_BA" Type="number" Precision="5" Scale="0" />
+          <Property Name="OVC_BB" Type="varchar2" MaxLength="5" />
+          <Property Name="OVC_BC" Type="varchar2" MaxLength="30" />
+          <Property Name="OVC_BD" Type="varchar2" MaxLength="5" />
+          <Property Name="OVC_BE" Type="varchar2" MaxLength="5" />
+          <Property Name="ONB_BF" Type="number" Precision="13" Scale="2" />
+          <Property Name="OVC_BG" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_BH" Type="varchar2" MaxLength="5" />
+          <Property Name="ONB_BI" Type="number" Precision="13" Scale="2" />
+        </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'SYSTEM.TBM1203' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="VENAGENT">
+          <Key>
+            <PropertyRef Name="REGNO" />
+          </Key>
+          <Property Name="REGNO" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="VEN_NAME" Type="varchar2" MaxLength="100" />
+          <Property Name="VEN_DEPT" Type="varchar2" MaxLength="30" />
+          <Property Name="VEN_CODE" Type="varchar2" MaxLength="10" />
+          <Property Name="VEN_ADDR" Type="varchar2" MaxLength="150" />
+          <Property Name="VEN_TEL" Type="varchar2" MaxLength="30" />
+          <Property Name="VEN_FAX" Type="varchar2" MaxLength="30" />
+          <Property Name="VEN_BOSS" Type="varchar2" MaxLength="50" />
+          <Property Name="VEN_NAME_T" Type="varchar2" MaxLength="50" />
+          <Property Name="VEN_ENAME_T" Type="varchar2" MaxLength="50" />
+          <Property Name="VEN_CODE_T" Type="varchar2" MaxLength="10" />
+          <Property Name="VEN_ADDR_T" Type="varchar2" MaxLength="150" />
+          <Property Name="VEN_TEL_T" Type="varchar2" MaxLength="30" />
+          <Property Name="VEN_FAX_T" Type="varchar2" MaxLength="30" />
+          <Property Name="VEN_BOSS_T" Type="varchar2" MaxLength="50" />
+          <Property Name="AUTH_DATE_E" Type="varchar2" MaxLength="10" />
+          <Property Name="AUTH_RANGE" Type="varchar2" MaxLength="300" />
+          <Property Name="AGENT_ITEM" Type="varchar2" MaxLength="1500" />
+          <Property Name="APPR_DATE_S" Type="varchar2" MaxLength="10" />
+          <Property Name="APPR_DATE_E" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_MEMO" Type="varchar2" MaxLength="500" />
+          <Property Name="OVC_CREATE" Type="varchar2" MaxLength="10" />
+          <Property Name="KEYIN" Type="varchar2" MaxLength="20" />
+          <Property Name="AUTH_DATE_S" Type="date" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="INDEXDATA" EntityType="Self.INDEXDATA" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="INDEXDESC" EntityType="Self.INDEXDESC" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="TBM_FILE" EntityType="Self.TBM_FILE" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="TBM_PUBLIC_BID" EntityType="Self.TBM_PUBLIC_BID" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="TBM_PUBLIC_BID_99" EntityType="Self.TBM_PUBLIC_BID_99" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="VENAGENT" EntityType="Self.VENAGENT" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="COMMONLINK" EntityType="Self.COMMONLINK" store:Type="Tables" store:Schema="SYSTEM">
+            <DefiningQuery>SELECT 
+"COMMONLINK"."CL_SN" AS "CL_SN", 
+"COMMONLINK"."CL_LAN" AS "CL_LAN", 
+"COMMONLINK"."CL_TITLE" AS "CL_TITLE", 
+"COMMONLINK"."CL_LINK" AS "CL_LINK", 
+"COMMONLINK"."CL_DESC" AS "CL_DESC", 
+"COMMONLINK"."CL_UPLOADLINK" AS "CL_UPLOADLINK", 
+"COMMONLINK"."CL_KIND" AS "CL_KIND", 
+"COMMONLINK"."CL_ORD" AS "CL_ORD"
+FROM "SYSTEM"."COMMONLINK" "COMMONLINK"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="INDEXDATA">
+          <Key>
+            <PropertyRef Name="INDEX_CODE" />
+            <PropertyRef Name="YM" />
+          </Key>
+          <Property Name="INDEX_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="YM" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PERIOD" Type="Int16" />
+          <Property Name="RATE" Type="Decimal" Precision="7" Scale="2" />
+        </EntityType>
+        <EntityType Name="INDEXDESC">
+          <Key>
+            <PropertyRef Name="INDEX_CODE" />
+          </Key>
+          <Property Name="INDEX_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UNIT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="START_TIME" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NEW_TIME" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PERIOD" Type="Int16" />
+          <Property Name="INDEX_DESC" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBM_FILE">
+          <Key>
+            <PropertyRef Name="OVC_PURCH" />
+            <PropertyRef Name="OVC_KIND" />
+            <PropertyRef Name="OVC_ITEM" />
+            <PropertyRef Name="OVC_TIMES" />
+            <PropertyRef Name="OVC_SUB" />
+          </Key>
+          <Property Name="OVC_PURCH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OVC_KIND" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OVC_ITEM" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OVC_TIMES" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OVC_SUB" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OVC_ATTACH_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_FILE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_UP_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBM_PUBLIC_BID">
+          <Key>
+            <PropertyRef Name="OVC_KEY" />
+          </Key>
+          <Property Name="OVC_KEY" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OVC_PUB_KIND" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_BID_SEC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PURCH" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_NPURCH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PURCH_KIND" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_BUDGET_MONEY" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="OVC_BUDGET_RANGE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_BID_KIND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_DBID_KIND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_UNDER_MONEY" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="OVC_OPEN_UNDER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_DBID_MONEY" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="OVC_OPEN_DBID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_VEN_NUM" Type="Int16" />
+          <Property Name="OVC_VEN_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_VEN_CST" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_LAW58" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_LIMIT_RULE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUBLISH_DATE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_DBID_DATE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_UNDER_PLUS_BUDGET" Type="Decimal" Precision="13" Scale="4" />
+          <Property Name="ONB_DBID_PLUS_UNDER" Type="Decimal" Precision="13" Scale="4" />
+          <Property Name="ONB_DBID_PLUS_BUDGET" Type="Decimal" Precision="13" Scale="4" />
+          <Property Name="OVC_DBID_DATE_IN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_JOIN_VEN" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="ONB_SERIAL" Type="Int16" />
+          <Property Name="OVC_NOGET_VEN" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_VEN_BID_MONEY" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="OVC_OPEN_DATE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBM_PUBLIC_BID_99">
+          <Key>
+            <PropertyRef Name="OVC_KEY" />
+          </Key>
+          <Property Name="OVC_KEY" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OVC_A" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_B" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_C" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_D" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_E" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_F" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_G" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_H" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_I" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_J" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_K" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_L" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_M" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="OVC_N" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_O" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_P" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_Q" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="OVC_R" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_S" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_T" Type="Int32" />
+          <Property Name="ONB_U" Type="Int32" />
+          <Property Name="ONB_V" Type="Int32" />
+          <Property Name="OVC_W" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_X" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_Y" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_Z" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AB" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AC" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_AD" Type="Decimal" Precision="13" Scale="8" />
+          <Property Name="OVC_AE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AF" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_AG" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="OVC_AH" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_AI" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="OVC_AJ" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AK" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_AO" Type="Int16" />
+          <Property Name="OVC_AP" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AQ" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AR" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AS" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AT" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AU" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_AV" Type="Int16" />
+          <Property Name="OVC_AW" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AX" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AZ" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_BA" Type="Int16" />
+          <Property Name="OVC_BB" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_BC" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_BD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_BE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_BF" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="OVC_BG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_BH" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_BI" Type="Decimal" Precision="13" Scale="2" />
+        </EntityType>
+        <EntityType Name="VENAGENT">
+          <Key>
+            <PropertyRef Name="REGNO" />
+          </Key>
+          <Property Name="REGNO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VEN_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VEN_DEPT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="VEN_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VEN_ADDR" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="VEN_TEL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="VEN_FAX" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="VEN_BOSS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VEN_NAME_T" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VEN_ENAME_T" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VEN_CODE_T" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VEN_ADDR_T" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="VEN_TEL_T" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="VEN_FAX_T" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="VEN_BOSS_T" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_DATE_E" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_RANGE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="AGENT_ITEM" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="APPR_DATE_S" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="APPR_DATE_E" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_MEMO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_CREATE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="KEYIN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_DATE_S" Type="DateTime" />
+        </EntityType>
+        <EntityContainer Name="CIMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="INDEXDATA" EntityType="Self.INDEXDATA" />
+          <EntitySet Name="INDEXDESC" EntityType="Self.INDEXDESC" />
+          <EntitySet Name="TBM_FILE" EntityType="Self.TBM_FILE" />
+          <EntitySet Name="TBM_PUBLIC_BID" EntityType="Self.TBM_PUBLIC_BID" />
+          <EntitySet Name="TBM_PUBLIC_BID_99" EntityType="Self.TBM_PUBLIC_BID_99" />
+          <EntitySet Name="VENAGENT" EntityType="Self.VENAGENT" />
+          <EntitySet Name="COMMONLINK" EntityType="Model.COMMONLINK" />
+        </EntityContainer>
+        <EntityType Name="COMMONLINK">
+          <Key>
+            <PropertyRef Name="CL_SN" />
+          </Key>
+          <Property Name="CL_SN" Type="Guid" Nullable="false" />
+          <Property Name="CL_LAN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CL_TITLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CL_LINK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CL_DESC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CL_UPLOADLINK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CL_KIND" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CL_ORD" Type="Byte" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="CIMSEntities">
+          <EntitySetMapping Name="INDEXDATA">
+            <EntityTypeMapping TypeName="Model.INDEXDATA">
+              <MappingFragment StoreEntitySet="INDEXDATA">
+                <ScalarProperty Name="INDEX_CODE" ColumnName="INDEX_CODE" />
+                <ScalarProperty Name="YM" ColumnName="YM" />
+                <ScalarProperty Name="PERIOD" ColumnName="PERIOD" />
+                <ScalarProperty Name="RATE" ColumnName="RATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INDEXDESC">
+            <EntityTypeMapping TypeName="Model.INDEXDESC">
+              <MappingFragment StoreEntitySet="INDEXDESC">
+                <ScalarProperty Name="INDEX_CODE" ColumnName="INDEX_CODE" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="START_TIME" ColumnName="START_TIME" />
+                <ScalarProperty Name="NEW_TIME" ColumnName="NEW_TIME" />
+                <ScalarProperty Name="PERIOD" ColumnName="PERIOD" />
+                <ScalarProperty Name="INDEX_DESC" ColumnName="INDEX_DESC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBM_FILE">
+            <EntityTypeMapping TypeName="Model.TBM_FILE">
+              <MappingFragment StoreEntitySet="TBM_FILE">
+                <ScalarProperty Name="OVC_PURCH" ColumnName="OVC_PURCH" />
+                <ScalarProperty Name="OVC_KIND" ColumnName="OVC_KIND" />
+                <ScalarProperty Name="OVC_ITEM" ColumnName="OVC_ITEM" />
+                <ScalarProperty Name="OVC_TIMES" ColumnName="OVC_TIMES" />
+                <ScalarProperty Name="OVC_SUB" ColumnName="OVC_SUB" />
+                <ScalarProperty Name="OVC_ATTACH_NAME" ColumnName="OVC_ATTACH_NAME" />
+                <ScalarProperty Name="OVC_FILE_NAME" ColumnName="OVC_FILE_NAME" />
+                <ScalarProperty Name="OVC_UP_USER" ColumnName="OVC_UP_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBM_PUBLIC_BID">
+            <EntityTypeMapping TypeName="Model.TBM_PUBLIC_BID">
+              <MappingFragment StoreEntitySet="TBM_PUBLIC_BID">
+                <ScalarProperty Name="OVC_KEY" ColumnName="OVC_KEY" />
+                <ScalarProperty Name="OVC_PUB_KIND" ColumnName="OVC_PUB_KIND" />
+                <ScalarProperty Name="OVC_BID_SEC" ColumnName="OVC_BID_SEC" />
+                <ScalarProperty Name="OVC_PURCH" ColumnName="OVC_PURCH" />
+                <ScalarProperty Name="OVC_NPURCH" ColumnName="OVC_NPURCH" />
+                <ScalarProperty Name="OVC_PURCH_KIND" ColumnName="OVC_PURCH_KIND" />
+                <ScalarProperty Name="ONB_BUDGET_MONEY" ColumnName="ONB_BUDGET_MONEY" />
+                <ScalarProperty Name="OVC_BUDGET_RANGE" ColumnName="OVC_BUDGET_RANGE" />
+                <ScalarProperty Name="OVC_BID_KIND" ColumnName="OVC_BID_KIND" />
+                <ScalarProperty Name="OVC_DBID_KIND" ColumnName="OVC_DBID_KIND" />
+                <ScalarProperty Name="ONB_UNDER_MONEY" ColumnName="ONB_UNDER_MONEY" />
+                <ScalarProperty Name="OVC_OPEN_UNDER" ColumnName="OVC_OPEN_UNDER" />
+                <ScalarProperty Name="ONB_DBID_MONEY" ColumnName="ONB_DBID_MONEY" />
+                <ScalarProperty Name="OVC_OPEN_DBID" ColumnName="OVC_OPEN_DBID" />
+                <ScalarProperty Name="ONB_VEN_NUM" ColumnName="ONB_VEN_NUM" />
+                <ScalarProperty Name="OVC_VEN_NAME" ColumnName="OVC_VEN_NAME" />
+                <ScalarProperty Name="OVC_VEN_CST" ColumnName="OVC_VEN_CST" />
+                <ScalarProperty Name="OVC_LAW58" ColumnName="OVC_LAW58" />
+                <ScalarProperty Name="OVC_LIMIT_RULE" ColumnName="OVC_LIMIT_RULE" />
+                <ScalarProperty Name="OVC_PUBLISH_DATE" ColumnName="OVC_PUBLISH_DATE" />
+                <ScalarProperty Name="OVC_DBID_DATE" ColumnName="OVC_DBID_DATE" />
+                <ScalarProperty Name="ONB_UNDER_PLUS_BUDGET" ColumnName="ONB_UNDER_PLUS_BUDGET" />
+                <ScalarProperty Name="ONB_DBID_PLUS_UNDER" ColumnName="ONB_DBID_PLUS_UNDER" />
+                <ScalarProperty Name="ONB_DBID_PLUS_BUDGET" ColumnName="ONB_DBID_PLUS_BUDGET" />
+                <ScalarProperty Name="OVC_DBID_DATE_IN" ColumnName="OVC_DBID_DATE_IN" />
+                <ScalarProperty Name="ONB_JOIN_VEN" ColumnName="ONB_JOIN_VEN" />
+                <ScalarProperty Name="ONB_SERIAL" ColumnName="ONB_SERIAL" />
+                <ScalarProperty Name="OVC_NOGET_VEN" ColumnName="OVC_NOGET_VEN" />
+                <ScalarProperty Name="ONB_VEN_BID_MONEY" ColumnName="ONB_VEN_BID_MONEY" />
+                <ScalarProperty Name="OVC_OPEN_DATE" ColumnName="OVC_OPEN_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBM_PUBLIC_BID_99">
+            <EntityTypeMapping TypeName="Model.TBM_PUBLIC_BID_99">
+              <MappingFragment StoreEntitySet="TBM_PUBLIC_BID_99">
+                <ScalarProperty Name="OVC_KEY" ColumnName="OVC_KEY" />
+                <ScalarProperty Name="OVC_A" ColumnName="OVC_A" />
+                <ScalarProperty Name="OVC_B" ColumnName="OVC_B" />
+                <ScalarProperty Name="OVC_C" ColumnName="OVC_C" />
+                <ScalarProperty Name="OVC_D" ColumnName="OVC_D" />
+                <ScalarProperty Name="OVC_E" ColumnName="OVC_E" />
+                <ScalarProperty Name="OVC_F" ColumnName="OVC_F" />
+                <ScalarProperty Name="OVC_G" ColumnName="OVC_G" />
+                <ScalarProperty Name="OVC_H" ColumnName="OVC_H" />
+                <ScalarProperty Name="OVC_I" ColumnName="OVC_I" />
+                <ScalarProperty Name="OVC_J" ColumnName="OVC_J" />
+                <ScalarProperty Name="OVC_K" ColumnName="OVC_K" />
+                <ScalarProperty Name="OVC_L" ColumnName="OVC_L" />
+                <ScalarProperty Name="ONB_M" ColumnName="ONB_M" />
+                <ScalarProperty Name="OVC_N" ColumnName="OVC_N" />
+                <ScalarProperty Name="OVC_O" ColumnName="OVC_O" />
+                <ScalarProperty Name="OVC_P" ColumnName="OVC_P" />
+                <ScalarProperty Name="ONB_Q" ColumnName="ONB_Q" />
+                <ScalarProperty Name="OVC_R" ColumnName="OVC_R" />
+                <ScalarProperty Name="OVC_S" ColumnName="OVC_S" />
+                <ScalarProperty Name="ONB_T" ColumnName="ONB_T" />
+                <ScalarProperty Name="ONB_U" ColumnName="ONB_U" />
+                <ScalarProperty Name="ONB_V" ColumnName="ONB_V" />
+                <ScalarProperty Name="OVC_W" ColumnName="OVC_W" />
+                <ScalarProperty Name="OVC_X" ColumnName="OVC_X" />
+                <ScalarProperty Name="OVC_Y" ColumnName="OVC_Y" />
+                <ScalarProperty Name="OVC_Z" ColumnName="OVC_Z" />
+                <ScalarProperty Name="OVC_AA" ColumnName="OVC_AA" />
+                <ScalarProperty Name="OVC_AB" ColumnName="OVC_AB" />
+                <ScalarProperty Name="OVC_AC" ColumnName="OVC_AC" />
+                <ScalarProperty Name="ONB_AD" ColumnName="ONB_AD" />
+                <ScalarProperty Name="OVC_AE" ColumnName="OVC_AE" />
+                <ScalarProperty Name="OVC_AF" ColumnName="OVC_AF" />
+                <ScalarProperty Name="ONB_AG" ColumnName="ONB_AG" />
+                <ScalarProperty Name="OVC_AH" ColumnName="OVC_AH" />
+                <ScalarProperty Name="ONB_AI" ColumnName="ONB_AI" />
+                <ScalarProperty Name="OVC_AJ" ColumnName="OVC_AJ" />
+                <ScalarProperty Name="OVC_AK" ColumnName="OVC_AK" />
+                <ScalarProperty Name="OVC_AL" ColumnName="OVC_AL" />
+                <ScalarProperty Name="OVC_AM" ColumnName="OVC_AM" />
+                <ScalarProperty Name="OVC_AN" ColumnName="OVC_AN" />
+                <ScalarProperty Name="ONB_AO" ColumnName="ONB_AO" />
+                <ScalarProperty Name="OVC_AP" ColumnName="OVC_AP" />
+                <ScalarProperty Name="OVC_AQ" ColumnName="OVC_AQ" />
+                <ScalarProperty Name="OVC_AR" ColumnName="OVC_AR" />
+                <ScalarProperty Name="OVC_AS" ColumnName="OVC_AS" />
+                <ScalarProperty Name="OVC_AT" ColumnName="OVC_AT" />
+                <ScalarProperty Name="OVC_AU" ColumnName="OVC_AU" />
+                <ScalarProperty Name="ONB_AV" ColumnName="ONB_AV" />
+                <ScalarProperty Name="OVC_AW" ColumnName="OVC_AW" />
+                <ScalarProperty Name="OVC_AX" ColumnName="OVC_AX" />
+                <ScalarProperty Name="OVC_AY" ColumnName="OVC_AY" />
+                <ScalarProperty Name="OVC_AZ" ColumnName="OVC_AZ" />
+                <ScalarProperty Name="ONB_BA" ColumnName="ONB_BA" />
+                <ScalarProperty Name="OVC_BB" ColumnName="OVC_BB" />
+                <ScalarProperty Name="OVC_BC" ColumnName="OVC_BC" />
+                <ScalarProperty Name="OVC_BD" ColumnName="OVC_BD" />
+                <ScalarProperty Name="OVC_BE" ColumnName="OVC_BE" />
+                <ScalarProperty Name="ONB_BF" ColumnName="ONB_BF" />
+                <ScalarProperty Name="OVC_BG" ColumnName="OVC_BG" />
+                <ScalarProperty Name="OVC_BH" ColumnName="OVC_BH" />
+                <ScalarProperty Name="ONB_BI" ColumnName="ONB_BI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENAGENT">
+            <EntityTypeMapping TypeName="Model.VENAGENT">
+              <MappingFragment StoreEntitySet="VENAGENT">
+                <ScalarProperty Name="REGNO" ColumnName="REGNO" />
+                <ScalarProperty Name="VEN_NAME" ColumnName="VEN_NAME" />
+                <ScalarProperty Name="VEN_DEPT" ColumnName="VEN_DEPT" />
+                <ScalarProperty Name="VEN_CODE" ColumnName="VEN_CODE" />
+                <ScalarProperty Name="VEN_ADDR" ColumnName="VEN_ADDR" />
+                <ScalarProperty Name="VEN_TEL" ColumnName="VEN_TEL" />
+                <ScalarProperty Name="VEN_FAX" ColumnName="VEN_FAX" />
+                <ScalarProperty Name="VEN_BOSS" ColumnName="VEN_BOSS" />
+                <ScalarProperty Name="VEN_NAME_T" ColumnName="VEN_NAME_T" />
+                <ScalarProperty Name="VEN_ENAME_T" ColumnName="VEN_ENAME_T" />
+                <ScalarProperty Name="VEN_CODE_T" ColumnName="VEN_CODE_T" />
+                <ScalarProperty Name="VEN_ADDR_T" ColumnName="VEN_ADDR_T" />
+                <ScalarProperty Name="VEN_TEL_T" ColumnName="VEN_TEL_T" />
+                <ScalarProperty Name="VEN_FAX_T" ColumnName="VEN_FAX_T" />
+                <ScalarProperty Name="VEN_BOSS_T" ColumnName="VEN_BOSS_T" />
+                <ScalarProperty Name="AUTH_DATE_E" ColumnName="AUTH_DATE_E" />
+                <ScalarProperty Name="AUTH_RANGE" ColumnName="AUTH_RANGE" />
+                <ScalarProperty Name="AGENT_ITEM" ColumnName="AGENT_ITEM" />
+                <ScalarProperty Name="APPR_DATE_S" ColumnName="APPR_DATE_S" />
+                <ScalarProperty Name="APPR_DATE_E" ColumnName="APPR_DATE_E" />
+                <ScalarProperty Name="OVC_MEMO" ColumnName="OVC_MEMO" />
+                <ScalarProperty Name="OVC_CREATE" ColumnName="OVC_CREATE" />
+                <ScalarProperty Name="KEYIN" ColumnName="KEYIN" />
+                <ScalarProperty Name="AUTH_DATE_S" ColumnName="AUTH_DATE_S" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMMONLINK">
+            <EntityTypeMapping TypeName="Model.COMMONLINK">
+              <MappingFragment StoreEntitySet="COMMONLINK">
+                <ScalarProperty Name="CL_ORD" ColumnName="CL_ORD" />
+                <ScalarProperty Name="CL_KIND" ColumnName="CL_KIND" />
+                <ScalarProperty Name="CL_UPLOADLINK" ColumnName="CL_UPLOADLINK" />
+                <ScalarProperty Name="CL_DESC" ColumnName="CL_DESC" />
+                <ScalarProperty Name="CL_LINK" ColumnName="CL_LINK" />
+                <ScalarProperty Name="CL_TITLE" ColumnName="CL_TITLE" />
+                <ScalarProperty Name="CL_LAN" ColumnName="CL_LAN" />
+                <ScalarProperty Name="CL_SN" ColumnName="CL_SN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

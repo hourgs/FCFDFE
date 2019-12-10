@@ -1,0 +1,67 @@
+﻿body {
+    margin:auto;
+    background:url("/images/GM/bg.jpg") center fixed no-repeat;
+    background-size:auto;
+    font-family:"微軟正黑體";
+}
+.containerIndex{
+    width:850px;
+    margin:auto;
+}
+header {
+    margin-bottom:50px;
+}
+header img{
+    margin-top:30px;
+}
+.headerFont{
+    font-size:80px;  
+    font-weight:600;
+    color:#24447D;
+    background: -webkit-linear-gradient(top,#30518D 0,#7394D2 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
+}
+article{
+    background-color:#FFF;
+    background:rgba(100%,100%,100%,0.5);
+    border:#3E6C99 solid 4px;
+    width:800px;
+    margin:auto;
+    font-size:24px;
+    text-align:center;
+    padding:30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top:-200px;
+    margin-left:-430px;
+}
+containerArticle{
+    margin:auto;
+    position:relative;
+}
+.articleFont1{
+    color:#0C12FB;
+    font-weight:600;
+    padding-bottom:30px;
+}
+.articleFont2{
+    line-height:40px;
+    text-align:center;
+    font-size:30px;
+}
+.articleFont3{
+    color:#6C8183;
+    text-align:left;
+    padding-left:140px;
+}
+.imgApply {
+    position:absolute;
+    left:90%;
+    top:-12%;
+}
+container {
+    font-family:"標楷體";
+
+}

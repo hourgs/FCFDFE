@@ -1,0 +1,163 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Super.Master.cs" Inherits="FCFDFE.SuperMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="zh">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <%--<link rel="shortcut icon" href="img/favicon.html">--%>
+
+    <title>國防部</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="~/assets/css/bootstrap-reset.css" rel="stylesheet">
+    <!--external css-->
+    <link href="~/assets/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/assets/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="~/assets/css/owl.carousel.css" rel="stylesheet" type="text/css">
+    <!--picker-->
+    <link rel="stylesheet" type="text/css" href="~/assets/assets/bootstrap-datepicker/css/datepicker.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/assets/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/assets/bootstrap-colorpicker/css/colorpicker.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/assets/bootstrap-daterangepicker/daterangepicker.css" />
+    <!-- Custom styles for this template -->
+    <link href="~/assets/css/style.css" rel="stylesheet">
+    <link href="~/assets/css/style-responsive.css" rel="stylesheet" />
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <%--<script src="<%=ResolveClientUrl("~/assets/js/jquery.js")%>"></script>--%>
+    <%--<script src="<%=ResolveClientUrl("~/assets/js/jquery-1.8.3.min.js")%>"></script>--%>
+    <script src="<%=ResolveClientUrl("~/assets/js/jquery-3.2.1.js")%>"></script>
+    <script src="<%=ResolveClientUrl("~/assets/js/bootstrap.min.js")%>"></script>
+    <script src="<%=ResolveClientUrl("~/assets/js/jquery.scrollTo.min.js")%>"></script>
+    <script src="<%=ResolveClientUrl("~/assets/js/jquery.nicescroll.js")%>" type="text/javascript"></script>
+
+    <script src="<%=ResolveClientUrl("~/assets/js/jquery.sparkline.js")%>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/assets/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js")%>"></script>
+    <script src="<%=ResolveClientUrl("~/assets/js/owl.carousel.js")%>"></script>
+    <script src="<%=ResolveClientUrl("~/assets/js/jquery.customSelect.min.js")%>"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+      <script src="~/assets/js/html5shiv.js"></script>
+      <script src="~/assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="background-color:red;">
+    <section id="container" class="">
+        <form runat="server">
+            <asp:ScriptManager runat="server">
+            </asp:ScriptManager>
+            <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick" Interval="600000"></asp:Timer>
+            <!--header start-->
+            <!--header end-->
+            <!--sidebar start-->
+            <asp:Panel ID="pn_leftMenu" runat="server">
+                <div class="nav-collapse menu-bar sidebar">
+                    <ul class='sidebar-menu' style="background-color:#000000;margin-top:0px;height:100%;">
+                        <li id='li_Super_Purchase_History' class='sub-menu' runat='server'><a href='Super_Purchase_History'><span>案件查詢</span></a></li>
+                        <li id='li_Super_User_Track' class='sub-menu' runat='server'><a href='Super_User_Track'><span>使用者探查</span></a></li>
+                        <li id='li_Super_Purchase_Track' class='sub-menu' runat='server'><a href='Super_Purchase_Track'><span>呈案追蹤</span></a></li>
+                        <li id='li_Super_Intrusion_Warning' class='sub-menu' runat='server'><a href='Super_Intrusion_Warning'><span>入侵預警</span></a></li>
+                        <li id='li_Super_IP_BLACKLIST' class='sub-menu' runat='server'><a href='Super_IP_BLACKLIST'><span>網路黑名單維護</span></a></li>
+                        <li id='li_Super_Data_Modify' class='sub-menu' runat='server'><a href='Super_Data_Modify'><span>超級帳號資料修改</span></a></li>
+                        <li id='li_logout' class='sub-menu' runat='server'><a href='..\..\logout'><span>離開</span></a></li>
+                    </ul>
+                </div>
+            </asp:Panel>
+            <!--sidebar end-->
+            <!--main content start-->
+            <section id="main-content">
+                <section class="wrapper1">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+                </section>
+            </section>
+            <!--main content end-->
+        </form>
+    </section>
+
+
+    <!--custom switch-->
+    <script src="<%=ResolveClientUrl("~/assets/js/bootstrap-switch.js")%>"></script>
+    <!--custom tagsinput-->
+    <script src="<%=ResolveClientUrl("~/assets/js/jquery.tagsinput.js")%>"></script>
+    <!--custom checkbox & radio-->
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/assets/js/ga.js")%>"></script>
+    <!--picker-->
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/assets/assets/bootstrap-datepicker/js/bootstrap-datepicker.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/assets/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/assets/assets/bootstrap-daterangepicker/date.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/assets/assets/bootstrap-daterangepicker/daterangepicker.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/assets/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/assets/assets/ckeditor/ckeditor.js")%>"></script>
+    <!--dataTable-->
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/assets/assets/data-tables/jquery.dataTables.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/assets/assets/data-tables/DT_bootstrap.js")%>"></script>
+    <!--fileinput-->
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/assets/js/bootstrap-fileinput.js")%>"></script>
+
+    <!--common script for all pages-->
+    <script src="<%=ResolveClientUrl("~/assets/js/common-scripts.js")%>"></script>
+    <script src="<%=ResolveClientUrl("~/assets/js/common.js")%>"></script>
+    <!--script for this page only-->
+    <script src="<%=ResolveClientUrl("~/assets/js/dynamic-table.js")%>"></script>
+    <!--script for this page-->
+    <script src="<%=ResolveClientUrl("~/assets/js/sparkline-chart.js")%>"></script>
+    <script src="<%=ResolveClientUrl("~/assets/js/easy-pie-chart.js")%>"></script>
+    <script src="<%=ResolveClientUrl("~/assets/js/form-component.js")%>"></script>
+
+    <script>
+        //custom select box
+        $(function () {
+            $('select.styled').customSelect();
+        });
+    </script>
+
+    <script>
+        function OpenWindow(CDE, NAME) {
+            var win_width = 600;
+            var win_height = 300;
+            var PosX = (screen.width - win_width) / 2;
+            var PosY = (screen.Height - win_height) / 2;
+            features = "width=" + win_width + ",height=" + win_height + ",top=" + PosY + ",left=" + PosX;
+
+            var encodeCDE = window.btoa(CDE);
+            var encodeNAME = window.btoa(NAME);
+            var theURL = '<%=ResolveClientUrl("~/Content/unitQuery.aspx?CDE=")%>' + encodeCDE + '&NAME=' + encodeNAME;
+            var newwin = window.open(theURL, 'unitQuery', features);
+        }
+    </script>
+    <script>
+        function OpenCode() {
+            var win_width = 600;
+            var win_height = 300;
+            var PosX = (screen.width - win_width) / 2;
+            var PosY = (screen.Height - win_height) / 2;
+            features = "width=" + win_width + ",height=" + win_height + ",top=" + PosY + ",left=" + PosX;
+            var theURL = '<%=ResolveClientUrl("~/Content/codeQuery.aspx")%>';
+            var newwin = window.open(theURL, 'unitQuery', features);
+        }
+    </script>
+    <script>
+         function OpenPhraseWindow() {
+             var win_width = 600;
+             var win_height = 300;
+             var PosX = (screen.width - win_width) / 2;
+             var PosY = (screen.Height - win_height) / 2;
+             features = "width=" + win_width + ",height=" + win_height + ",top=" + PosY + ",left=" + PosX;
+             var theURL = '<%=ResolveClientUrl("~/Content/phraseQuery.aspx")%>';
+            var newwin = window.open(theURL, 'unitQuery', features);
+         }
+    </script>
+    <script>
+         $(document).ready(function () {
+             $("#li_<%=strSYSTEM%>").addClass("active");
+         });
+    </script>
+</body>
+</html>

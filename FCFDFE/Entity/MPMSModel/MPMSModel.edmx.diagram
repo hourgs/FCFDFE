@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="719d6f18977747d5adbc8fe7330227e9" Name="Diagram1" ZoomLevel="92">
+        <EntityTypeShape EntityType="MPMSModel.TBM1114" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1231_PLAN" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1301D" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MPMSModel.TBM5200_PPP" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MPMSModel.TBMPURCH_EXT" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMRECEIVE_BID" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMRECEIVE_WORK" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1201" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1302" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1203" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1303" Width="1.5" PointX="4.75" PointY="9.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1118" Width="1.5" PointX="9.375" PointY="6.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1118_1" Width="1.5" PointX="7.375" PointY="10.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1118_2" Width="1.5" PointX="9.375" PointY="10.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1118_3" Width="1.5" PointX="11.375" PointY="6.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1220_1" Width="1.5" PointX="11.375" PointY="9.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1231" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1233" Width="1.5" PointX="11.375" PointY="12.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1202_COMMENT" Width="1.5" PointX="13.375" PointY="4.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMRECEIVE_BID_LOG" Width="1.5" PointX="7.375" PointY="13.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMSTATUS" Width="1.5" PointX="13.375" PointY="9.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1202_1" Width="1.5" PointX="13.375" PointY="13.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMOPINION" Width="1.5" PointX="14.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMOPINION_DETAIL" Width="1.5" PointX="15.375" PointY="3.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMOPINION_ITEM" Width="1.5" PointX="15.375" PointY="6.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMRECEIVE_CONTRACT" Width="1.875" PointX="15.375" PointY="9.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMBID_RESULT" Width="1.5" PointX="9.375" PointY="15.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1119" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMOVERSEE_LOG" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1118_HISTORY" Width="1.5" PointX="17.375" PointY="3.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1119_HISTORY" Width="1.5" PointX="17.375" PointY="7.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1201_HISTORY" Width="1.5" PointX="17.375" PointY="11.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1220_1_HISTORY" Width="1.5" PointX="11.375" PointY="17.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1301_HISTORY" Width="1.5" PointX="17.375" PointY="17.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMDOCCONTENT" Width="1.5" PointX="13.375" PointY="18.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMDOCLAW" Width="1.5" PointX="19.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMDOCPURCH" Width="1.5" PointX="19.375" PointY="3.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMMESSAGE" Width="1.5" PointX="19.375" PointY="6.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1202_2" Width="1.5" PointX="19.375" PointY="9.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1202_ADVICE" Width="1.5" PointX="19.375" PointY="12.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1313" Width="1.5" PointX="19.375" PointY="15.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMDOCTYPE" Width="1.5" PointX="19.375" PointY="20.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMPAY_MONEY" Width="1.5" PointX="21.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM5200_1" Width="1.5" PointX="21.375" PointY="9.75" />
+        <EntityTypeShape EntityType="MPMSModel.VIDELIVERY" Width="1.5" PointX="21.375" PointY="12.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMDELIVERY" Width="1.5" PointX="0.75" PointY="21.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1314" Width="1.5" PointX="21.375" PointY="17.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1313_ITEM" Width="1.5" PointX="3.375" PointY="22.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMRECEIVE_CHECK" Width="1.5" PointX="5.375" PointY="22.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMRECEIVE_CHECK_ITEM" Width="1.5" PointX="11.375" PointY="22.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMAPPLY_INSPECT" Width="1.5" PointX="13.375" PointY="22.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMAUDIT" Width="1.5" PointX="23.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMAUDIT_INSPECT" Width="1.5" PointX="23.375" PointY="5.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMGRANTED" Width="1.5" PointX="23.375" PointY="10.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMMANAGE_CASH" Width="1.5" PointX="23.375" PointY="14.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMMANAGE_PROM" Width="1.5" PointX="7.375" PointY="24.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMMANAGE_STOCK" Width="1.5" PointX="23.375" PointY="24.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMRECEIVE_INSPECT" Width="1.5" PointX="25.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1119_1" Width="1.5" PointX="25.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1202_3" Width="1.5" PointX="25.75" PointY="6.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1202_4" Width="1.5" PointX="25.75" PointY="10.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1202_5" Width="1.5" PointX="25.75" PointY="14.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1202_6" Width="1.5" PointX="25.75" PointY="18.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1202_7" Width="1.5" PointX="25.75" PointY="22.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1202_8" Width="1.5" PointX="9.75" PointY="26.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1202_9" Width="1.5" PointX="25.75" PointY="26.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1301_RECORD" Width="1.5" PointX="27.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1302_ITEM" Width="1.5" PointX="27.75" PointY="14.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMANNOUNCE_MODIFY" Width="1.5" PointX="27.75" PointY="18.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMANNOUNCE_OPEN" Width="1.5" PointX="27.75" PointY="24.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMANNOUNCE_VENDOR" Width="1.5" PointX="27.75" PointY="27.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMBID_DOC" Width="1.5" PointX="3.75" PointY="28.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMBID_DOC_ITEM" Width="1.5" PointX="29.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMCONTRACT_MAKE" Width="1.5" PointX="0.75" PointY="29.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMCONTRACT_MAKE_ITEM" Width="1.5" PointX="29.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMCONTRACT_MODIFY" Width="1.5" PointX="29.75" PointY="8.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMCONTRACT_MODIFY_ITEM" Width="1.5" PointX="11.75" PointY="29.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMCONTRACT_NOTICE" Width="1.5" PointX="29.75" PointY="13.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMFAC_STATUS" Width="1.5" PointX="13.75" PointY="29.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMFREEDUTY" Width="1.5" PointX="29.75" PointY="17.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMFREEDUTY_ITEM" Width="1.5" PointX="19.75" PointY="29.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMINSPECT_RECORD" Width="1.5" PointX="29.75" PointY="25.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMINSPECT_REPORT" Width="1.5" PointX="31.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMINSPECT_REPORT_ITEM" Width="1.5" PointX="31.75" PointY="6.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMRECEIVE_ANNOUNCE" Width="1.5" PointX="31.75" PointY="10.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMRECEIVE_ANNOUNCE_ENG" Width="1.5" PointX="15.75" PointY="31.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMRECEIVE_ANNOUNCE_EXT" Width="1.5" PointX="31.75" PointY="21.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMRECEIVE_BID_ITEM" Width="1.5" PointX="29.75" PointY="31.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMRECEIVE_LOG" Width="1.5" PointX="31.75" PointY="31.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMRESULT_ANNOUNCE" Width="1.5" PointX="2.75" PointY="32.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMRESULT_ANNOUNCE_NONE" Width="1.5" PointX="4.75" PointY="32.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMRESULT_NOTICE" Width="1.5" PointX="33.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMBID_BACK" Width="1.5" PointX="33.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMBID_BACK_ITEM" Width="1.5" PointX="33.75" PointY="9.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMBID_DOC_LOG" Width="1.5" PointX="9.75" PointY="33.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMBID_END" Width="1.5" PointX="11.75" PointY="33.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMBID_VENDOR" Width="1.5" PointX="33.75" PointY="12.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMDEPT_EXT" Width="1.5" PointX="33.75" PointY="16.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBMDELIVERY_ITEM" Width="1.5" PointX="18.375" PointY="33.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1202_RESULT" Width="1.5" PointX="20.375" PointY="33.75" />
+        <EntityTypeShape EntityType="MPMSModel.VITBM1302" Width="1.5" PointX="25.375" PointY="33.75" />
+        <EntityTypeShape EntityType="MPMSModel.VIWORKSTATUS21" Width="1.5" PointX="34.375" PointY="21.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1231_HISTORY" Width="1.5" PointX="34.375" PointY="25.75" />
+        <EntityTypeShape EntityType="MPMSModel.TBM1202" Width="1.5" PointX="27.375" PointY="34.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

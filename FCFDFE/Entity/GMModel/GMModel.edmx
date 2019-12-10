@@ -1,0 +1,1342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GMModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="AC_SN" />
+          </Key>
+          <Property Name="USER_ID" Type="varchar2" MaxLength="15" Nullable="false" />
+          <Property Name="PWD" Type="varchar2" MaxLength="20" />
+          <Property Name="USER_NAME" Type="varchar2" MaxLength="40" />
+          <Property Name="DEPT_SN" Type="varchar2" MaxLength="6" />
+          <Property Name="IUSER_PHONE" Type="varchar2" MaxLength="6" />
+          <Property Name="CHANGE_DATE" Type="varchar2" MaxLength="10" />
+          <Property Name="EMAIL_ACCOUNT" Type="varchar2" MaxLength="30" />
+          <Property Name="PURCHASE_1" Type="varchar2" MaxLength="300" />
+          <Property Name="LAST_LOGIN" Type="date" />
+          <Property Name="AC_SN" Type="guid raw" Nullable="false" />
+          <Property Name="AC_ID" Type="varchar2" MaxLength="30" />
+          <Property Name="C_SN_TITLE" Type="guid raw" />
+          <Property Name="AUTH_DEPT_SN" Type="guid raw" />
+          <Property Name="ACCOUNT_STATUS" Type="number" Precision="38" Scale="0" />
+          <Property Name="ERROR_CNT" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="ACCOUNT_AUTH">
+          <Key>
+            <PropertyRef Name="AA_SN" />
+          </Key>
+          <Property Name="USER_ID" Type="varchar2" MaxLength="15" Nullable="false" />
+          <Property Name="C_SN_ROLE" Type="varchar2" MaxLength="15" Nullable="false" />
+          <Property Name="IS_ENABLE" Type="varchar2" MaxLength="1" />
+          <Property Name="IS_UPLOAD" Type="varchar2" MaxLength="1" />
+          <Property Name="IS_PRO" Type="number" Precision="38" Scale="0" />
+          <Property Name="AA_SN" Type="guid raw" Nullable="false" />
+          <Property Name="C_SN_SYS" Type="varchar2" MaxLength="500" />
+          <Property Name="C_SN_AUTH" Type="varchar2" MaxLength="500" />
+          <Property Name="C_SN_SUB" Type="varchar2" MaxLength="500" />
+          <Property Name="END_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="ACCOUNT_SHIFT">
+          <Key>
+            <PropertyRef Name="AS_SN" />
+          </Key>
+          <Property Name="AS_SN" Type="guid raw" Nullable="false" />
+          <Property Name="AACOUNT_ID" Type="varchar2" MaxLength="15" Nullable="false" />
+          <Property Name="AACOUNT_ID_ORI" Type="varchar2" MaxLength="15" />
+          <Property Name="DEPT_ID" Type="varchar2" MaxLength="15" />
+          <Property Name="START_SATE" Type="date" />
+          <Property Name="END_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="ALLSYS_LOG">
+          <Key>
+            <PropertyRef Name="AS_SN" />
+          </Key>
+          <Property Name="AS_USER_ID" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="AS_DATE" Type="date" />
+          <Property Name="AS_IP" Type="varchar2" MaxLength="50" />
+          <Property Name="AS_COMMAND" Type="varchar2" MaxLength="200" />
+          <Property Name="AS_PAGE" Type="varchar2" MaxLength="20" />
+          <Property Name="AS_ACT" Type="varchar2" MaxLength="255" />
+          <Property Name="AS_SN" Type="guid raw" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AUTH_MENU">
+          <Key>
+            <PropertyRef Name="AM_SN" />
+          </Key>
+          <Property Name="AM_SN" Type="guid raw" Nullable="false" />
+          <Property Name="GROUP_SN" Type="varchar2" MaxLength="32" />
+          <Property Name="MENU_SN" Type="varchar2" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="BILLBOARD">
+          <Key>
+            <PropertyRef Name="BB_SN" />
+          </Key>
+          <Property Name="BB_SN" Type="guid raw" Nullable="false" />
+          <Property Name="ONB_NO" Type="varchar2" MaxLength="9" Nullable="false" />
+          <Property Name="TITLE" Type="varchar2" MaxLength="50" />
+          <Property Name="CONTEXT" Type="varchar2" MaxLength="300" />
+          <Property Name="AUTHOR_ID" Type="varchar2" MaxLength="10" />
+          <Property Name="STATUS" Type="varchar2" MaxLength="2" />
+          <Property Name="MODIFY_DATE" Type="date" />
+          <Property Name="START_DATE" Type="date" />
+          <Property Name="END_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="BILLBOARD_GROUP">
+          <Key>
+            <PropertyRef Name="BB_GRP_SN" />
+          </Key>
+          <Property Name="BB_GRP_SN" Type="guid raw" Nullable="false" />
+          <Property Name="BB_SN" Type="guid raw" Nullable="false" />
+          <Property Name="GROUP_ID" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="BLACKLIST">
+          <Key>
+            <PropertyRef Name="BL_SN" />
+          </Key>
+          <Property Name="BL_SN" Type="guid raw" Nullable="false" />
+          <Property Name="BL_IP" Type="varchar2" MaxLength="100" />
+          <Property Name="BL_CREATEDATE" Type="date" />
+          <Property Name="BL_REASON" Type="varchar2" MaxLength="1000" />
+          <Property Name="BL_STATUS" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="CODE_TABLE">
+          <Key>
+            <PropertyRef Name="C_SN" />
+          </Key>
+          <Property Name="C_SN" Type="guid raw" Nullable="false" />
+          <Property Name="C_TYPE" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="C_NO" Type="varchar2" MaxLength="5" />
+          <Property Name="C_NAME" Type="varchar2" MaxLength="30" />
+          <Property Name="C_SOORT" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'SYSTEM.GMGROUP' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="GMGROUP">
+          <Key>
+            <PropertyRef Name="GRP_SN" />
+            
+          </Key>
+          <Property Name="GRP_SN" Type="guid raw" Nullable="false" />
+          <Property Name="GROUP_ID" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="GROUP_NAME" Type="varchar2" MaxLength="30" />
+          <Property Name="GROUP_DESC" Type="varchar2" MaxLength="255" />
+          <Property Name="GROUP_STATUS" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="MENU_PAGES">
+          <Key>
+            <PropertyRef Name="M_SN" />
+          </Key>
+          <Property Name="M_SN_PAR" Type="varchar2" MaxLength="50" />
+          <Property Name="M_NAME" Type="varchar2" MaxLength="100" />
+          <Property Name="M_URL" Type="varchar2" MaxLength="50" />
+          <Property Name="M_ORD" Type="number" Precision="38" Scale="0" />
+          <Property Name="M_SN" Type="varchar2" MaxLength="32" Nullable="false" />
+          <Property Name="M_MODEL" Type="varchar2" MaxLength="50" />
+          <Property Name="M_VISIBLE" Type="varchar2" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="PROBLEM_ADD">
+          <Key>
+            <PropertyRef Name="PROADD_SN" />
+          </Key>
+          <Property Name="PROADD_SN" Type="guid raw" Nullable="false" />
+          <Property Name="PRO_SN" Type="guid raw" Nullable="false" />
+          <Property Name="PROADD_ID" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="PROADD_NAME" Type="varchar2" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROBLEM_DATA">
+          <Key>
+            <PropertyRef Name="PRO_SN" />
+            <PropertyRef Name="PRO_ID" />
+            <PropertyRef Name="OVC_MODIFY_LOGIN_ID" />
+          </Key>
+          <Property Name="PRO_SN" Type="guid raw" Nullable="false" />
+          <Property Name="PROSYS_SN" Type="varchar2" MaxLength="15" />
+          <Property Name="PRO_ID" Type="varchar2" MaxLength="35" Nullable="false" />
+          <Property Name="PRO_DESC" Type="varchar2" MaxLength="255" />
+          <Property Name="PRO_SOL_DESC" Type="varchar2" MaxLength="255" />
+          <Property Name="PROKIND_SN" Type="guid raw" />
+          <Property Name="PRO_STATUS" Type="varchar2" MaxLength="1" />
+          <Property Name="PRO_SOL_PERSON" Type="varchar2" MaxLength="30" />
+          <Property Name="PRO_REMARK" Type="varchar2" MaxLength="255" />
+          <Property Name="PRO_ADDFILE" Type="number" Precision="1" Scale="0" />
+          <Property Name="PROADD_SN" Type="guid raw" />
+          <Property Name="OVC_CHECK_ID" Type="guid raw" />
+          <Property Name="OVC_CHECK_STATUS" Type="number" Precision="1" Scale="0" />
+          <Property Name="OVC_CONFIRM_ID" Type="guid raw" />
+          <Property Name="OVC_CONFIRM_STATUS" Type="number" Precision="1" Scale="0" />
+          <Property Name="ODT_CREATE_DATE" Type="date" />
+          <Property Name="OVC_CREATE_ID" Type="varchar2" MaxLength="20" />
+          <Property Name="ODT_GET_DATE" Type="date" />
+          <Property Name="ODT_PLAN_DATE" Type="date" />
+          <Property Name="OVC_ACT_DATE" Type="date" />
+          <Property Name="ODT_MODIFY_DATE" Type="date" />
+          <Property Name="OVC_MODIFY_LOGIN_ID" Type="varchar2" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROBLEM_KIND">
+          <Key>
+            <PropertyRef Name="PROKIND_SN" />
+          </Key>
+          <Property Name="PROKIND_SN" Type="guid raw" Nullable="false" />
+          <Property Name="PROKIND_ID" Type="varchar2" MaxLength="1" Nullable="false" />
+          <Property Name="PROKIND_NAME" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="PROBLEM_SYSTEM">
+          <Key>
+            <PropertyRef Name="PROSYS_SN" />
+          </Key>
+          <Property Name="PROSYS_SN" Type="guid raw" Nullable="false" />
+          <Property Name="PROSYS_ID" Type="varchar2" MaxLength="5" Nullable="false" />
+          <Property Name="PROSYS_NAME" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="TBM1220_2">
+          <Key>
+            <PropertyRef Name="OVC_IKIND" />
+          </Key>
+          <Property Name="OVC_IKIND" Type="varchar2" MaxLength="3" Nullable="false" />
+          <Property Name="OVC_MEMO_NAME" Type="varchar2" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TBM1301">
+          <Key>
+            <PropertyRef Name="OVC_PURCH" />
+          </Key>
+          <Property Name="OVC_PURCH" Type="varchar2" MaxLength="8" Nullable="false" />
+          <Property Name="OVC_PURCH_KIND" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_LAB" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_PUR_ASS_VEN_CODE" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_BID_TIMES" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_BID" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_PUR_NSECTION" Type="varchar2" MaxLength="200" />
+          <Property Name="OVC_PUR_SECTION" Type="varchar2" MaxLength="6" />
+          <Property Name="OVC_PROPOSE" Type="varchar2" MaxLength="60" />
+          <Property Name="OVC_DPROPOSE" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_PUR_APPROVE" Type="varchar2" MaxLength="60" />
+          <Property Name="OVC_PUR_DAPPROVE" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_PUR_IPURCH" Type="varchar2" MaxLength="120" />
+          <Property Name="OVC_PUR_IPURCH_ENG" Type="varchar2" MaxLength="130" />
+          <Property Name="OVC_PUR_USER" Type="varchar2" MaxLength="40" />
+          <Property Name="OVC_USER_TITLE" Type="varchar2" MaxLength="40" />
+          <Property Name="OVC_KEYIN" Type="varchar2" MaxLength="40" />
+          <Property Name="OVC_PUR_IUSER_PHONE" Type="varchar2" MaxLength="30" />
+          <Property Name="OVC_PUR_IUSER_PHONE_EXT" Type="varchar2" MaxLength="12" />
+          <Property Name="OVC_PUR_IUSER_PHONE_EXT1" Type="varchar2" MaxLength="12" />
+          <Property Name="OVC_USER_CELLPHONE" Type="varchar2" MaxLength="15" />
+          <Property Name="OVC_PUR_AGENCY" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_EST_REAR" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_PUR_NPURCH" Type="varchar2" MaxLength="2" />
+          <Property Name="OVC_TARGET_DO" Type="varchar2" MaxLength="200" />
+          <Property Name="OVC_PUR_CURRENT" Type="varchar2" MaxLength="1" />
+          <Property Name="ONB_PUR_RATE" Type="number" Precision="7" Scale="4" />
+          <Property Name="ONB_PUR_BUDGET" Type="number" Precision="13" Scale="2" />
+          <Property Name="OVC_AGNT_IN" Type="varchar2" MaxLength="100" />
+          <Property Name="OVC_PUR_FEE_OK" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_PUR_GOOD_OK" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_PUR_TAX_OK" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_PUR_DCANPO" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_PUR_DCANRE" Type="varchar2" MaxLength="2000" />
+          <Property Name="OVC_EXAMPLE_SUPPORT" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_PUR_ALLOW" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_PUR_CREAT" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_DOING_UNIT" Type="varchar2" MaxLength="6" />
+          <Property Name="OVC_PERMISSION_UPDATE" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_SUPERIOR_UNIT" Type="varchar2" MaxLength="100" />
+          <Property Name="OVC_SECTION_CHIEF" Type="varchar2" MaxLength="200" />
+          <Property Name="OVC_SHIP_TIMES" Type="varchar2" MaxLength="200" />
+          <Property Name="OVC_RECEIVE_PLACE" Type="varchar2" MaxLength="200" />
+          <Property Name="OVC_POI_IINSPECT" Type="varchar2" MaxLength="60" />
+          <Property Name="OVC_COUNTRY" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_WAY_TRANS" Type="varchar2" MaxLength="60" />
+          <Property Name="OVC_RECEIVE_NSECTION" Type="varchar2" MaxLength="200" />
+          <Property Name="OVC_FROM_TO" Type="varchar2" MaxLength="200" />
+          <Property Name="OVC_TO_PLACE" Type="varchar2" MaxLength="400" />
+          <Property Name="OVC_VERSION" Type="varchar2" MaxLength="30" />
+          <Property Name="ONB_PUR_BUDGET_NT" Type="number" Precision="13" Scale="2" />
+          <Property Name="ONB_RESERVE_AMOUNT" Type="number" Precision="13" Scale="2" />
+          <Property Name="OVC_SPECIAL" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_BID_MONEY" Type="varchar2" MaxLength="400" />
+          <Property Name="OVC_NEGOTIATION" Type="varchar2" MaxLength="400" />
+          <Property Name="OVC_QUOTE" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_PLAN_PURCH" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_COPY_FROM" Type="varchar2" MaxLength="8" />
+          <Property Name="IS_PLURAL_BASIS" Type="varchar2" MaxLength="1" />
+          <Property Name="IS_OPEN_CONTRACT" Type="varchar2" MaxLength="1" />
+          <Property Name="IS_JUXTAPOSED_MANUFACTURER" Type="varchar2" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="TBM1301_PLAN">
+          <Key>
+            <PropertyRef Name="OVC_PURCH" />
+          </Key>
+          <Property Name="OVC_PURCH" Type="varchar2" MaxLength="8" Nullable="false" />
+          <Property Name="OVC_PUR_AGENCY" Type="varchar2" MaxLength="1" Nullable="false" />
+          <Property Name="OVC_PUR_IPURCH" Type="varchar2" MaxLength="240" />
+          <Property Name="ONB_PUR_BUDGET" Type="number" Precision="15" Scale="4" />
+          <Property Name="OVC_DAPPLY" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_PUR_SECTION" Type="varchar2" MaxLength="6" />
+          <Property Name="OVC_PUR_NSECTION" Type="varchar2" MaxLength="200" />
+          <Property Name="OVC_PUR_USER" Type="varchar2" MaxLength="40" />
+          <Property Name="OVC_KEYIN" Type="varchar2" MaxLength="40" />
+          <Property Name="OVC_PUR_IUSER_PHONE" Type="varchar2" MaxLength="30" />
+          <Property Name="OVC_PUR_IUSER_FAX" Type="varchar2" MaxLength="30" />
+          <Property Name="OVC_PUR_IUSER_PHONE_EXT" Type="varchar2" MaxLength="6" />
+          <Property Name="OVC_PUR_IUSER_PHONE_EXT1" Type="varchar2" MaxLength="12" />
+          <Property Name="OVC_USER_CELLPHONE" Type="varchar2" MaxLength="15" />
+          <Property Name="EMAIL_ACCOUNT" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_PUR_ASS_VEN_CODE" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_LAB" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_PLAN_PURCH" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_PUR_APPROVE_DEP" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_PUR_PROJE" Type="varchar2" MaxLength="24" />
+          <Property Name="ONB_REVIEW_DAYS" Type="number" Precision="4" Scale="0" />
+          <Property Name="ONB_DELIVER_DAYS" Type="number" Precision="4" Scale="0" />
+          <Property Name="ONB_TENDER_DAYS" Type="number" Precision="4" Scale="0" />
+          <Property Name="ONB_RECEIVE_DAYS" Type="number" Precision="4" Scale="0" />
+          <Property Name="OVC_DAUDIT" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_AUDITOR" Type="varchar2" MaxLength="20" />
+          <Property Name="OVC_PUR_CREAT" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_PURCH_OK" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_DCANCEL" Type="varchar2" MaxLength="10" />
+          <Property Name="OVC_CANCEL_REASON" Type="varchar2" MaxLength="1000" />
+          <Property Name="OVC_TENDER_DAYS" Type="varchar2" MaxLength="3" />
+          <Property Name="OVC_RECEIVE_DAYS" Type="varchar2" MaxLength="3" />
+          <Property Name="OVC_AUDIT_UNIT" Type="varchar2" MaxLength="6" />
+          <Property Name="OVC_PURCHASE_UNIT" Type="varchar2" MaxLength="6" />
+          <Property Name="OVC_CONTRACT_UNIT" Type="varchar2" MaxLength="6" />
+          <Property Name="OVC_AGENT_UNIT" Type="varchar2" MaxLength="6" />
+          <Property Name="OVC_FAC_CHECK" Type="varchar2" MaxLength="2" />
+          <Property Name="OVC_OPEN_CHECK" Type="varchar2" MaxLength="2" />
+          <Property Name="OVC_ON_SCHEDULE" Type="varchar2" MaxLength="2" />
+          <Property Name="OVC_PURCH_MILITARY" Type="varchar2" MaxLength="6" />
+          <Property Name="OVC_MILITARY_TYPE" Type="varchar2" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="TBM1407">
+          <Key>
+            <PropertyRef Name="OVC_PHR_CATE" />
+            <PropertyRef Name="OVC_PHR_ID" />
+          </Key>
+          <Property Name="OVC_PHR_CATE" Type="varchar2" MaxLength="3" Nullable="false" />
+          <Property Name="OVC_PHR_ID" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="OVC_PHR_DESC" Type="varchar2" MaxLength="500" />
+          <Property Name="OVC_PHR_REMARK" Type="varchar2" MaxLength="120" />
+          <Property Name="OVC_USR_ID" Type="varchar2" MaxLength="20" />
+          <Property Name="OVC_PHR_PARENTS" Type="varchar2" MaxLength="20" />
+        </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'SYSTEM.TBM2133' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="TBM2133">
+          <Key>
+            <PropertyRef Name="CLASS" />
+            <PropertyRef Name="LEVEL_SETP" />
+          </Key>
+          <Property Name="CLASS" Type="varchar2" MaxLength="1" Nullable="false" />
+          <Property Name="ITEM" Type="varchar2" MaxLength="2" />
+          <Property Name="CAL" Type="varchar2" MaxLength="2" />
+          <Property Name="STEP" Type="varchar2" MaxLength="2" />
+          <Property Name="FCODE" Type="varchar2" MaxLength="16" />
+          <Property Name="NAME" Type="varchar2" MaxLength="100" />
+          <Property Name="UNIT" Type="varchar2" MaxLength="20" />
+          <Property Name="UI" Type="varchar2" MaxLength="3" />
+          <Property Name="MATERIAL" Type="varchar2" MaxLength="100" />
+          <Property Name="USEYEAR" Type="varchar2" MaxLength="3" />
+          <Property Name="MEMO" Type="varchar2" MaxLength="508" />
+          <Property Name="LEVEL_SETP" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="REL_CODE" Type="varchar2" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="TBMDEPT">
+          <Key>
+            <PropertyRef Name="OVC_DEPT_CDE" />
+          </Key>
+          <Property Name="OVC_DEPT_CDE" Type="varchar2" MaxLength="6" Nullable="false" />
+          <Property Name="OVC_ONNAME" Type="varchar2" MaxLength="200" />
+          <Property Name="OVC_DEPT_FAX" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_DEPT_MAILADDR" Type="varchar2" MaxLength="1000" />
+          <Property Name="OVC_DEPT_DOC_NAME" Type="varchar2" MaxLength="20" />
+          <Property Name="OVC_MANAGER" Type="varchar2" MaxLength="60" />
+          <Property Name="OVC_PURCHASE_DEPT" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_MANAGER_TITLE" Type="varchar2" MaxLength="40" />
+          <Property Name="OVC_EMAILADDRESS" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_DEPT_SEC_NAME" Type="varchar2" MaxLength="200" />
+          <Property Name="OVC_TOP_DEPT" Type="varchar2" MaxLength="6" />
+          <Property Name="OVC_CLASS" Type="varchar2" MaxLength="2" />
+          <Property Name="OVC_PURCHASE_OK" Type="varchar2" MaxLength="2" />
+          <Property Name="OVC_DEPT_PHONE" Type="varchar2" MaxLength="50" />
+          <Property Name="OVC_ENABLE" Type="varchar2" MaxLength="1" />
+          <Property Name="OVC_CLASS2" Type="varchar2" MaxLength="6" />
+          <Property Name="OVC_TOP_DEPT2" Type="varchar2" MaxLength="6" />
+        </EntityType>
+        <EntityType Name="TBMSTANDARDITEM">
+          <Key>
+            <PropertyRef Name="OVC_SYSTEM" />
+            <PropertyRef Name="OVC_IKIND" />
+            <PropertyRef Name="OVC_PURCH_KIND" />
+            <PropertyRef Name="OVC_NO" />
+          </Key>
+          <Property Name="OVC_SYSTEM" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="OVC_PUR_AGENCY" Type="varchar2" MaxLength="20" />
+          <Property Name="OVC_IKIND" Type="varchar2" MaxLength="3" Nullable="false" />
+          <Property Name="OVC_PURCH_KIND" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="OVC_NO" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="OVC_MEMO" Type="varchar2" MaxLength="4000" />
+          <Property Name="OVC_DESC" Type="varchar2" MaxLength="500" />
+          <Property Name="OVC_CHECK" Type="varchar2" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="USER_LOGIN">
+          <Key>
+            <PropertyRef Name="AC_SN" />
+          </Key>
+          <Property Name="AC_SN" Type="guid raw" Nullable="false" />
+          <Property Name="AC_ID" Type="varchar2" MaxLength="30" />
+          <Property Name="LOGIN_TIME" Type="date" />
+          <Property Name="LOGOUT_TIME" Type="date" />
+          <Property Name="IP_ADDRESS" Type="varchar2" MaxLength="30" />
+          <Property Name="IS_SUCCESS" Type="varchar2" MaxLength="1" />
+          <Property Name="FAILURE_TIMES" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="USER_LOGIN_ERRTRY">
+          <Key>
+            <PropertyRef Name="ULE_SN" />
+          </Key>
+          <Property Name="ULE_SN" Type="guid raw" Nullable="false" />
+          <Property Name="ULE_IP" Type="varchar2" MaxLength="100" />
+          <Property Name="ULE_CREATEDATE" Type="date" />
+          <Property Name="ULE_REASON" Type="varchar2" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="YESNO">
+          <Key>
+            <PropertyRef Name="YESNO_ID" />
+          </Key>
+          <Property Name="YESNO_ID" Type="varchar2" MaxLength="5" Nullable="false" />
+          <Property Name="YESNO_NAME" Type="varchar2" MaxLength="10" />
+        </EntityType>
+        <EntityContainer Name="GMModelStoreContainer">
+          <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="ACCOUNT_AUTH" EntityType="Self.ACCOUNT_AUTH" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="ACCOUNT_SHIFT" EntityType="Self.ACCOUNT_SHIFT" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="ALLSYS_LOG" EntityType="Self.ALLSYS_LOG" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="AUTH_MENU" EntityType="Self.AUTH_MENU" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="BILLBOARD" EntityType="Self.BILLBOARD" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="BILLBOARD_GROUP" EntityType="Self.BILLBOARD_GROUP" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="BLACKLIST" EntityType="Self.BLACKLIST" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="CODE_TABLE" EntityType="Self.CODE_TABLE" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="MENU_PAGES" EntityType="Self.MENU_PAGES" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="PROBLEM_ADD" EntityType="Self.PROBLEM_ADD" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="PROBLEM_DATA" EntityType="Self.PROBLEM_DATA" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="PROBLEM_KIND" EntityType="Self.PROBLEM_KIND" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="PROBLEM_SYSTEM" EntityType="Self.PROBLEM_SYSTEM" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="TBM1220_2" EntityType="Self.TBM1220_2" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="TBM1301" EntityType="Self.TBM1301" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="TBM1301_PLAN" EntityType="Self.TBM1301_PLAN" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="TBM1407" EntityType="Self.TBM1407" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="TBMDEPT" EntityType="Self.TBMDEPT" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="TBMSTANDARDITEM" EntityType="Self.TBMSTANDARDITEM" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="USER_LOGIN" EntityType="Self.USER_LOGIN" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="USER_LOGIN_ERRTRY" EntityType="Self.USER_LOGIN_ERRTRY" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="YESNO" EntityType="Self.YESNO" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="GMGROUP" EntityType="Self.GMGROUP" store:Type="Tables" store:Schema="SYSTEM">
+            <DefiningQuery>SELECT 
+"GMGROUP"."GRP_SN" AS "GRP_SN", 
+"GMGROUP"."GROUP_ID" AS "GROUP_ID", 
+"GMGROUP"."GROUP_NAME" AS "GROUP_NAME", 
+"GMGROUP"."GROUP_DESC" AS "GROUP_DESC", 
+"GMGROUP"."GROUP_STATUS" AS "GROUP_STATUS"
+FROM "SYSTEM"."GMGROUP" "GMGROUP"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TBM2133" EntityType="Self.TBM2133" store:Type="Tables" store:Schema="SYSTEM">
+            <DefiningQuery>SELECT 
+"TBM2133"."CLASS" AS "CLASS", 
+"TBM2133"."ITEM" AS "ITEM", 
+"TBM2133"."CAL" AS "CAL", 
+"TBM2133"."STEP" AS "STEP", 
+"TBM2133"."FCODE" AS "FCODE", 
+"TBM2133"."NAME" AS "NAME", 
+"TBM2133"."UNIT" AS "UNIT", 
+"TBM2133"."UI" AS "UI", 
+"TBM2133"."MATERIAL" AS "MATERIAL", 
+"TBM2133"."USEYEAR" AS "USEYEAR", 
+"TBM2133"."MEMO" AS "MEMO", 
+"TBM2133"."LEVEL_SETP" AS "LEVEL_SETP", 
+"TBM2133"."REL_CODE" AS "REL_CODE"
+FROM "SYSTEM"."TBM2133" "TBM2133"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="AC_SN" />
+          </Key>
+          <Property Name="USER_ID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PWD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="USER_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DEPT_SN" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="IUSER_PHONE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="CHANGE_DATE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL_ACCOUNT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PURCHASE_1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_LOGIN" Type="DateTime" />
+          <Property Name="AC_SN" Type="Guid" Nullable="false" />
+          <Property Name="AC_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="C_SN_TITLE" Type="Guid" />
+          <Property Name="AUTH_DEPT_SN" Type="Guid" />
+          <Property Name="ACCOUNT_STATUS" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ERROR_CNT" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="ACCOUNT_AUTH">
+          <Key>
+            <PropertyRef Name="AA_SN" />
+          </Key>
+          <Property Name="USER_ID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_SN_ROLE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IS_ENABLE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="IS_UPLOAD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="IS_PRO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="AA_SN" Type="Guid" Nullable="false" />
+          <Property Name="C_SN_SYS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="C_SN_AUTH" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="C_SN_SUB" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="END_DATE" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="ACCOUNT_SHIFT">
+          <Key>
+            <PropertyRef Name="AS_SN" />
+          </Key>
+          <Property Name="AS_SN" Type="Guid" Nullable="false" />
+          <Property Name="AACOUNT_ID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AACOUNT_ID_ORI" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DEPT_ID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="START_SATE" Type="DateTime" />
+          <Property Name="END_DATE" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="BILLBOARD">
+          <Key>
+            <PropertyRef Name="BB_SN" />
+          </Key>
+          <Property Name="BB_SN" Type="Guid" Nullable="false" />
+          <Property Name="ONB_NO" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TITLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CONTEXT" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="AUTHOR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFY_DATE" Type="DateTime" />
+          <Property Name="START_DATE" Type="DateTime" />
+          <Property Name="END_DATE" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="BILLBOARD_GROUP">
+          <Key>
+            <PropertyRef Name="BB_GRP_SN" />
+          </Key>
+          <Property Name="BB_GRP_SN" Type="Guid" Nullable="false" />
+          <Property Name="BB_SN" Type="Guid" Nullable="false" />
+          <Property Name="GROUP_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CODE_TABLE">
+          <Key>
+            <PropertyRef Name="C_SN" />
+          </Key>
+          <Property Name="C_SN" Type="Guid" Nullable="false" />
+          <Property Name="C_TYPE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_NO" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="C_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="C_SOORT" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="GMGROUP">
+          <Key>
+            <PropertyRef Name="GRP_SN" />
+          </Key>
+          <Property Name="GRP_SN" Type="Guid" Nullable="false" />
+          <Property Name="GROUP_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GROUP_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="GROUP_DESC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GROUP_STATUS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PROBLEM_ADD">
+          <Key>
+            <PropertyRef Name="PROADD_SN" />
+          </Key>
+          <Property Name="PROADD_SN" Type="Guid" Nullable="false" />
+          <Property Name="PRO_SN" Type="Guid" Nullable="false" />
+          <Property Name="PROADD_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PROADD_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROBLEM_KIND">
+          <Key>
+            <PropertyRef Name="PROKIND_SN" />
+          </Key>
+          <Property Name="PROKIND_SN" Type="Guid" Nullable="false" />
+          <Property Name="PROKIND_ID" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PROKIND_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PROBLEM_SYSTEM">
+          <Key>
+            <PropertyRef Name="PROSYS_SN" />
+          </Key>
+          <Property Name="PROSYS_SN" Type="Guid" Nullable="false" />
+          <Property Name="PROSYS_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PROSYS_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBM1220_2">
+          <Key>
+            <PropertyRef Name="OVC_IKIND" />
+          </Key>
+          <Property Name="OVC_IKIND" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OVC_MEMO_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBM1301">
+          <Key>
+            <PropertyRef Name="OVC_PURCH" />
+          </Key>
+          <Property Name="OVC_PURCH" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OVC_PURCH_KIND" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_LAB" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_ASS_VEN_CODE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_BID_TIMES" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_BID" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_NSECTION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_SECTION" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PROPOSE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_DPROPOSE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_APPROVE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_DAPPROVE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_IPURCH" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_IPURCH_ENG" Type="String" MaxLength="130" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_USER_TITLE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_KEYIN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_IUSER_PHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_IUSER_PHONE_EXT" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_IUSER_PHONE_EXT1" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_USER_CELLPHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_AGENCY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_EST_REAR" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_NPURCH" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_TARGET_DO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_CURRENT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_PUR_RATE" Type="Decimal" Precision="7" Scale="4" />
+          <Property Name="ONB_PUR_BUDGET" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="OVC_AGNT_IN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_FEE_OK" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_GOOD_OK" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_TAX_OK" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_DCANPO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_DCANRE" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_EXAMPLE_SUPPORT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_ALLOW" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_CREAT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_DOING_UNIT" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PERMISSION_UPDATE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_SUPERIOR_UNIT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_SECTION_CHIEF" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_SHIP_TIMES" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_RECEIVE_PLACE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_POI_IINSPECT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_COUNTRY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_WAY_TRANS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_RECEIVE_NSECTION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_FROM_TO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_TO_PLACE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_VERSION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_PUR_BUDGET_NT" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="ONB_RESERVE_AMOUNT" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="OVC_SPECIAL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_BID_MONEY" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_NEGOTIATION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_QUOTE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PLAN_PURCH" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_COPY_FROM" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="IS_PLURAL_BASIS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="IS_OPEN_CONTRACT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="IS_JUXTAPOSED_MANUFACTURER" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBM1301_PLAN">
+          <Key>
+            <PropertyRef Name="OVC_PURCH" />
+          </Key>
+          <Property Name="OVC_PURCH" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OVC_PUR_AGENCY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OVC_PUR_IPURCH" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_PUR_BUDGET" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="OVC_DAPPLY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_SECTION" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_NSECTION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_KEYIN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_IUSER_PHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_IUSER_FAX" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_IUSER_PHONE_EXT" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_IUSER_PHONE_EXT1" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_USER_CELLPHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL_ACCOUNT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_ASS_VEN_CODE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_LAB" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PLAN_PURCH" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_APPROVE_DEP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_PROJE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_REVIEW_DAYS" Type="Int16" />
+          <Property Name="ONB_DELIVER_DAYS" Type="Int16" />
+          <Property Name="ONB_TENDER_DAYS" Type="Int16" />
+          <Property Name="ONB_RECEIVE_DAYS" Type="Int16" />
+          <Property Name="OVC_DAUDIT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AUDITOR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PUR_CREAT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PURCH_OK" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_DCANCEL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_CANCEL_REASON" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_TENDER_DAYS" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_RECEIVE_DAYS" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AUDIT_UNIT" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PURCHASE_UNIT" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_CONTRACT_UNIT" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_AGENT_UNIT" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_FAC_CHECK" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_OPEN_CHECK" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_ON_SCHEDULE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PURCH_MILITARY" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_MILITARY_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBM1407">
+          <Key>
+            <PropertyRef Name="OVC_PHR_CATE" />
+            <PropertyRef Name="OVC_PHR_ID" />
+          </Key>
+          <Property Name="OVC_PHR_CATE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OVC_PHR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OVC_PHR_DESC" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PHR_REMARK" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PHR_PARENTS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBMDEPT">
+          <Key>
+            <PropertyRef Name="OVC_DEPT_CDE" />
+          </Key>
+          <Property Name="OVC_DEPT_CDE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OVC_ONNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_DEPT_FAX" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_DEPT_MAILADDR" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_DEPT_DOC_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_MANAGER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PURCHASE_DEPT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_MANAGER_TITLE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_EMAILADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_DEPT_SEC_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_TOP_DEPT" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_CLASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PURCHASE_OK" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_DEPT_PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_ENABLE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_CLASS2" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_TOP_DEPT2" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="USER_LOGIN">
+          <Key>
+            <PropertyRef Name="AC_SN" />
+          </Key>
+          <Property Name="AC_SN" Type="Guid" Nullable="false" />
+          <Property Name="AC_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LOGIN_TIME" Type="DateTime" />
+          <Property Name="LOGOUT_TIME" Type="DateTime" />
+          <Property Name="IP_ADDRESS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IS_SUCCESS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FAILURE_TIMES" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="YESNO">
+          <Key>
+            <PropertyRef Name="YESNO_ID" />
+          </Key>
+          <Property Name="YESNO_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="YESNO_NAME" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="GMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACCOUNTs" EntityType="Self.ACCOUNT" />
+          <EntitySet Name="ACCOUNT_AUTH" EntityType="Self.ACCOUNT_AUTH" />
+          <EntitySet Name="ACCOUNT_SHIFT" EntityType="Self.ACCOUNT_SHIFT" />
+          <EntitySet Name="BILLBOARDs" EntityType="Self.BILLBOARD" />
+          <EntitySet Name="BILLBOARD_GROUP" EntityType="Self.BILLBOARD_GROUP" />
+          <EntitySet Name="CODE_TABLE" EntityType="Self.CODE_TABLE" />
+          <EntitySet Name="GMGROUPs" EntityType="Self.GMGROUP" />
+          <EntitySet Name="PROBLEM_ADD" EntityType="Self.PROBLEM_ADD" />
+          <EntitySet Name="PROBLEM_KIND" EntityType="Self.PROBLEM_KIND" />
+          <EntitySet Name="PROBLEM_SYSTEM" EntityType="Self.PROBLEM_SYSTEM" />
+          <EntitySet Name="TBM1220_2" EntityType="Self.TBM1220_2" />
+          <EntitySet Name="TBM1301" EntityType="Self.TBM1301" />
+          <EntitySet Name="TBM1301_PLAN" EntityType="Self.TBM1301_PLAN" />
+          <EntitySet Name="TBM1407" EntityType="Self.TBM1407" />
+          <EntitySet Name="TBMDEPTs" EntityType="Self.TBMDEPT" />
+          <EntitySet Name="USER_LOGIN" EntityType="Self.USER_LOGIN" />
+          <EntitySet Name="YESNOes" EntityType="Self.YESNO" />
+          <EntitySet Name="MENU_PAGES" EntityType="GMModel.MENU_PAGES" />
+          <EntitySet Name="AUTH_MENU" EntityType="GMModel.AUTH_MENU" />
+          <EntitySet Name="PROBLEM_DATA" EntityType="GMModel.PROBLEM_DATA" />
+          <EntitySet Name="TBM2133" EntityType="GMModel.TBM2133" />
+          <EntitySet Name="ALLSYS_LOG" EntityType="GMModel.ALLSYS_LOG" />
+          <EntitySet Name="TBMSTANDARDITEMs" EntityType="GMModel.TBMSTANDARDITEM" />
+          <EntitySet Name="BLACKLISTs" EntityType="GMModel.BLACKLIST" />
+          <EntitySet Name="USER_LOGIN_ERRTRY" EntityType="GMModel.USER_LOGIN_ERRTRY" />
+        </EntityContainer>
+        <EntityType Name="MENU_PAGES">
+          <Key>
+            <PropertyRef Name="M_SN" />
+          </Key>
+          <Property Name="M_SN" Type="String" Nullable="false" />
+          <Property Name="M_SN_PAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="M_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="M_URL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="M_ORD" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="M_MODEL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="M_VISIBLE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AUTH_MENU">
+          <Key>
+            <PropertyRef Name="AM_SN" />
+          </Key>
+          <Property Name="AM_SN" Type="Guid" Nullable="false" />
+          <Property Name="GROUP_SN" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="MENU_SN" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PROBLEM_DATA">
+          <Key>
+            <PropertyRef Name="PRO_SN" />
+            <PropertyRef Name="PRO_ID" />
+            <PropertyRef Name="OVC_MODIFY_LOGIN_ID" />
+          </Key>
+          <Property Name="PRO_SN" Type="Guid" Nullable="false" />
+          <Property Name="PROSYS_SN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PRO_ID" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="PRO_DESC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PRO_SOL_DESC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PROKIND_SN" Type="Guid" />
+          <Property Name="PRO_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PRO_SOL_PERSON" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PRO_REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PRO_ADDFILE" Type="Boolean" />
+          <Property Name="PROADD_SN" Type="Guid" />
+          <Property Name="OVC_CHECK_ID" Type="Guid" />
+          <Property Name="OVC_CHECK_STATUS" Type="Boolean" />
+          <Property Name="OVC_CONFIRM_ID" Type="Guid" />
+          <Property Name="OVC_CONFIRM_STATUS" Type="Boolean" />
+          <Property Name="ODT_CREATE_DATE" Type="DateTime" />
+          <Property Name="OVC_CREATE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ODT_GET_DATE" Type="DateTime" />
+          <Property Name="ODT_PLAN_DATE" Type="DateTime" />
+          <Property Name="OVC_ACT_DATE" Type="DateTime" />
+          <Property Name="ODT_MODIFY_DATE" Type="DateTime" />
+          <Property Name="OVC_MODIFY_LOGIN_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBM2133">
+          <Key>
+            <PropertyRef Name="CLASS" />
+            <PropertyRef Name="LEVEL_SETP" />
+          </Key>
+          <Property Name="CLASS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ITEM" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CAL" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="STEP" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="FCODE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UNIT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UI" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="MATERIAL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="USEYEAR" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="MEMO" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="LEVEL_SETP" Type="Boolean" Nullable="false" />
+          <Property Name="REL_CODE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ALLSYS_LOG">
+          <Key>
+            <PropertyRef Name="AS_SN" />
+          </Key>
+          <Property Name="AS_USER_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AS_DATE" Type="DateTime" />
+          <Property Name="AS_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AS_COMMAND" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AS_PAGE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AS_ACT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AS_SN" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBMSTANDARDITEM">
+          <Key>
+            <PropertyRef Name="OVC_SYSTEM" />
+            <PropertyRef Name="OVC_IKIND" />
+            <PropertyRef Name="OVC_PURCH_KIND" />
+            <PropertyRef Name="OVC_NO" />
+          </Key>
+          <Property Name="OVC_SYSTEM" Type="Byte" Nullable="false" />
+          <Property Name="OVC_PUR_AGENCY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_IKIND" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_PURCH_KIND" Type="Byte" Nullable="false" />
+          <Property Name="OVC_NO" Type="Int16" Nullable="false" />
+          <Property Name="OVC_MEMO" Type="String" MaxLength="3500" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_DESC" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_CHECK" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BLACKLIST">
+          <Key>
+            <PropertyRef Name="BL_SN" />
+          </Key>
+          <Property Name="BL_SN" Type="Guid" Nullable="false" />
+          <Property Name="BL_IP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BL_CREATEDATE" Type="DateTime" />
+          <Property Name="BL_REASON" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="BL_STATUS" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="USER_LOGIN_ERRTRY">
+          <Key>
+            <PropertyRef Name="ULE_SN" />
+          </Key>
+          <Property Name="ULE_SN" Type="Guid" Nullable="false" />
+          <Property Name="ULE_IP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ULE_CREATEDATE" Type="DateTime" />
+          <Property Name="ULE_REASON" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GMModelStoreContainer" CdmEntityContainer="GMEntities">
+          <EntitySetMapping Name="ACCOUNTs">
+            <EntityTypeMapping TypeName="GMModel.ACCOUNT">
+              <MappingFragment StoreEntitySet="ACCOUNT">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="PWD" ColumnName="PWD" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="DEPT_SN" ColumnName="DEPT_SN" />
+                <ScalarProperty Name="IUSER_PHONE" ColumnName="IUSER_PHONE" />
+                <ScalarProperty Name="CHANGE_DATE" ColumnName="CHANGE_DATE" />
+                <ScalarProperty Name="EMAIL_ACCOUNT" ColumnName="EMAIL_ACCOUNT" />
+                <ScalarProperty Name="PURCHASE_1" ColumnName="PURCHASE_1" />
+                <ScalarProperty Name="LAST_LOGIN" ColumnName="LAST_LOGIN" />
+                <ScalarProperty Name="AC_SN" ColumnName="AC_SN" />
+                <ScalarProperty Name="AC_ID" ColumnName="AC_ID" />
+                <ScalarProperty Name="C_SN_TITLE" ColumnName="C_SN_TITLE" />
+                <ScalarProperty Name="AUTH_DEPT_SN" ColumnName="AUTH_DEPT_SN" />
+                <ScalarProperty Name="ACCOUNT_STATUS" ColumnName="ACCOUNT_STATUS" />
+                <ScalarProperty Name="ERROR_CNT" ColumnName="ERROR_CNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACCOUNT_AUTH">
+            <EntityTypeMapping TypeName="GMModel.ACCOUNT_AUTH">
+              <MappingFragment StoreEntitySet="ACCOUNT_AUTH">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="C_SN_ROLE" ColumnName="C_SN_ROLE" />
+                <ScalarProperty Name="IS_ENABLE" ColumnName="IS_ENABLE" />
+                <ScalarProperty Name="IS_UPLOAD" ColumnName="IS_UPLOAD" />
+                <ScalarProperty Name="IS_PRO" ColumnName="IS_PRO" />
+                <ScalarProperty Name="AA_SN" ColumnName="AA_SN" />
+                <ScalarProperty Name="C_SN_SYS" ColumnName="C_SN_SYS" />
+                <ScalarProperty Name="C_SN_AUTH" ColumnName="C_SN_AUTH" />
+                <ScalarProperty Name="C_SN_SUB" ColumnName="C_SN_SUB" />
+                <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACCOUNT_SHIFT">
+            <EntityTypeMapping TypeName="GMModel.ACCOUNT_SHIFT">
+              <MappingFragment StoreEntitySet="ACCOUNT_SHIFT">
+                <ScalarProperty Name="AS_SN" ColumnName="AS_SN" />
+                <ScalarProperty Name="AACOUNT_ID" ColumnName="AACOUNT_ID" />
+                <ScalarProperty Name="AACOUNT_ID_ORI" ColumnName="AACOUNT_ID_ORI" />
+                <ScalarProperty Name="DEPT_ID" ColumnName="DEPT_ID" />
+                <ScalarProperty Name="START_SATE" ColumnName="START_SATE" />
+                <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BILLBOARDs">
+            <EntityTypeMapping TypeName="GMModel.BILLBOARD">
+              <MappingFragment StoreEntitySet="BILLBOARD">
+                <ScalarProperty Name="BB_SN" ColumnName="BB_SN" />
+                <ScalarProperty Name="ONB_NO" ColumnName="ONB_NO" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="CONTEXT" ColumnName="CONTEXT" />
+                <ScalarProperty Name="AUTHOR_ID" ColumnName="AUTHOR_ID" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="MODIFY_DATE" ColumnName="MODIFY_DATE" />
+                <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
+                <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BILLBOARD_GROUP">
+            <EntityTypeMapping TypeName="GMModel.BILLBOARD_GROUP">
+              <MappingFragment StoreEntitySet="BILLBOARD_GROUP">
+                <ScalarProperty Name="BB_GRP_SN" ColumnName="BB_GRP_SN" />
+                <ScalarProperty Name="BB_SN" ColumnName="BB_SN" />
+                <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CODE_TABLE">
+            <EntityTypeMapping TypeName="GMModel.CODE_TABLE">
+              <MappingFragment StoreEntitySet="CODE_TABLE">
+                <ScalarProperty Name="C_SN" ColumnName="C_SN" />
+                <ScalarProperty Name="C_TYPE" ColumnName="C_TYPE" />
+                <ScalarProperty Name="C_NO" ColumnName="C_NO" />
+                <ScalarProperty Name="C_NAME" ColumnName="C_NAME" />
+                <ScalarProperty Name="C_SOORT" ColumnName="C_SOORT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GMGROUPs">
+            <EntityTypeMapping TypeName="GMModel.GMGROUP">
+              <MappingFragment StoreEntitySet="GMGROUP">
+                <ScalarProperty Name="GRP_SN" ColumnName="GRP_SN" />
+                <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+                <ScalarProperty Name="GROUP_NAME" ColumnName="GROUP_NAME" />
+                <ScalarProperty Name="GROUP_DESC" ColumnName="GROUP_DESC" />
+                <ScalarProperty Name="GROUP_STATUS" ColumnName="GROUP_STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROBLEM_ADD">
+            <EntityTypeMapping TypeName="GMModel.PROBLEM_ADD">
+              <MappingFragment StoreEntitySet="PROBLEM_ADD">
+                <ScalarProperty Name="PROADD_SN" ColumnName="PROADD_SN" />
+                <ScalarProperty Name="PRO_SN" ColumnName="PRO_SN" />
+                <ScalarProperty Name="PROADD_ID" ColumnName="PROADD_ID" />
+                <ScalarProperty Name="PROADD_NAME" ColumnName="PROADD_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROBLEM_KIND">
+            <EntityTypeMapping TypeName="GMModel.PROBLEM_KIND">
+              <MappingFragment StoreEntitySet="PROBLEM_KIND">
+                <ScalarProperty Name="PROKIND_SN" ColumnName="PROKIND_SN" />
+                <ScalarProperty Name="PROKIND_ID" ColumnName="PROKIND_ID" />
+                <ScalarProperty Name="PROKIND_NAME" ColumnName="PROKIND_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROBLEM_SYSTEM">
+            <EntityTypeMapping TypeName="GMModel.PROBLEM_SYSTEM">
+              <MappingFragment StoreEntitySet="PROBLEM_SYSTEM">
+                <ScalarProperty Name="PROSYS_SN" ColumnName="PROSYS_SN" />
+                <ScalarProperty Name="PROSYS_ID" ColumnName="PROSYS_ID" />
+                <ScalarProperty Name="PROSYS_NAME" ColumnName="PROSYS_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBM1220_2">
+            <EntityTypeMapping TypeName="GMModel.TBM1220_2">
+              <MappingFragment StoreEntitySet="TBM1220_2">
+                <ScalarProperty Name="OVC_IKIND" ColumnName="OVC_IKIND" />
+                <ScalarProperty Name="OVC_MEMO_NAME" ColumnName="OVC_MEMO_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBM1301">
+            <EntityTypeMapping TypeName="GMModel.TBM1301">
+              <MappingFragment StoreEntitySet="TBM1301">
+                <ScalarProperty Name="OVC_PURCH" ColumnName="OVC_PURCH" />
+                <ScalarProperty Name="OVC_PURCH_KIND" ColumnName="OVC_PURCH_KIND" />
+                <ScalarProperty Name="OVC_LAB" ColumnName="OVC_LAB" />
+                <ScalarProperty Name="OVC_PUR_ASS_VEN_CODE" ColumnName="OVC_PUR_ASS_VEN_CODE" />
+                <ScalarProperty Name="OVC_BID_TIMES" ColumnName="OVC_BID_TIMES" />
+                <ScalarProperty Name="OVC_BID" ColumnName="OVC_BID" />
+                <ScalarProperty Name="OVC_PUR_NSECTION" ColumnName="OVC_PUR_NSECTION" />
+                <ScalarProperty Name="OVC_PUR_SECTION" ColumnName="OVC_PUR_SECTION" />
+                <ScalarProperty Name="OVC_PROPOSE" ColumnName="OVC_PROPOSE" />
+                <ScalarProperty Name="OVC_DPROPOSE" ColumnName="OVC_DPROPOSE" />
+                <ScalarProperty Name="OVC_PUR_APPROVE" ColumnName="OVC_PUR_APPROVE" />
+                <ScalarProperty Name="OVC_PUR_DAPPROVE" ColumnName="OVC_PUR_DAPPROVE" />
+                <ScalarProperty Name="OVC_PUR_IPURCH" ColumnName="OVC_PUR_IPURCH" />
+                <ScalarProperty Name="OVC_PUR_IPURCH_ENG" ColumnName="OVC_PUR_IPURCH_ENG" />
+                <ScalarProperty Name="OVC_PUR_USER" ColumnName="OVC_PUR_USER" />
+                <ScalarProperty Name="OVC_USER_TITLE" ColumnName="OVC_USER_TITLE" />
+                <ScalarProperty Name="OVC_KEYIN" ColumnName="OVC_KEYIN" />
+                <ScalarProperty Name="OVC_PUR_IUSER_PHONE" ColumnName="OVC_PUR_IUSER_PHONE" />
+                <ScalarProperty Name="OVC_PUR_IUSER_PHONE_EXT" ColumnName="OVC_PUR_IUSER_PHONE_EXT" />
+                <ScalarProperty Name="OVC_PUR_IUSER_PHONE_EXT1" ColumnName="OVC_PUR_IUSER_PHONE_EXT1" />
+                <ScalarProperty Name="OVC_USER_CELLPHONE" ColumnName="OVC_USER_CELLPHONE" />
+                <ScalarProperty Name="OVC_PUR_AGENCY" ColumnName="OVC_PUR_AGENCY" />
+                <ScalarProperty Name="OVC_EST_REAR" ColumnName="OVC_EST_REAR" />
+                <ScalarProperty Name="OVC_PUR_NPURCH" ColumnName="OVC_PUR_NPURCH" />
+                <ScalarProperty Name="OVC_TARGET_DO" ColumnName="OVC_TARGET_DO" />
+                <ScalarProperty Name="OVC_PUR_CURRENT" ColumnName="OVC_PUR_CURRENT" />
+                <ScalarProperty Name="ONB_PUR_RATE" ColumnName="ONB_PUR_RATE" />
+                <ScalarProperty Name="ONB_PUR_BUDGET" ColumnName="ONB_PUR_BUDGET" />
+                <ScalarProperty Name="OVC_AGNT_IN" ColumnName="OVC_AGNT_IN" />
+                <ScalarProperty Name="OVC_PUR_FEE_OK" ColumnName="OVC_PUR_FEE_OK" />
+                <ScalarProperty Name="OVC_PUR_GOOD_OK" ColumnName="OVC_PUR_GOOD_OK" />
+                <ScalarProperty Name="OVC_PUR_TAX_OK" ColumnName="OVC_PUR_TAX_OK" />
+                <ScalarProperty Name="OVC_PUR_DCANPO" ColumnName="OVC_PUR_DCANPO" />
+                <ScalarProperty Name="OVC_PUR_DCANRE" ColumnName="OVC_PUR_DCANRE" />
+                <ScalarProperty Name="OVC_EXAMPLE_SUPPORT" ColumnName="OVC_EXAMPLE_SUPPORT" />
+                <ScalarProperty Name="OVC_PUR_ALLOW" ColumnName="OVC_PUR_ALLOW" />
+                <ScalarProperty Name="OVC_PUR_CREAT" ColumnName="OVC_PUR_CREAT" />
+                <ScalarProperty Name="OVC_DOING_UNIT" ColumnName="OVC_DOING_UNIT" />
+                <ScalarProperty Name="OVC_PERMISSION_UPDATE" ColumnName="OVC_PERMISSION_UPDATE" />
+                <ScalarProperty Name="OVC_SUPERIOR_UNIT" ColumnName="OVC_SUPERIOR_UNIT" />
+                <ScalarProperty Name="OVC_SECTION_CHIEF" ColumnName="OVC_SECTION_CHIEF" />
+                <ScalarProperty Name="OVC_SHIP_TIMES" ColumnName="OVC_SHIP_TIMES" />
+                <ScalarProperty Name="OVC_RECEIVE_PLACE" ColumnName="OVC_RECEIVE_PLACE" />
+                <ScalarProperty Name="OVC_POI_IINSPECT" ColumnName="OVC_POI_IINSPECT" />
+                <ScalarProperty Name="OVC_COUNTRY" ColumnName="OVC_COUNTRY" />
+                <ScalarProperty Name="OVC_WAY_TRANS" ColumnName="OVC_WAY_TRANS" />
+                <ScalarProperty Name="OVC_RECEIVE_NSECTION" ColumnName="OVC_RECEIVE_NSECTION" />
+                <ScalarProperty Name="OVC_FROM_TO" ColumnName="OVC_FROM_TO" />
+                <ScalarProperty Name="OVC_TO_PLACE" ColumnName="OVC_TO_PLACE" />
+                <ScalarProperty Name="OVC_VERSION" ColumnName="OVC_VERSION" />
+                <ScalarProperty Name="ONB_PUR_BUDGET_NT" ColumnName="ONB_PUR_BUDGET_NT" />
+                <ScalarProperty Name="ONB_RESERVE_AMOUNT" ColumnName="ONB_RESERVE_AMOUNT" />
+                <ScalarProperty Name="OVC_SPECIAL" ColumnName="OVC_SPECIAL" />
+                <ScalarProperty Name="OVC_BID_MONEY" ColumnName="OVC_BID_MONEY" />
+                <ScalarProperty Name="OVC_NEGOTIATION" ColumnName="OVC_NEGOTIATION" />
+                <ScalarProperty Name="OVC_QUOTE" ColumnName="OVC_QUOTE" />
+                <ScalarProperty Name="OVC_PLAN_PURCH" ColumnName="OVC_PLAN_PURCH" />
+                <ScalarProperty Name="OVC_COPY_FROM" ColumnName="OVC_COPY_FROM" />
+                <ScalarProperty Name="IS_PLURAL_BASIS" ColumnName="IS_PLURAL_BASIS" />
+                <ScalarProperty Name="IS_OPEN_CONTRACT" ColumnName="IS_OPEN_CONTRACT" />
+                <ScalarProperty Name="IS_JUXTAPOSED_MANUFACTURER" ColumnName="IS_JUXTAPOSED_MANUFACTURER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBM1301_PLAN">
+            <EntityTypeMapping TypeName="GMModel.TBM1301_PLAN">
+              <MappingFragment StoreEntitySet="TBM1301_PLAN">
+                <ScalarProperty Name="OVC_PURCH" ColumnName="OVC_PURCH" />
+                <ScalarProperty Name="OVC_PUR_AGENCY" ColumnName="OVC_PUR_AGENCY" />
+                <ScalarProperty Name="OVC_PUR_IPURCH" ColumnName="OVC_PUR_IPURCH" />
+                <ScalarProperty Name="ONB_PUR_BUDGET" ColumnName="ONB_PUR_BUDGET" />
+                <ScalarProperty Name="OVC_DAPPLY" ColumnName="OVC_DAPPLY" />
+                <ScalarProperty Name="OVC_PUR_SECTION" ColumnName="OVC_PUR_SECTION" />
+                <ScalarProperty Name="OVC_PUR_NSECTION" ColumnName="OVC_PUR_NSECTION" />
+                <ScalarProperty Name="OVC_PUR_USER" ColumnName="OVC_PUR_USER" />
+                <ScalarProperty Name="OVC_KEYIN" ColumnName="OVC_KEYIN" />
+                <ScalarProperty Name="OVC_PUR_IUSER_PHONE" ColumnName="OVC_PUR_IUSER_PHONE" />
+                <ScalarProperty Name="OVC_PUR_IUSER_FAX" ColumnName="OVC_PUR_IUSER_FAX" />
+                <ScalarProperty Name="OVC_PUR_IUSER_PHONE_EXT" ColumnName="OVC_PUR_IUSER_PHONE_EXT" />
+                <ScalarProperty Name="OVC_PUR_IUSER_PHONE_EXT1" ColumnName="OVC_PUR_IUSER_PHONE_EXT1" />
+                <ScalarProperty Name="OVC_USER_CELLPHONE" ColumnName="OVC_USER_CELLPHONE" />
+                <ScalarProperty Name="EMAIL_ACCOUNT" ColumnName="EMAIL_ACCOUNT" />
+                <ScalarProperty Name="OVC_PUR_ASS_VEN_CODE" ColumnName="OVC_PUR_ASS_VEN_CODE" />
+                <ScalarProperty Name="OVC_LAB" ColumnName="OVC_LAB" />
+                <ScalarProperty Name="OVC_PLAN_PURCH" ColumnName="OVC_PLAN_PURCH" />
+                <ScalarProperty Name="OVC_PUR_APPROVE_DEP" ColumnName="OVC_PUR_APPROVE_DEP" />
+                <ScalarProperty Name="OVC_PUR_PROJE" ColumnName="OVC_PUR_PROJE" />
+                <ScalarProperty Name="ONB_REVIEW_DAYS" ColumnName="ONB_REVIEW_DAYS" />
+                <ScalarProperty Name="ONB_DELIVER_DAYS" ColumnName="ONB_DELIVER_DAYS" />
+                <ScalarProperty Name="ONB_TENDER_DAYS" ColumnName="ONB_TENDER_DAYS" />
+                <ScalarProperty Name="ONB_RECEIVE_DAYS" ColumnName="ONB_RECEIVE_DAYS" />
+                <ScalarProperty Name="OVC_DAUDIT" ColumnName="OVC_DAUDIT" />
+                <ScalarProperty Name="OVC_AUDITOR" ColumnName="OVC_AUDITOR" />
+                <ScalarProperty Name="OVC_PUR_CREAT" ColumnName="OVC_PUR_CREAT" />
+                <ScalarProperty Name="OVC_PURCH_OK" ColumnName="OVC_PURCH_OK" />
+                <ScalarProperty Name="OVC_DCANCEL" ColumnName="OVC_DCANCEL" />
+                <ScalarProperty Name="OVC_CANCEL_REASON" ColumnName="OVC_CANCEL_REASON" />
+                <ScalarProperty Name="OVC_TENDER_DAYS" ColumnName="OVC_TENDER_DAYS" />
+                <ScalarProperty Name="OVC_RECEIVE_DAYS" ColumnName="OVC_RECEIVE_DAYS" />
+                <ScalarProperty Name="OVC_AUDIT_UNIT" ColumnName="OVC_AUDIT_UNIT" />
+                <ScalarProperty Name="OVC_PURCHASE_UNIT" ColumnName="OVC_PURCHASE_UNIT" />
+                <ScalarProperty Name="OVC_CONTRACT_UNIT" ColumnName="OVC_CONTRACT_UNIT" />
+                <ScalarProperty Name="OVC_AGENT_UNIT" ColumnName="OVC_AGENT_UNIT" />
+                <ScalarProperty Name="OVC_FAC_CHECK" ColumnName="OVC_FAC_CHECK" />
+                <ScalarProperty Name="OVC_OPEN_CHECK" ColumnName="OVC_OPEN_CHECK" />
+                <ScalarProperty Name="OVC_ON_SCHEDULE" ColumnName="OVC_ON_SCHEDULE" />
+                <ScalarProperty Name="OVC_PURCH_MILITARY" ColumnName="OVC_PURCH_MILITARY" />
+                <ScalarProperty Name="OVC_MILITARY_TYPE" ColumnName="OVC_MILITARY_TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBM1407">
+            <EntityTypeMapping TypeName="GMModel.TBM1407">
+              <MappingFragment StoreEntitySet="TBM1407">
+                <ScalarProperty Name="OVC_PHR_CATE" ColumnName="OVC_PHR_CATE" />
+                <ScalarProperty Name="OVC_PHR_ID" ColumnName="OVC_PHR_ID" />
+                <ScalarProperty Name="OVC_PHR_DESC" ColumnName="OVC_PHR_DESC" />
+                <ScalarProperty Name="OVC_PHR_REMARK" ColumnName="OVC_PHR_REMARK" />
+                <ScalarProperty Name="OVC_USR_ID" ColumnName="OVC_USR_ID" />
+                <ScalarProperty Name="OVC_PHR_PARENTS" ColumnName="OVC_PHR_PARENTS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBMDEPTs">
+            <EntityTypeMapping TypeName="GMModel.TBMDEPT">
+              <MappingFragment StoreEntitySet="TBMDEPT">
+                <ScalarProperty Name="OVC_TOP_DEPT2" ColumnName="OVC_TOP_DEPT2" />
+                <ScalarProperty Name="OVC_CLASS2" ColumnName="OVC_CLASS2" />
+                <ScalarProperty Name="OVC_DEPT_CDE" ColumnName="OVC_DEPT_CDE" />
+                <ScalarProperty Name="OVC_ONNAME" ColumnName="OVC_ONNAME" />
+                <ScalarProperty Name="OVC_DEPT_FAX" ColumnName="OVC_DEPT_FAX" />
+                <ScalarProperty Name="OVC_DEPT_MAILADDR" ColumnName="OVC_DEPT_MAILADDR" />
+                <ScalarProperty Name="OVC_DEPT_DOC_NAME" ColumnName="OVC_DEPT_DOC_NAME" />
+                <ScalarProperty Name="OVC_MANAGER" ColumnName="OVC_MANAGER" />
+                <ScalarProperty Name="OVC_PURCHASE_DEPT" ColumnName="OVC_PURCHASE_DEPT" />
+                <ScalarProperty Name="OVC_MANAGER_TITLE" ColumnName="OVC_MANAGER_TITLE" />
+                <ScalarProperty Name="OVC_EMAILADDRESS" ColumnName="OVC_EMAILADDRESS" />
+                <ScalarProperty Name="OVC_DEPT_SEC_NAME" ColumnName="OVC_DEPT_SEC_NAME" />
+                <ScalarProperty Name="OVC_TOP_DEPT" ColumnName="OVC_TOP_DEPT" />
+                <ScalarProperty Name="OVC_CLASS" ColumnName="OVC_CLASS" />
+                <ScalarProperty Name="OVC_PURCHASE_OK" ColumnName="OVC_PURCHASE_OK" />
+                <ScalarProperty Name="OVC_DEPT_PHONE" ColumnName="OVC_DEPT_PHONE" />
+                <ScalarProperty Name="OVC_ENABLE" ColumnName="OVC_ENABLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER_LOGIN">
+            <EntityTypeMapping TypeName="GMModel.USER_LOGIN">
+              <MappingFragment StoreEntitySet="USER_LOGIN">
+                <ScalarProperty Name="AC_SN" ColumnName="AC_SN" />
+                <ScalarProperty Name="AC_ID" ColumnName="AC_ID" />
+                <ScalarProperty Name="LOGIN_TIME" ColumnName="LOGIN_TIME" />
+                <ScalarProperty Name="LOGOUT_TIME" ColumnName="LOGOUT_TIME" />
+                <ScalarProperty Name="IP_ADDRESS" ColumnName="IP_ADDRESS" />
+                <ScalarProperty Name="IS_SUCCESS" ColumnName="IS_SUCCESS" />
+                <ScalarProperty Name="FAILURE_TIMES" ColumnName="FAILURE_TIMES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YESNOes">
+            <EntityTypeMapping TypeName="GMModel.YESNO">
+              <MappingFragment StoreEntitySet="YESNO">
+                <ScalarProperty Name="YESNO_ID" ColumnName="YESNO_ID" />
+                <ScalarProperty Name="YESNO_NAME" ColumnName="YESNO_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MENU_PAGES">
+            <EntityTypeMapping TypeName="GMModel.MENU_PAGES">
+              <MappingFragment StoreEntitySet="MENU_PAGES">
+                <ScalarProperty Name="M_VISIBLE" ColumnName="M_VISIBLE" />
+                <ScalarProperty Name="M_MODEL" ColumnName="M_MODEL" />
+                <ScalarProperty Name="M_ORD" ColumnName="M_ORD" />
+                <ScalarProperty Name="M_URL" ColumnName="M_URL" />
+                <ScalarProperty Name="M_NAME" ColumnName="M_NAME" />
+                <ScalarProperty Name="M_SN_PAR" ColumnName="M_SN_PAR" />
+                <ScalarProperty Name="M_SN" ColumnName="M_SN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUTH_MENU">
+            <EntityTypeMapping TypeName="GMModel.AUTH_MENU">
+              <MappingFragment StoreEntitySet="AUTH_MENU">
+                <ScalarProperty Name="MENU_SN" ColumnName="MENU_SN" />
+                <ScalarProperty Name="GROUP_SN" ColumnName="GROUP_SN" />
+                <ScalarProperty Name="AM_SN" ColumnName="AM_SN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROBLEM_DATA">
+            <EntityTypeMapping TypeName="GMModel.PROBLEM_DATA">
+              <MappingFragment StoreEntitySet="PROBLEM_DATA">
+                <ScalarProperty Name="OVC_MODIFY_LOGIN_ID" ColumnName="OVC_MODIFY_LOGIN_ID" />
+                <ScalarProperty Name="ODT_MODIFY_DATE" ColumnName="ODT_MODIFY_DATE" />
+                <ScalarProperty Name="OVC_ACT_DATE" ColumnName="OVC_ACT_DATE" />
+                <ScalarProperty Name="ODT_PLAN_DATE" ColumnName="ODT_PLAN_DATE" />
+                <ScalarProperty Name="ODT_GET_DATE" ColumnName="ODT_GET_DATE" />
+                <ScalarProperty Name="OVC_CREATE_ID" ColumnName="OVC_CREATE_ID" />
+                <ScalarProperty Name="ODT_CREATE_DATE" ColumnName="ODT_CREATE_DATE" />
+                <ScalarProperty Name="OVC_CONFIRM_STATUS" ColumnName="OVC_CONFIRM_STATUS" />
+                <ScalarProperty Name="OVC_CONFIRM_ID" ColumnName="OVC_CONFIRM_ID" />
+                <ScalarProperty Name="OVC_CHECK_STATUS" ColumnName="OVC_CHECK_STATUS" />
+                <ScalarProperty Name="OVC_CHECK_ID" ColumnName="OVC_CHECK_ID" />
+                <ScalarProperty Name="PROADD_SN" ColumnName="PROADD_SN" />
+                <ScalarProperty Name="PRO_ADDFILE" ColumnName="PRO_ADDFILE" />
+                <ScalarProperty Name="PRO_REMARK" ColumnName="PRO_REMARK" />
+                <ScalarProperty Name="PRO_SOL_PERSON" ColumnName="PRO_SOL_PERSON" />
+                <ScalarProperty Name="PRO_STATUS" ColumnName="PRO_STATUS" />
+                <ScalarProperty Name="PROKIND_SN" ColumnName="PROKIND_SN" />
+                <ScalarProperty Name="PRO_SOL_DESC" ColumnName="PRO_SOL_DESC" />
+                <ScalarProperty Name="PRO_DESC" ColumnName="PRO_DESC" />
+                <ScalarProperty Name="PRO_ID" ColumnName="PRO_ID" />
+                <ScalarProperty Name="PROSYS_SN" ColumnName="PROSYS_SN" />
+                <ScalarProperty Name="PRO_SN" ColumnName="PRO_SN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBM2133">
+            <EntityTypeMapping TypeName="GMModel.TBM2133">
+              <MappingFragment StoreEntitySet="TBM2133">
+                <ScalarProperty Name="REL_CODE" ColumnName="REL_CODE" />
+                <ScalarProperty Name="LEVEL_SETP" ColumnName="LEVEL_SETP" />
+                <ScalarProperty Name="MEMO" ColumnName="MEMO" />
+                <ScalarProperty Name="USEYEAR" ColumnName="USEYEAR" />
+                <ScalarProperty Name="MATERIAL" ColumnName="MATERIAL" />
+                <ScalarProperty Name="UI" ColumnName="UI" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="FCODE" ColumnName="FCODE" />
+                <ScalarProperty Name="STEP" ColumnName="STEP" />
+                <ScalarProperty Name="CAL" ColumnName="CAL" />
+                <ScalarProperty Name="ITEM" ColumnName="ITEM" />
+                <ScalarProperty Name="CLASS" ColumnName="CLASS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ALLSYS_LOG">
+            <EntityTypeMapping TypeName="GMModel.ALLSYS_LOG">
+              <MappingFragment StoreEntitySet="ALLSYS_LOG">
+                <ScalarProperty Name="AS_SN" ColumnName="AS_SN" />
+                <ScalarProperty Name="AS_ACT" ColumnName="AS_ACT" />
+                <ScalarProperty Name="AS_PAGE" ColumnName="AS_PAGE" />
+                <ScalarProperty Name="AS_COMMAND" ColumnName="AS_COMMAND" />
+                <ScalarProperty Name="AS_IP" ColumnName="AS_IP" />
+                <ScalarProperty Name="AS_DATE" ColumnName="AS_DATE" />
+                <ScalarProperty Name="AS_USER_ID" ColumnName="AS_USER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBMSTANDARDITEMs">
+            <EntityTypeMapping TypeName="GMModel.TBMSTANDARDITEM">
+              <MappingFragment StoreEntitySet="TBMSTANDARDITEM">
+                <ScalarProperty Name="OVC_CHECK" ColumnName="OVC_CHECK" />
+                <ScalarProperty Name="OVC_DESC" ColumnName="OVC_DESC" />
+                <ScalarProperty Name="OVC_MEMO" ColumnName="OVC_MEMO" />
+                <ScalarProperty Name="OVC_NO" ColumnName="OVC_NO" />
+                <ScalarProperty Name="OVC_PURCH_KIND" ColumnName="OVC_PURCH_KIND" />
+                <ScalarProperty Name="OVC_IKIND" ColumnName="OVC_IKIND" />
+                <ScalarProperty Name="OVC_PUR_AGENCY" ColumnName="OVC_PUR_AGENCY" />
+                <ScalarProperty Name="OVC_SYSTEM" ColumnName="OVC_SYSTEM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BLACKLISTs">
+            <EntityTypeMapping TypeName="GMModel.BLACKLIST">
+              <MappingFragment StoreEntitySet="BLACKLIST">
+                <ScalarProperty Name="BL_STATUS" ColumnName="BL_STATUS" />
+                <ScalarProperty Name="BL_REASON" ColumnName="BL_REASON" />
+                <ScalarProperty Name="BL_CREATEDATE" ColumnName="BL_CREATEDATE" />
+                <ScalarProperty Name="BL_IP" ColumnName="BL_IP" />
+                <ScalarProperty Name="BL_SN" ColumnName="BL_SN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER_LOGIN_ERRTRY">
+            <EntityTypeMapping TypeName="GMModel.USER_LOGIN_ERRTRY">
+              <MappingFragment StoreEntitySet="USER_LOGIN_ERRTRY">
+                <ScalarProperty Name="ULE_REASON" ColumnName="ULE_REASON" />
+                <ScalarProperty Name="ULE_CREATEDATE" ColumnName="ULE_CREATEDATE" />
+                <ScalarProperty Name="ULE_IP" ColumnName="ULE_IP" />
+                <ScalarProperty Name="ULE_SN" ColumnName="ULE_SN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

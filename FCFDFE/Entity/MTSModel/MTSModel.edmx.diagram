@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8278f4c521cd458e925187d1bab4a746" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="MTSModel.TBGMT_BLD" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_BLD_MRPLOG" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_EDF" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_EDF_DETAIL" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_EDF_DETAIL_MRPLOG" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_EDF_MRPLOG" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_ICR" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_IDR" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_IHO" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_IRD" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_IRD_CTN" Width="1.5" PointX="12.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_IRD_DETAIL" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_IRD_MRPLOG" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_CURRENCY" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_DEPT_CDE" Width="1.5" PointX="2.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_DEPT_CLASS" Width="1.875" PointX="4.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_PORTS" Width="2.125" PointX="6.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_ECL" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_ESO" Width="1.5" PointX="15.375" PointY="4.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_ICR_MRPLOG" Width="1.5" PointX="9.375" PointY="15.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_ITEMLIST" Width="1.5" PointX="15.375" PointY="12.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_ETR" Width="1.5" PointX="15.375" PointY="15.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_EINN" Width="1.5" PointX="0.75" PointY="16.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_INSRATE" Width="1.5" PointX="3.375" PointY="16.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_COMPANY" Width="1.5" PointX="5.375" PointY="16.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_IINF" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_EINF" Width="1.5" PointX="17.375" PointY="6.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_IINN" Width="1.5" PointX="17.375" PointY="11.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_CURRENCY_RATE" Width="1.5" PointX="11.375" PointY="18.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_CLAIM_RESERVE" Width="1.5" PointX="19.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_BUDGET" Width="1.5" PointX="19.375" PointY="11.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_CINF" Width="1.5" PointX="19.375" PointY="16.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_ICS" Width="1.5" PointX="3.375" PointY="20.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_CARRIAGE_DISCOUNT" Width="1.5" PointX="5.375" PointY="20.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_TRANSFER_AIR_PRICE" Width="1.5" PointX="13.375" PointY="20.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_TRANSFER_SEA_PRICE" Width="1.5" PointX="21.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_TRANSFER_SEA_PRICE_100" Width="1.5" PointX="21.375" PointY="4.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_TRANSFER_SEA_PRICE_TMP" Width="1.5" PointX="21.375" PointY="8.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_TOF" Width="1.5" PointX="21.375" PointY="12.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_BLD_CARRIAGE" Width="1.5" PointX="21.375" PointY="18.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_SCC" Width="1.5" PointX="0.75" PointY="22.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_MRP" Width="1.5" PointX="7.375" PointY="22.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_MRP_ITEM" Width="1.5" PointX="9.375" PointY="22.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_MRP_ITEM_LOG" Width="1.5" PointX="19.375" PointY="22.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_WRP" Width="1.5" PointX="21.375" PointY="22.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_WRP_BLD" Width="1.5" PointX="23.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_MRP_ITEM_DIFF" Width="1.5" PointX="23.375" PointY="3.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_MRP_ITEM_TEMP_DIFF" Width="1.5" PointX="23.375" PointY="9.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_CLEARANCE" Width="1.5" PointX="23.375" PointY="15.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_AIR_TRANSPORT" Width="1.5" PointX="23.375" PointY="19.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_SEA_TRANSPORT" Width="1.5" PointX="11.375" PointY="24.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_CLAIM" Width="1.5" PointX="15.375" PointY="21.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_USER_GRP" Width="1.5" PointX="25.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MTSModel.TBGMT_USERS" Width="1.5" PointX="0.75" PointY="25.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

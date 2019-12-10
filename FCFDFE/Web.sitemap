@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode title="FCFDFE">
+    <!-- 全域系統 -->
+    <siteMapNode title="全域系統">
+      <siteMapNode url="~/pages/GM/AccountApplication" title="帳號申請" />
+      <siteMapNode url="~/pages/GM/AuthorityCheck" title="權限核定" />
+      <siteMapNode url="~/pages/GM/AuthorityMovement" title="系統使用者權限移轉與複製" />
+      <siteMapNode url="~/pages/GM/BulletinBoard" title="公佈欄" />
+      <siteMapNode url="~/pages/GM/BulletinBoardAdd" title="新增公告" />
+      <siteMapNode url="~/pages/GM/SystemMessage" title="系統訊息" />
+      <siteMapNode url="~/pages/GM/UserLoginLog" title="使用者登入紀錄" />
+      <siteMapNode url="~/pages/GM/ProblemApply" title="問題單申請" />
+    </siteMapNode>
+    <!-- 全域系統結束 -->
+
+    <!-- 採購管理系統 -->
+    <siteMapNode title="採購管理系統">
+      <siteMapNode title="採購預劃">
+        <siteMapNode url="~/pages/MPMS/A/MPMS_A11" title="採購預劃購案賦予案號" />
+        <siteMapNode url="~/pages/MPMS/A/MPMS_A12" title="採購預劃購案編輯" />
+        <siteMapNode url="~/pages/MPMS/A/MPMS_A13" title="採購預劃購案查詢" />
+      </siteMapNode>
+
+      <siteMapNode title="計畫編製">
+        <siteMapNode url="~/pages/MPMS/B/MPMS_B11" title="購案查詢" />
+        <siteMapNode url="~/pages/MPMS/B/MPMS_B12" title="複製購案" />
+        <siteMapNode url="~/pages/MPMS/B/MPMS_B13" title="購案物資申請書編製" />
+        <siteMapNode url="~/pages/MPMS/B/MPMS_B14" title="計畫清單" />
+        <siteMapNode url="~/pages/MPMS/B/MPMS_B15" title="購案轉呈計畫評核單位" />
+        <siteMapNode url="~/pages/MPMS/B/MPMS_B16" title="撤案查詢作業" />
+      </siteMapNode>
+
+      <siteMapNode title="計畫評核">
+        <siteMapNode url="~/pages/MPMS/C/MPMS_C11" title="計畫審核分案" />
+        <siteMapNode url="~/pages/MPMS/C/MPMS_C12" title="指派承辦人" />
+        <siteMapNode url="~/pages/MPMS/C/MPMS_C13" title="承辦採購計畫查詢" />
+        <siteMapNode url="~/pages/MPMS/C/MPMS_C14" title="審查資料輸入" />
+        <siteMapNode url="~/pages/MPMS/C/MPMS_C15" title="異動聯審" />
+        <siteMapNode url="~/pages/MPMS/C/MPMS_C16" title="聯審小組分案作業" />
+        <siteMapNode url="~/pages/MPMS/C/MPMS_C17" title="審查單位-購辦" />
+        <siteMapNode url="~/pages/MPMS/C/MPMS_C18" title="綜簽" />
+        <siteMapNode url="~/pages/MPMS/C/MPMS_C19" title="登入購案核批輸入" />
+        <siteMapNode url="~/pages/MPMS/C/MPMS_C1A" title="撤案作業" />
+      </siteMapNode>
+
+      <siteMapNode title="採購發包">
+        <siteMapNode url="~/pages/MPMS/D/MPMS_D11" title="採購室採購發包" />
+        <siteMapNode url="~/pages/MPMS/D/MPMS_D12" title="購辦重要事項編輯" />
+        <siteMapNode url="~/pages/MPMS/D/MPMS_D13" title="計畫清單移交檢查項目表編輯" />
+        <siteMapNode url="~/pages/MPMS/D/MPMS_D14" title="收辦選擇" />
+        <siteMapNode url="~/pages/MPMS/D/MPMS_D15" title="移轉檢查項目表接收" />
+        <siteMapNode url="~/pages/MPMS/D/MPMS_D16" title="購案公告編輯" />
+        <siteMapNode url="~/pages/MPMS/D/MPMS_D17" title="購案開標通知作業編輯" />
+        <siteMapNode url="~/pages/MPMS/D/MPMS_D18" title="購案截標審查作業編輯" />
+        <siteMapNode url="~/pages/MPMS/D/MPMS_D19" title="開標紀錄作業編輯" />
+        <siteMapNode url="~/pages/MPMS/D/MPMS_D1A" title="購案押標金投標文件退還作業" />
+        <siteMapNode url="~/pages/MPMS/D/MPMS_D1B" title="購案開標結果作業編輯" />
+        <siteMapNode url="~/pages/MPMS/D/MPMS_D1C" title="決標公告(一般)編輯" />
+        <siteMapNode url="~/pages/MPMS/D/MPMS_D1D" title="保證金(函)收繳" />
+        <siteMapNode url="~/pages/MPMS/D/MPMS_D21" title="契約草稿製作" />
+        <siteMapNode url="~/pages/MPMS/D/MPMS_D22" title="契約製作檢查項目編輯" />
+        <siteMapNode url="~/pages/MPMS/D/MPMS_D23" title="契約製作編輯-移履約" />
+      </siteMapNode>
+
+      <siteMapNode title="履約驗結">
+        <siteMapNode url="~/pages/MPMS/E/MPMS_E11" title="履驗分案人" />
+        <siteMapNode url="~/pages/MPMS/E/MPMS_E12" title="選擇尚未接管的案號" />
+        <siteMapNode url="~/pages/MPMS/E/MPMS_E13" title="契約接管" />
+        <siteMapNode url="~/pages/MPMS/E/MPMS_E14" title="選擇處理購案" />
+        <siteMapNode url="~/pages/MPMS/E/MPMS_E15" title="購案明細表" />
+        <siteMapNode url="~/pages/MPMS/E/MPMS_E16" title="契約管理" />
+        <siteMapNode url="~/pages/MPMS/E/MPMS_E17" title="交貨暨驗收情形" />
+        <siteMapNode url="~/pages/MPMS/E/MPMS_E18" title="檢驗申請" />
+        <siteMapNode url="~/pages/MPMS/E/MPMS_E19" title="檢驗申請" />
+        <siteMapNode url="~/pages/MPMS/E/MPMS_E1A" title="結算驗收證明" />
+        <siteMapNode url="~/pages/MPMS/E/MPMS_E1B" title="結算驗收證明" />
+        <siteMapNode url="~/pages/MPMS/E/MPMS_E1C" title="保證金管制輸入" />
+        <siteMapNode url="~/pages/MPMS/E/MPMS_E1D" title="代管現金" />
+        <siteMapNode url="~/pages/MPMS/E/MPMS_E1E" title="代管保證文件" />
+        <siteMapNode url="~/pages/MPMS/E/MPMS_E20" title="代管有價證券" />
+      </siteMapNode>
+    </siteMapNode>
+    <!-- 採購系統結束 -->
+
+    <!-- 商情管理系統 -->
+    <siteMapNode title="商情管理系統">
+      <siteMapNode title="代理商管理">
+        <siteMapNode url="~/pages/CIM/A/CIMS_A11" title="代理商新增功能" />
+        <siteMapNode url="~/pages/CIMS/A/CIMS_A12" title="代理商查詢功能" />
+      </siteMapNode>
+
+      <siteMapNode title="底價表管理">
+        <siteMapNode url="~/pages/CIMS/B/CIMS_B11_1" title="底價表上傳功能" />
+        <siteMapNode url="~/pages/CIMS/B/CIMS_B11_2" title="底價表上傳功能" />
+        <siteMapNode url="~/pages/CIMS/B/CIMS_B12" title="底價表查詢功能" />
+      </siteMapNode>
+
+      <siteMapNode title="工程會決標資料管理">
+        <siteMapNode url="~/pages/CIMS/C/CIMS_C11" title="工程會上傳" />
+        <siteMapNode url="~/pages/CIMS/C/CIMS_C12" title="工程會決標購案查詢功能" />
+      </siteMapNode>
+
+      <siteMapNode title="物價指數管理">
+        <siteMapNode url="~/pages/CIMS/D/CIMS_D11" title="物價指數上傳" />
+        <siteMapNode url="~/pages/CIMS/D/CIMS_D12" title="物價指數查詢" />
+      </siteMapNode>
+
+      <siteMapNode title="商情管理">
+        <siteMapNode url="~/pages/CIMS/E/CIMS_E11" title="歷史商情查詢" />
+        <siteMapNode url="~/pages/CIMS/E/CIMS_E12_1" title="常用網址" />
+        <siteMapNode url="~/pages/CIMS/E/CIMS_E12_2" title="常用網址" />
+      </siteMapNode>
+
+      <siteMapNode title="廠商管理">
+        <siteMapNode url="~/pages/CIMS/F/CIMS_F11" title="廠商資料新增" />
+        <siteMapNode url="~/pages/CIMS/F/CIMS_F12" title="廠商資料查詢" />
+      </siteMapNode>
+
+      <siteMapNode title="報表統計">
+        <siteMapNode url="~/pages/CIMS/G/CIMS_G11" title="案件統計查詢" />
+        <siteMapNode url="~/pages/CIMS/G/CIMS_G12" title="執行現況查詢" />
+      </siteMapNode>
+    </siteMapNode>
+    <!-- 商情管理系統結束 -->
+
+    <!-- 物資接轉系統 -->
+    <siteMapNode title="物資接轉系統">
+      <siteMapNode title="進口物資接轉">
+        <siteMapNode url="~/pages/MTS/A/MTS_A11" title="新提單建立作業" />
+        <siteMapNode url="~/pages/MTS/A/MTS_A12_1" title="提單修訂作業" />
+        <siteMapNode title="提單修訂作業">
+          <siteMapNode url="~/pages/MTS/A/MTS_A12_2" title="提單資料-管理" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/A/MTS_A13_1" title="作業時程管制簿-Step1 選擇提單" />
+        <siteMapNode title="作業時程管制簿-Step1 選擇提單">
+          <siteMapNode url="~/pages/MTS/A/MTS_A13_2" title="作業時程管制簿-Step2 填寫管制簿資料" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/A/MTS_A14_1" title="作業時程管制簿管理" />
+        <siteMapNode title="作業時程管制簿管理">
+          <siteMapNode url="~/pages/MTS/A/MTS_A14_2" title="作業時程管制簿-修改" />
+          <siteMapNode url="~/pages/MTS/A/MTS_A14_3" title="作業時程管制簿-刪除" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/A/MTS_A16" title="運況管制日報表管理" />
+        <siteMapNode url="~/pages/MTS/A/MTS_A17_1" title="作業時程管制簿-Step1 選擇提單" />
+        <siteMapNode title="進口物資管制接配紀錄表-Step1 選擇提單">
+          <siteMapNode url="~/pages/MTS/A/MTS_A17_2" title="進口物資管制接配紀錄表-Step2 填寫管制簿資料" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/A/MTS_A18_1" title="進口物資管制接配紀錄表管理" />
+        <siteMapNode title="進口物資管制接配紀錄表管理">
+          <siteMapNode url="~/pages/MTS/A/MTS_A18_2" title="進口物資管制接配紀錄表-修改" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/A/MTS_A19_1" title="進口軍品運輸交接單-Step1 選擇提單/箱號" />
+        <siteMapNode title="進口軍品運輸交接單-Step1 選擇提單/箱號">
+          <siteMapNode url="~/pages/MTS/A/MTS_A19_2" title="進口軍品運輸交接單-Step2 輸入交接單資料" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/A/MTS_A1A_1" title="進口軍品運輸交接單" />
+        <siteMapNode title="進口軍品運輸交接單">
+          <siteMapNode url="~/pages/MTS/A/MTS_A1A_2" title="進口軍品運輸交接單-修改" />
+        </siteMapNode>
+        <siteMapNode title="進口軍品運輸交接單">
+          <siteMapNode url="~/pages/MTS/A/MTS_A1A_3" title="進口軍品運輸交接單-刪除" />
+        </siteMapNode>
+      </siteMapNode>
+
+      <siteMapNode title="出口物資接轉">
+        <siteMapNode url="~/pages/MTS/A/MTS_A21" title="外運資料表建立" />
+        <siteMapNode url="~/pages/MTS/A/MTS_A22_1" title="外運資料表-管理" />
+        <siteMapNode title="外運資料表-管理">
+          <siteMapNode url="~/pages/MTS/A/MTS_A22_2" title="外運資料表-修改" />
+          <siteMapNode url="~/pages/MTS/A/MTS_A22_3" title="外運資料表-審核" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/A/MTS_A23_1" title="出口物資訂艙單-Step1 選擇外運資料表" />
+        <siteMapNode title="出口物資訂艙單-Step1 選擇外運資料表">
+          <siteMapNode url="~/pages/MTS/A/MTS_A23_2" title="出口物資訂艙單-Step2 填寫訂艙單資料" />
+          <siteMapNode url="~/pages/MTS/A/MTS_A23_3" title="出口物資訂艙單-Step2 填寫訂艙單資料" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/A/MTS_A24_1" title="出口物資訂艙單-管理" />
+        <siteMapNode title="出口物資訂艙單－管理">
+          <siteMapNode url="~/pages/MTS/A/MTS_A24_2" title="出口物資訂艙單-管理" />
+          <siteMapNode url="~/pages/MTS/A/MTS_A24_3" title="出口物資訂艙單-Step2 填寫訂艙單資料" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/A/MTS_A25_1" title="提單匯入作業" />
+        <siteMapNode title="提單匯入作業">
+          <siteMapNode url="~/pages/MTS/A/MTS_A25_2" title="提單手動輸入" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/A/MTS_A26_1" title="提單修訂作業" />
+        <siteMapNode title="提單修訂作業">
+          <siteMapNode url="~/pages/MTS/A/MTS_A26_2" title="提單資料-管理" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/A/MTS_A27_1" title="出口報單建立-Step1 選擇提單" />
+        <siteMapNode title="出口報單建立-Step1 選擇提單">
+          <siteMapNode url="~/pages/MTS/A/MTS_A27_2" title="出口報單建立-Step2 填寫出口報單資料" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/A/MTS_A28_1" title="出口報單-管理" />
+        <siteMapNode title="出口報單-管理">
+          <siteMapNode url="~/pages/MTS/A/MTS_A28_2" title="出口報單-修改" />
+          <siteMapNode url="~/pages/MTS/A/MTS_A28_3" title="出口報單-刪除" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/A/MTS_A29_1" title="軍品出口作業時程管制表-Step1 選擇提單" />
+        <siteMapNode title="軍品出口作業時程管制表-Step1 選擇提單">
+          <siteMapNode url="~/pages/MTS/A/MTS_A29_2" title="軍品出口作業時程管制表-Step2 填寫時程管制表資料" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/A/MTS_A2A_1" title="軍品出口作業時程管制表-管理" />
+        <siteMapNode title="軍品出口作業時程管制表-管理">
+          <siteMapNode url="~/pages/MTS/A/MTS_A2A_2" title="軍品出口作業時程管制表-修改" />
+          <siteMapNode url="~/pages/MTS/A/MTS_A2A_3" title="軍品出口作業時程管制表-刪除" />
+        </siteMapNode>
+      </siteMapNode>
+
+      <siteMapNode title="進口物資保險">
+        <siteMapNode url="~/pages/MTS/B/MTS_B11_1" title="國防部國防採購室進口軍品購案投保明細表" />
+        <siteMapNode title="國防部國防採購室進口軍品購案投保明細表">
+          <siteMapNode url="~/pages/MTS/B/MTS_B11_2" title="投保通知書 新增Step2 填寫投保通知書資料" />
+          <siteMapNode url="~/pages/MTS/B/MTS_B11_3" title="投保通知書 新增Step2 填寫投保通知書資料" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/B/MTS_B12_1" title="投保通知書-管理" />
+        <siteMapNode title="投保通知書-管理">
+          <siteMapNode url="~/pages/MTS/B/MTS_B12_2" title="投保通知書-修改" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/B/MTS_B13" title="結報申請表-新增" />
+        <siteMapNode url="~/pages/MTS/B/MTS_B14_1" title="結報申請表-管理" />
+        <siteMapNode title="結報申請表-管理">
+          <siteMapNode url="~/pages/MTS/B/MTS_B14_2" title="結報申請表-修正" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/B/MTS_B15" title="國防部國防採購室進口軍品購案投保明細表" />
+      </siteMapNode>
+
+      <siteMapNode title="出口物資保險">
+        <siteMapNode url="~/pages/MTS/B/MTS_B21_1" title="投保通知書-新增-Step1 選擇外運資料表" />
+        <siteMapNode title="投保通知書-新增-Step1 選擇外運資料表">
+          <siteMapNode url="~/pages/MTS/B/MTS_B21_2" title="投保通知書-新增-Step2 填寫投保通知書資料" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/B/MTS_B22_1" title="投保通知書-管理" />
+        <siteMapNode title="投保通知書-管理">
+          <siteMapNode url="~/pages/MTS/B/MTS_B22_2" title="投保通知書-修改" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/B/MTS_B23" title="結報申請表-新增" />
+        <siteMapNode url="~/pages/MTS/B/MTS_B24_1" title="結報申請表-管理" />
+        <siteMapNode title="結報申請表-管理">
+          <siteMapNode url="~/pages/MTS/B/MTS_B24_2" title="結報申請表-修正" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/B/MTS_B25" title="國防部國防採購室進口軍品購案投保明細表" />
+      </siteMapNode>
+
+      <siteMapNode title="保險索賠管理">
+        <siteMapNode url="~/pages/MTS/C/MTS_C11" title="國防部國防採購室外購案軍品索賠通知書-建立" />
+        <siteMapNode url="~/pages/MTS/C/MTS_C12_1" title="國防部國訪採購室外購案軍品索賠通知書管理-查詢" />
+        <siteMapNode title="國防部國訪採購室外購案軍品索賠通知書管理-查詢">
+          <siteMapNode url="~/pages/MTS/C/MTS_C12_2" title="國防部國訪採購室外購案軍品索賠通知書管理-修改" />
+          <siteMapNode url="~/pages/MTS/C/MTS_C12_3" title="國防部國訪採購室外購案軍品索賠通知書管理-刪除" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/C/MTS_C13_1" title="保險理賠建立與管理-查詢" />
+        <siteMapNode title="保險理賠建立與管理-查詢">
+          <siteMapNode url="~/pages/MTS/C/MTS_C13_2" title="保險理賠建立與管理-修改" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/C/MTS_C14" title="國防部國防採購室外購案軍品保留索賠權-建立" />
+        <siteMapNode url="~/pages/MTS/C/MTS_C15_1" title="國防部國訪採購室外購案軍品保留索賠權及理賠申請-查詢" />
+        <siteMapNode title="國防部國訪採購室外購案軍品保留索賠權及理賠申請-查詢">
+          <siteMapNode url="~/pages/MTS/C/MTS_C15_2" title="國防部國防採購室外購案軍品保留索賠權-修改" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/C/MTS_C16" title="國防部國防採購室外購案軍品索賠及保留索賠權清單" />
+      </siteMapNode>
+
+      <siteMapNode title="保險支付管理">
+        <siteMapNode url="~/pages/MTS/D/MTS_D11_1" title="進口結報申請表-管理" />
+        <siteMapNode title="進口結報申請表-管理">
+          <siteMapNode url="~/pages/MTS/D/MTS_D11_2" title="結報申請表-修改" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/D/MTS_D12_1" title="出口結報申請表-管理" />
+        <siteMapNode title="出口結報申請表-管理">
+          <siteMapNode url="~/pages/MTS/D/MTS_D12_2" title="結報申請表-修改" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/D/MTS_D13" title="保費查詢" />
+      </siteMapNode>
+
+      <siteMapNode title="運費支付">
+        <siteMapNode url="~/pages/MTS/E/MTS_E11_1" title="提單運費審核與修訂作業" />
+        <siteMapNode title="提單運費審核與修訂作業">
+          <siteMapNode url="~/pages/MTS/E/MTS_E11_2" title="提單資料-管理" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/E/MTS_E12_1" title="運費資料管理" />
+        <siteMapNode title="運費資料管理">
+          <siteMapNode url="~/pages/MTS/E/MTS_E12_2" title="運費資料-修改" />
+          <siteMapNode url="~/pages/MTS/E/MTS_E12_3" title="提單資料-新增" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/E/MTS_E13" title="運費 結報申請表-新增" />
+        <siteMapNode url="~/pages/MTS/E/MTS_E14_1" title="運費 結報申請表-管理" />
+        <siteMapNode title="運費 結報申請表-管理">
+          <siteMapNode url="~/pages/MTS/E/MTS_E14_2" title="運費 結報申請表-修改" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/E/MTS_E15_1" title="運費支付管理" />
+        <siteMapNode title="運費支付管理">
+          <siteMapNode url="~/pages/MTS/E/MTS_E15_2" title="運費結報申請表" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/E/MTS_E16" title="運費查詢" />
+      </siteMapNode>
+
+      <siteMapNode title="運費支付">
+        <siteMapNode url="~/pages/MTS/E/MTS_E21_1" title="提單運費審核與修訂作業" />
+        <siteMapNode title="提單運費審核與修訂作業">
+          <siteMapNode url="~/pages/MTS/E/MTS_E21_2" title="提單資料-管理" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/E/MTS_E22_1" title="運費資料管理" />
+        <siteMapNode title="運費資料管理">
+          <siteMapNode url="~/pages/MTS/E/MTS_E22_2" title="運費資料-修改" />
+          <siteMapNode url="~/pages/MTS/E/MTS_E22_3" title="提單資料-新增" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/E/MTS_E23" title="運費 結報申請表-新增" />
+        <siteMapNode url="~/pages/MTS/E/MTS_E24_1" title="運費 結報申請表-管理" />
+        <siteMapNode title="運費 結報申請表-管理">
+          <siteMapNode url="~/pages/MTS/E/MTS_E24_2" title="運費 結報申請表-修改" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/E/MTS_E25_1" title="運費支付管理" />
+        <siteMapNode title="運費支付管理">
+          <siteMapNode url="~/pages/MTS/E/MTS_E25_2" title="運費結報申請表" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/E/MTS_E26" title="海運運費查詢" />
+      </siteMapNode>
+
+      <siteMapNode title="接轉作業費管理">
+        <siteMapNode url="~/pages/MTS/E/MTS_E31" title="接轉作業費結報申請表-新增" />
+        <siteMapNode url="~/pages/MTS/E/MTS_E32_1" title="結報申請表管理-查詢" />
+        <siteMapNode title="結報申請表管理-查詢">
+          <siteMapNode url="~/pages/MTS/E/MTS_E32_2" title="接轉作業費結報申請表-修改" />
+          <siteMapNode url="~/pages/MTS/E/MTS_E32_3" title="接轉作業費結報申請表-刪除" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/E/MTS_E33_1" title="接轉作業費支付管理-查詢" />
+        <siteMapNode title="接轉作業費支付管理-查詢">
+          <siteMapNode url="~/pages/MTS/E/MTS_E33_2" title="接轉作業結帳支付管理" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/E/MTS_E34" title="接轉作業費查詢" />
+      </siteMapNode>
+
+      <siteMapNode title="資料維護">
+        <siteMapNode url="~/pages/MTS/F/MTS_F11" title="外運資料匯入作業" />
+        <siteMapNode url="~/pages/MTS/F/MTS_F12_1" title="公司/廠商資料維護" />
+        <siteMapNode title="公司/廠商資料維護">
+          <siteMapNode url="~/pages/MTS/F/MTS_F12_2" title="公司/廠商資料維護-修改" />
+          <siteMapNode url="~/pages/MTS/F/MTS_F12_3" title="公司/廠商資料維護-新增" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/F/MTS_F13_1" title="保險費率資料維護" />
+        <siteMapNode title="保險費率資料維護">
+          <siteMapNode url="~/pages/MTS/F/MTS_F13_2" title="保險費率資料維護-修改/刪除" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/F/MTS_F14_1" title="機場港口中英文資料維護" />
+        <siteMapNode title="機場港口中英文資料維護">
+          <siteMapNode url="~/pages/MTS/F/MTS_F14_2" title="機場港口資料-修改/刪除" />
+          <siteMapNode url="~/pages/MTS/F/MTS_F14_3" title="機場港口資料-新增" />
+        </siteMapNode>
+        <siteMapNode url="~/pages/MTS/F/MTS_F15" title="幣別幣值資料維護" />
+      </siteMapNode>
+
+      <siteMapNode title="長官查詢">
+        <siteMapNode url="~/pages/MTS/G/MTS_G11" title="國防部國防採購室-運案查詢" />
+        <siteMapNode url="~/pages/MTS/G/MTS_G12" title="國防部國防採購室-運量查詢" />
+        <siteMapNode url="~/pages/MTS/G/MTS_G13" title="國外物資接轉外購軍品運雜費統計表" />
+        <siteMapNode url="~/pages/MTS/G/MTS_G14" title="進口軍售購案已投保未投保統計表" />
+        <siteMapNode url="~/pages/MTS/G/MTS_G15" title="年度空運運費查詢" />
+        <siteMapNode url="~/pages/MTS/G/MTS_G16" title="年度海運運費查詢" />
+      </siteMapNode>
+
+      <siteMapNode title="接轉資料查詢">
+        <siteMapNode url="~/pages/MTS/H/MTS_H11" title="接轉週報表管理" />
+        <siteMapNode url="~/pages/MTS/H/MTS_H12" title="接轉月報表管理" />
+        <siteMapNode url="~/pages/MTS/H/MTS_H17" title="海空運運費管制表管理" />
+      </siteMapNode>
+
+      <siteMapNode title="管理員">
+        <siteMapNode url="~/pages/MTS/Z/MTS_Z21_1" title="帳號管理-修改" />
+        <siteMapNode url="~/pages/MTS/Z/MTS_Z21_2" title="帳號管理-新增" />
+        <siteMapNode url="~/pages/MTS/Z/MTS_Z21_3" title="帳號管理-查詢" />
+        <siteMapNode url="~/pages/MTS/Z/MTS_Z22" title="群組使用功能維護" />
+      </siteMapNode>
+    </siteMapNode>
+
+    <!-- 物資接轉系統結束 -->
+
+  </siteMapNode>
+</siteMap>
