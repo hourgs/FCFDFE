@@ -68,13 +68,28 @@ namespace FCFDFE.pages.GM
             string strC_SN_SYS = drpC_SN_SYS.SelectedValue;
             string strPRO_DESC = txtPRO_DESC.Text;
 
-
             if (strC_SN_SYS.Equals(string.Empty))
                 strMessage += "<P> 請先 選擇子系統名稱 </p>";
             if (strPRO_DESC.Equals(string.Empty))
                 strMessage += "<P> 請先 填寫問題描述 </p >";
-            if (Encoding.Default.GetByteCount(fuUPLOAD_Problem.FileName) > 21)
-                strMessage += "<P> 檔案名稱長度過長</p >";
+            if (fuUPLOAD_Problem.HasFile)
+            {
+                // Get the name of the file to upload.
+                string fileName = Server.HtmlEncode(fuUPLOAD_Problem.FileName);
+
+                if (Encoding.Default.GetByteCount(fileName) > 21)
+                    strMessage += "<P> 檔案名稱長度過長</p >";
+                if (fuUPLOAD_Problem.PostedFile.ContentLength > 4000000)
+                    strMessage += "<P> 檔案大小最大為4MB</p >";
+                // Get the extension of the uploaded file.
+                string extension = System.IO.Path.GetExtension(fileName);
+                // Allow only files with .doc or .xls .pdf extensions
+                // to be uploaded.
+                if ((extension != ".docx") && (extension != ".doc") && (extension != ".xls") && (extension != ".pdf"))
+                {
+                    strMessage += "<P> 副檔名必須為.docx .doc .xls .pdf</p >";
+                }
+            }
             if (strMessage.Equals(string.Empty))
             {
                 PROBLEM_DATA prodata = new PROBLEM_DATA();
