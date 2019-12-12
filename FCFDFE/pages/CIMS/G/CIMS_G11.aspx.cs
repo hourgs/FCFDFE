@@ -28,60 +28,87 @@ namespace FCFDFE.pages.CIMS.G
 
         protected void btnQuery1_Click(object sender, EventArgs e)
         {
-            if (txtQuery1_s.Text == "" || txtQuery1_e.Text == "")
-                FCommon.AlertShow(PnMessage, "danger", "系統訊息", "核定日期起訖皆為必選欄位!");
-            else
-            {
-                DateTime dateValue;
-                DataTable dt = new DataTable();
-                var query = from TBM1301 in GM.TBM1301.DefaultIfEmpty().AsEnumerable()
-                            join TBMRECEIVE_BID in MPMS.TBMRECEIVE_BID.DefaultIfEmpty().AsEnumerable() on TBM1301.OVC_PURCH equals TBMRECEIVE_BID.OVC_PURCH
-                            join TBMRECEIVE_WORK in MPMS.TBMRECEIVE_WORK.DefaultIfEmpty().AsEnumerable() on TBM1301.OVC_PURCH equals TBMRECEIVE_WORK.OVC_PURCH
-                            orderby TBM1301.OVC_PURCH ascending
-                            select new
-                            {
-                                OVC_PURCH = TBM1301.OVC_PURCH ?? "",
-                                OVC_PUR_AGENCY = TBM1301.OVC_PUR_AGENCY ?? "",
-                                OVC_PURCH_5 = TBMRECEIVE_BID.OVC_PURCH_5 ?? "",
-                                OVC_PUR_IPURCH = TBM1301.OVC_PUR_IPURCH ?? "",
-                                OVC_PUR_DAPPROVE = DateTime.TryParse(TBM1301.OVC_PUR_DAPPROVE, out dateValue) == false ? "" : TBM1301.OVC_PUR_DAPPROVE,
-                                OVC_DANNOUNCE = TBMRECEIVE_WORK.OVC_DANNOUNCE ?? "",
-                                OVC_PUR_APPROVE = TBM1301.OVC_PUR_APPROVE ?? "",
-                                OVC_DOPEN = TBMRECEIVE_WORK.OVC_DOPEN ?? "",
-                                ONB_TIMES = TBMRECEIVE_WORK.ONB_TIMES,
-                                OVC_PUR_ASS_VEN_CODE = TBMRECEIVE_WORK.OVC_PUR_ASS_VEN_CODE ?? "",
-                                OVC_DO_NAME = TBMRECEIVE_BID.OVC_DO_NAME ?? ""
-                            };
-                query = query.Where(table => !table.OVC_PUR_DAPPROVE.Equals(""));
-                query = query.Where(table => DateTime.Compare(Convert.ToDateTime(table.OVC_PUR_DAPPROVE), Convert.ToDateTime(txtQuery1_s.Text)) >= 0);
-                query = query.Where(table => DateTime.Compare(Convert.ToDateTime(table.OVC_PUR_DAPPROVE), Convert.ToDateTime(txtQuery1_e.Text)) <= 0);
+			if (txtQuery1_s.Text == "" || txtQuery1_e.Text == "")
+				FCommon.AlertShow(PnMessage, "danger", "系統訊息", "核定日期起訖皆為必選欄位!");
+			else
+			{
+				DateTime dateValue;
+				DataTable dt = new DataTable();
+				var query = from TBM1301 in GM.TBM1301.DefaultIfEmpty().AsEnumerable()
+							join TBMRECEIVE_BID in MPMS.TBMRECEIVE_BID.DefaultIfEmpty().AsEnumerable() on TBM1301.OVC_PURCH equals TBMRECEIVE_BID.OVC_PURCH
+							join TBMRECEIVE_WORK in MPMS.TBMRECEIVE_WORK.DefaultIfEmpty().AsEnumerable() on TBM1301.OVC_PURCH equals TBMRECEIVE_WORK.OVC_PURCH
+							orderby TBM1301.OVC_PURCH ascending
+							select new
+							{
+								OVC_PURCH = TBM1301.OVC_PURCH ?? "",
+								OVC_PUR_AGENCY = TBM1301.OVC_PUR_AGENCY ?? "",
+								OVC_PURCH_5 = TBMRECEIVE_BID.OVC_PURCH_5 ?? "",
+								OVC_PUR_IPURCH = TBM1301.OVC_PUR_IPURCH ?? "",
+								OVC_PUR_DAPPROVE = DateTime.TryParse(TBM1301.OVC_PUR_DAPPROVE, out dateValue) == false ? "" : TBM1301.OVC_PUR_DAPPROVE,
+								OVC_DANNOUNCE = TBMRECEIVE_WORK.OVC_DANNOUNCE ?? "",
+								OVC_PUR_APPROVE = TBM1301.OVC_PUR_APPROVE ?? "",
+								OVC_DOPEN = TBMRECEIVE_WORK.OVC_DOPEN ?? "",
+								ONB_TIMES = TBMRECEIVE_WORK.ONB_TIMES,
+								OVC_PUR_ASS_VEN_CODE = TBMRECEIVE_WORK.OVC_PUR_ASS_VEN_CODE ?? "",
+								OVC_DO_NAME = TBMRECEIVE_BID.OVC_DO_NAME ?? ""
+							};
+				query = query.Where(table => !table.OVC_PUR_DAPPROVE.Equals(""));
+				query = query.Where(table => DateTime.Compare(Convert.ToDateTime(table.OVC_PUR_DAPPROVE), Convert.ToDateTime(txtQuery1_s.Text)) >= 0);
+				query = query.Where(table => DateTime.Compare(Convert.ToDateTime(table.OVC_PUR_DAPPROVE), Convert.ToDateTime(txtQuery1_e.Text)) <= 0);
 
-                dt = CommonStatic.LinqQueryToDataTable(query);
-                DataColumn column = new DataColumn();
-                column.ColumnName = "RANK";
-                column.DataType = System.Type.GetType("System.Int32");
-                dt.Columns.Add(column);
+				dt = CommonStatic.LinqQueryToDataTable(query);
+				DataColumn column = new DataColumn();
+				column.ColumnName = "RANK";
+				column.DataType = System.Type.GetType("System.Int32");
+				dt.Columns.Add(column);
 
-                txtQuery5_s.Text = dt.Rows.Count.ToString();
- 
-                FCommon.AlertShow(PnMessage, "danger", "系統訊息", "無資料");
-                for (int i = 0; i < dt.Rows.Count; i++)
+                if (dt.Rows.Count > 0)
                 {
-                    dt.Rows[i]["Rank"] = i + 1;
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        dt.Rows[i]["Rank"] = i + 1;
+                    }
+                    dt.Columns["RANK"].SetOrdinal(0);//定義欄位順序
+                    dt.Columns["RANK"].ColumnName = "項次";
+                    dt.Columns["OVC_PURCH"].ColumnName = "購案編號";
+                    dt.Columns["OVC_PUR_AGENCY"].ColumnName = "第四組";
+                    dt.Columns["OVC_PURCH_5"].ColumnName = "第五組";
+                    dt.Columns["OVC_PUR_IPURCH"].ColumnName = "購案名稱";
+                    dt.Columns["OVC_PUR_DAPPROVE"].ColumnName = "核定日期";
+                    dt.Columns["OVC_PUR_APPROVE"].ColumnName = "核定文號";
+                    dt.Columns["OVC_DANNOUNCE"].ColumnName = "公告日期";
+                    dt.Columns["OVC_DOPEN"].ColumnName = "開標日期";
+                    dt.Columns["ONB_TIMES"].ColumnName = "開標次數";
+                    dt.Columns["OVC_PUR_ASS_VEN_CODE"].ColumnName = "招標方式";
+                    dt.Columns["OVC_DO_NAME"].ColumnName = "購訂承辦人";
                 }
-                dt.Columns["RANK"].SetOrdinal(0);//定義欄位順序
-                dt.Columns["RANK"].ColumnName = "項次";
-                dt.Columns["OVC_PURCH"].ColumnName = "購案編號";
-                dt.Columns["OVC_PUR_AGENCY"].ColumnName = "第四組";
-                dt.Columns["OVC_PURCH_5"].ColumnName = "第五組";
-                dt.Columns["OVC_PUR_IPURCH"].ColumnName = "購案名稱";
-                dt.Columns["OVC_PUR_DAPPROVE"].ColumnName = "核定日期";
-                dt.Columns["OVC_PUR_APPROVE"].ColumnName = "核定文號";    
-                dt.Columns["OVC_DANNOUNCE"].ColumnName = "公告日期";
-                dt.Columns["OVC_DOPEN"].ColumnName = "開標日期";
-                dt.Columns["ONB_TIMES"].ColumnName = "開標次數";
-                dt.Columns["OVC_PUR_ASS_VEN_CODE"].ColumnName = "招標方式";
-                dt.Columns["OVC_DO_NAME"].ColumnName = "購訂承辦人";
+                else
+                {   //選定範圍沒有資料給預設值                 
+                    dt.Columns.Add("OVC_PURCH");
+                    dt.Columns.Add("OVC_PUR_AGENCY");
+                    dt.Columns.Add("OVC_PURCH_5");
+                    dt.Columns.Add("OVC_PUR_IPURCH");
+                    dt.Columns.Add("OVC_PUR_DAPPROVE");
+                    dt.Columns.Add("OVC_PUR_APPROVE");
+                    dt.Columns.Add("OVC_DANNOUNCE");
+                    dt.Columns.Add("OVC_DOPEN");
+                    dt.Columns.Add("ONB_TIMES");
+                    dt.Columns.Add("OVC_PUR_ASS_VEN_CODE");
+                    dt.Columns.Add("OVC_DO_NAME");
+
+                    dt.Columns["RANK"].ColumnName = "項次";
+                    dt.Columns["OVC_PURCH"].ColumnName = "購案編號";
+                    dt.Columns["OVC_PUR_AGENCY"].ColumnName = "第四組";
+                    dt.Columns["OVC_PURCH_5"].ColumnName = "第五組";
+                    dt.Columns["OVC_PUR_IPURCH"].ColumnName = "購案名稱";
+                    dt.Columns["OVC_PUR_DAPPROVE"].ColumnName = "核定日期";
+                    dt.Columns["OVC_PUR_APPROVE"].ColumnName = "核定文號";
+                    dt.Columns["OVC_DANNOUNCE"].ColumnName = "公告日期";
+                    dt.Columns["OVC_DOPEN"].ColumnName = "開標日期";
+                    dt.Columns["ONB_TIMES"].ColumnName = "開標次數";
+                    dt.Columns["OVC_PUR_ASS_VEN_CODE"].ColumnName = "招標方式";
+                    dt.Columns["OVC_DO_NAME"].ColumnName = "購訂承辦人";
+                }
 
                 IWorkbook wb = new HSSFWorkbook();
                 ISheet ws;
@@ -212,23 +239,55 @@ namespace FCFDFE.pages.CIMS.G
                 column.ColumnName = "RANK";
                 column.DataType = System.Type.GetType("System.Int32");
                 dt.Columns.Add(column);
-                for (int i = 0; i < dt.Rows.Count; i++)
+
+                if (dt.Rows.Count > 0)
                 {
-                    dt.Rows[i]["Rank"] = i + 1;
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        dt.Rows[i]["Rank"] = i + 1;
+                    }
+                    dt.Columns["RANK"].SetOrdinal(0);//定義欄位順序
+                    dt.Columns["RANK"].ColumnName = "項次";
+                    dt.Columns["OVC_PURCH"].ColumnName = "購案編號";
+                    dt.Columns["OVC_PUR_AGENCY"].ColumnName = "第四組";
+                    dt.Columns["OVC_PURCH_5"].ColumnName = "第五組";
+                    dt.Columns["OVC_PUR_IPURCH"].ColumnName = "購案名稱";
+                    dt.Columns["OVC_PUR_DAPPROVE"].ColumnName = "核定日期";
+                    dt.Columns["OVC_PUR_APPROVE"].ColumnName = "核定文號";
+                    dt.Columns["OVC_DANNOUNCE"].ColumnName = "公告日期";
+                    dt.Columns["OVC_DOPEN"].ColumnName = "開標日期";
+                    dt.Columns["ONB_TIMES"].ColumnName = "開標次數";
+                    dt.Columns["OVC_PUR_ASS_VEN_CODE"].ColumnName = "招標方式";
+                    dt.Columns["OVC_DO_NAME"].ColumnName = "購訂承辦人";
                 }
-                dt.Columns["RANK"].SetOrdinal(0);//定義欄位順序
-                dt.Columns["RANK"].ColumnName = "項次";
-                dt.Columns["OVC_PURCH"].ColumnName = "購案編號";
-                dt.Columns["OVC_PUR_AGENCY"].ColumnName = "第四組";
-                dt.Columns["OVC_PURCH_5"].ColumnName = "第五組";
-                dt.Columns["OVC_PUR_IPURCH"].ColumnName = "購案名稱";
-                dt.Columns["OVC_PUR_DAPPROVE"].ColumnName = "核定日期";
-                dt.Columns["OVC_PUR_APPROVE"].ColumnName = "核定文號";
-                dt.Columns["OVC_DANNOUNCE"].ColumnName = "公告日期";
-                dt.Columns["OVC_DOPEN"].ColumnName = "開標日期";
-                dt.Columns["ONB_TIMES"].ColumnName = "開標次數";
-                dt.Columns["OVC_PUR_ASS_VEN_CODE"].ColumnName = "招標方式";
-                dt.Columns["OVC_DO_NAME"].ColumnName = "購訂承辦人";
+                else
+                {
+                    //選定範圍沒有資料給預設值                 
+                    dt.Columns.Add("OVC_PURCH");
+                    dt.Columns.Add("OVC_PUR_AGENCY");
+                    dt.Columns.Add("OVC_PURCH_5");
+                    dt.Columns.Add("OVC_PUR_IPURCH");
+                    dt.Columns.Add("OVC_PUR_DAPPROVE");
+                    dt.Columns.Add("OVC_PUR_APPROVE");
+                    dt.Columns.Add("OVC_DANNOUNCE");
+                    dt.Columns.Add("OVC_DOPEN");
+                    dt.Columns.Add("ONB_TIMES");
+                    dt.Columns.Add("OVC_PUR_ASS_VEN_CODE");
+                    dt.Columns.Add("OVC_DO_NAME");
+
+                    dt.Columns["RANK"].ColumnName = "項次";
+                    dt.Columns["OVC_PURCH"].ColumnName = "購案編號";
+                    dt.Columns["OVC_PUR_AGENCY"].ColumnName = "第四組";
+                    dt.Columns["OVC_PURCH_5"].ColumnName = "第五組";
+                    dt.Columns["OVC_PUR_IPURCH"].ColumnName = "購案名稱";
+                    dt.Columns["OVC_PUR_DAPPROVE"].ColumnName = "核定日期";
+                    dt.Columns["OVC_PUR_APPROVE"].ColumnName = "核定文號";
+                    dt.Columns["OVC_DANNOUNCE"].ColumnName = "公告日期";
+                    dt.Columns["OVC_DOPEN"].ColumnName = "開標日期";
+                    dt.Columns["ONB_TIMES"].ColumnName = "開標次數";
+                    dt.Columns["OVC_PUR_ASS_VEN_CODE"].ColumnName = "招標方式";
+                    dt.Columns["OVC_DO_NAME"].ColumnName = "購訂承辦人";
+                }
 
                 IWorkbook wb = new HSSFWorkbook();
                 ISheet ws;
@@ -359,23 +418,55 @@ namespace FCFDFE.pages.CIMS.G
                 column.ColumnName = "RANK";
                 column.DataType = System.Type.GetType("System.Int32");
                 dt.Columns.Add(column);
-                for (int i = 0; i < dt.Rows.Count; i++)
+
+                if (dt.Rows.Count > 0)
                 {
-                    dt.Rows[i]["Rank"] = i + 1;
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        dt.Rows[i]["Rank"] = i + 1;
+                    }
+                    dt.Columns["RANK"].SetOrdinal(0);//定義欄位順序
+                    dt.Columns["RANK"].ColumnName = "項次";
+                    dt.Columns["OVC_PURCH"].ColumnName = "購案編號";
+                    dt.Columns["OVC_PUR_AGENCY"].ColumnName = "第四組";
+                    dt.Columns["OVC_PURCH_5"].ColumnName = "第五組";
+                    dt.Columns["OVC_PUR_IPURCH"].ColumnName = "購案名稱";
+                    dt.Columns["OVC_PUR_DAPPROVE"].ColumnName = "核定日期";
+                    dt.Columns["OVC_PUR_APPROVE"].ColumnName = "核定文號";
+                    dt.Columns["OVC_DANNOUNCE"].ColumnName = "公告日期";
+                    dt.Columns["OVC_DOPEN"].ColumnName = "開標日期";
+                    dt.Columns["ONB_TIMES"].ColumnName = "開標次數";
+                    dt.Columns["OVC_PUR_ASS_VEN_CODE"].ColumnName = "招標方式";
+                    dt.Columns["OVC_DO_NAME"].ColumnName = "購訂承辦人";
                 }
-                dt.Columns["RANK"].SetOrdinal(0);//定義欄位順序
-                dt.Columns["RANK"].ColumnName = "項次";
-                dt.Columns["OVC_PURCH"].ColumnName = "購案編號";
-                dt.Columns["OVC_PUR_AGENCY"].ColumnName = "第四組";
-                dt.Columns["OVC_PURCH_5"].ColumnName = "第五組";
-                dt.Columns["OVC_PUR_IPURCH"].ColumnName = "購案名稱";
-                dt.Columns["OVC_PUR_DAPPROVE"].ColumnName = "核定日期";
-                dt.Columns["OVC_PUR_APPROVE"].ColumnName = "核定文號";
-                dt.Columns["OVC_DANNOUNCE"].ColumnName = "公告日期";
-                dt.Columns["OVC_DOPEN"].ColumnName = "開標日期";
-                dt.Columns["ONB_TIMES"].ColumnName = "開標次數";
-                dt.Columns["OVC_PUR_ASS_VEN_CODE"].ColumnName = "招標方式";
-                dt.Columns["OVC_DO_NAME"].ColumnName = "購訂承辦人";
+                else
+                {
+                    //選定範圍沒有資料給預設值                 
+                    dt.Columns.Add("OVC_PURCH");
+                    dt.Columns.Add("OVC_PUR_AGENCY");
+                    dt.Columns.Add("OVC_PURCH_5");
+                    dt.Columns.Add("OVC_PUR_IPURCH");
+                    dt.Columns.Add("OVC_PUR_DAPPROVE");
+                    dt.Columns.Add("OVC_PUR_APPROVE");
+                    dt.Columns.Add("OVC_DANNOUNCE");
+                    dt.Columns.Add("OVC_DOPEN");
+                    dt.Columns.Add("ONB_TIMES");
+                    dt.Columns.Add("OVC_PUR_ASS_VEN_CODE");
+                    dt.Columns.Add("OVC_DO_NAME");
+
+                    dt.Columns["RANK"].ColumnName = "項次";
+                    dt.Columns["OVC_PURCH"].ColumnName = "購案編號";
+                    dt.Columns["OVC_PUR_AGENCY"].ColumnName = "第四組";
+                    dt.Columns["OVC_PURCH_5"].ColumnName = "第五組";
+                    dt.Columns["OVC_PUR_IPURCH"].ColumnName = "購案名稱";
+                    dt.Columns["OVC_PUR_DAPPROVE"].ColumnName = "核定日期";
+                    dt.Columns["OVC_PUR_APPROVE"].ColumnName = "核定文號";
+                    dt.Columns["OVC_DANNOUNCE"].ColumnName = "公告日期";
+                    dt.Columns["OVC_DOPEN"].ColumnName = "開標日期";
+                    dt.Columns["ONB_TIMES"].ColumnName = "開標次數";
+                    dt.Columns["OVC_PUR_ASS_VEN_CODE"].ColumnName = "招標方式";
+                    dt.Columns["OVC_DO_NAME"].ColumnName = "購訂承辦人";
+                }
 
                 IWorkbook wb = new HSSFWorkbook();
                 ISheet ws;
@@ -507,22 +598,50 @@ namespace FCFDFE.pages.CIMS.G
                 column.ColumnName = "RANK";
                 column.DataType = System.Type.GetType("System.Int32");
                 dt.Columns.Add(column);
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    dt.Rows[i]["Rank"] = i + 1;
+
+                if(dt.Rows.Count > 0)
+                { 
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        dt.Rows[i]["Rank"] = i + 1;
+                    }
+                    dt.Columns["RANK"].SetOrdinal(0);//定義欄位順序
+                    dt.Columns["RANK"].ColumnName = "項次";
+                    dt.Columns["OVC_DOPEN"].ColumnName = "開標日期";
+                    dt.Columns["OVC_OPEN_HOUR"].ColumnName = "時";
+                    dt.Columns["OVC_OPEN_MIN"].ColumnName = "分";
+                    dt.Columns["OVC_PURCH"].ColumnName = "購案編號";
+                    dt.Columns["OVC_PUR_IPURCH"].ColumnName = "購案名稱";
+                    dt.Columns["OVC_PUR_ASS_VEN_CODE"].ColumnName = "招標方式";
+                    dt.Columns["dija"].ColumnName = "底價核定權責";
+                    dt.Columns["ONB_TIMES"].ColumnName = "開標次數";
+                    dt.Columns["remark"].ColumnName = "備考(鑑價承辦人)";
                 }
-                dt.Columns["RANK"].SetOrdinal(0);//定義欄位順序
-                dt.Columns["RANK"].ColumnName = "項次";
-                dt.Columns["OVC_DOPEN"].ColumnName = "開標日期";
-                dt.Columns["OVC_OPEN_HOUR"].ColumnName = "時";
-                dt.Columns["OVC_OPEN_MIN"].ColumnName = "分";
-                dt.Columns["OVC_PURCH"].ColumnName = "購案編號";
-                dt.Columns["OVC_PUR_IPURCH"].ColumnName = "購案名稱";
-                dt.Columns["OVC_PUR_ASS_VEN_CODE"].ColumnName = "招標方式";
-                dt.Columns["dija"].ColumnName = "底價核定權責";
-                dt.Columns["ONB_TIMES"].ColumnName = "開標次數";
-                dt.Columns["remark"].ColumnName = "備考(鑑價承辦人)";
-                
+                else
+                {
+                    //選定範圍沒有資料給預設值                 
+                    dt.Columns.Add("OVC_DOPEN");
+                    dt.Columns.Add("OVC_OPEN_HOUR");
+                    dt.Columns.Add("OVC_OPEN_MIN");
+                    dt.Columns.Add("OVC_PURCH");
+                    dt.Columns.Add("OVC_PUR_IPURCH");
+                    dt.Columns.Add("OVC_PUR_ASS_VEN_CODE");
+                    dt.Columns.Add("dija");
+                    dt.Columns.Add("ONB_TIMES");
+                    dt.Columns.Add("remark");
+
+                    dt.Columns["RANK"].ColumnName = "項次";
+                    dt.Columns["OVC_DOPEN"].ColumnName = "開標日期";
+                    dt.Columns["OVC_OPEN_HOUR"].ColumnName = "時";
+                    dt.Columns["OVC_OPEN_MIN"].ColumnName = "分";
+                    dt.Columns["OVC_PURCH"].ColumnName = "購案編號";
+                    dt.Columns["OVC_PUR_IPURCH"].ColumnName = "購案名稱";
+                    dt.Columns["OVC_PUR_ASS_VEN_CODE"].ColumnName = "招標方式";
+                    dt.Columns["dija"].ColumnName = "底價核定權責";
+                    dt.Columns["ONB_TIMES"].ColumnName = "開標次數";
+                    dt.Columns["remark"].ColumnName = "備考(鑑價承辦人)";
+                }
+
 
                 IWorkbook wb = new HSSFWorkbook();
                 ISheet ws;
@@ -657,7 +776,7 @@ namespace FCFDFE.pages.CIMS.G
                                 ONB_BID_RESULT = TBMBID_RESULT.ONB_BID_RESULT,
                                 OVC_REMAIN_CURRENT = TBMBID_RESULT.OVC_REMAIN_CURRENT ?? "",
                                 ONB_REMAIN_BUDGET = TBMBID_RESULT.ONB_REMAIN_BUDGET,
-                                PERSENT_BID = TBMBID_RESULT.ONB_BID_BUDGET == 0 ,
+                                PERSENT_BID = TBMBID_RESULT.ONB_BID_BUDGET == 0 ? 0 + "%" : Math.Truncate((Convert.ToDecimal(TBMBID_RESULT.ONB_BID_RESULT) / Convert.ToDecimal(TBMBID_RESULT.ONB_BID_BUDGET))*100) + "%",
                                 OVC_VEN_TITLE=TBM1302.OVC_VEN_TITLE??"",
                                 ONB_BID_VENDORS=TBM1303.ONB_BID_VENDORS
 
@@ -671,34 +790,83 @@ namespace FCFDFE.pages.CIMS.G
                 column.ColumnName = "RANK";
                 column.DataType = System.Type.GetType("System.Int32");
                 dt.Columns.Add(column);
-                for (int i = 0; i < dt.Rows.Count; i++)
+
+                if (dt.Rows.Count > 0)
                 {
-                    dt.Rows[i]["Rank"] = i + 1;
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        dt.Rows[i]["Rank"] = i + 1;
+                    }
+                    dt.Columns["RANK"].SetOrdinal(0);//定義欄位順序
+
+                    dt.Columns["RANK"].ColumnName = "項次";
+                    dt.Columns["OVC_DOPEN"].ColumnName = "開標日期";
+                    dt.Columns["OVC_PUR_NSECTION"].ColumnName = "申購單位";
+                    dt.Columns["OVC_PURCH"].ColumnName = "購案案號";
+                    dt.Columns["ONB_GROUP"].ColumnName = "組別";
+                    dt.Columns["OVC_PURCH_6"].ColumnName = "契約尾號";
+                    dt.Columns["OVC_PUR_IPURCH"].ColumnName = "購案名稱";
+                    dt.Columns["OVC_PUR_ASS_VEN_CODE"].ColumnName = "招標方式";
+                    dt.Columns["ONB_TIMES"].ColumnName = "開標次數";
+                    dt.Columns["OVC_PUR_APPROVE_DEP"].ColumnName = "核定權責";
+                    dt.Columns["OVC_CURRENT"].ColumnName = "預算幣別";
+                    dt.Columns["ONB_BUDGET"].ColumnName = "預算金額";
+                    dt.Columns["OVC_BID_CURRENT"].ColumnName = "底價幣別";
+                    dt.Columns["ONB_BID_BUDGET"].ColumnName = "核定底價";
+                    dt.Columns["OVC_RESULT_CURRENT"].ColumnName = "決標幣別";
+                    dt.Columns["ONB_BID_RESULT"].ColumnName = "決標金額";
+                    dt.Columns["OVC_REMAIN_CURRENT"].ColumnName = "標餘款幣別";
+                    dt.Columns["ONB_REMAIN_BUDGET"].ColumnName = "標餘款";
+                    dt.Columns["PERSENT_BID"].ColumnName = "底價決標價";
+                    dt.Columns["OVC_VEN_TITLE"].ColumnName = "得標商名稱";
+                    dt.Columns["ONB_BID_VENDORS"].ColumnName = "投標廠商家數";
                 }
-                dt.Columns["RANK"].SetOrdinal(0);//定義欄位順序
+                else
+                {
+                    //選定範圍沒有資料給預設值                 
+                    dt.Columns.Add("OVC_DOPEN");
+                    dt.Columns.Add("OVC_PUR_NSECTION");
+                    dt.Columns.Add("OVC_PURCH");
+                    dt.Columns.Add("ONB_GROUP");
+                    dt.Columns.Add("OVC_PURCH_6");
+                    dt.Columns.Add("OVC_PUR_IPURCH");
+                    dt.Columns.Add("OVC_PUR_ASS_VEN_CODE");
+                    dt.Columns.Add("ONB_TIMES");
+                    dt.Columns.Add("OVC_PUR_APPROVE_DEP");
+                    dt.Columns.Add("OVC_CURRENT");
+                    dt.Columns.Add("ONB_BUDGET");
+                    dt.Columns.Add("OVC_BID_CURRENT");
+                    dt.Columns.Add("ONB_BID_BUDGET");
+                    dt.Columns.Add("OVC_RESULT_CURRENT");
+                    dt.Columns.Add("ONB_BID_RESULT");
+                    dt.Columns.Add("OVC_REMAIN_CURRENT");
+                    dt.Columns.Add("ONB_REMAIN_BUDGET");
+                    dt.Columns.Add("PERSENT_BID");
+                    dt.Columns.Add("OVC_VEN_TITLE");
+                    dt.Columns.Add("ONB_BID_VENDORS");
 
-                dt.Columns["RANK"].ColumnName = "項次";
-                dt.Columns["OVC_DOPEN"].ColumnName = "開標日期";
-                dt.Columns["OVC_PUR_NSECTION"].ColumnName = "申購單位";
-                dt.Columns["OVC_PURCH"].ColumnName = "購案案號";
-                dt.Columns["ONB_GROUP"].ColumnName = "組別";
-                dt.Columns["OVC_PURCH_6"].ColumnName = "契約尾號";
-                dt.Columns["OVC_PUR_IPURCH"].ColumnName = "購案名稱";
-                dt.Columns["OVC_PUR_ASS_VEN_CODE"].ColumnName = "招標方式";
-                dt.Columns["ONB_TIMES"].ColumnName = "開標次數";
-                dt.Columns["OVC_PUR_APPROVE_DEP"].ColumnName = "核定權責";
-                dt.Columns["OVC_CURRENT"].ColumnName = "預算幣別";
-                dt.Columns["ONB_BUDGET"].ColumnName = "預算金額";
-                dt.Columns["OVC_BID_CURRENT"].ColumnName = "底價幣別";
-                dt.Columns["ONB_BID_BUDGET"].ColumnName = "核定底價";
-                dt.Columns["OVC_RESULT_CURRENT"].ColumnName = "決標幣別";
-                dt.Columns["ONB_BID_RESULT"].ColumnName = "決標金額";
-                dt.Columns["OVC_REMAIN_CURRENT"].ColumnName = "標餘款幣別";
-                dt.Columns["ONB_REMAIN_BUDGET"].ColumnName = "標餘款";
-                dt.Columns["PERSENT_BID"].ColumnName = "底價決標價";
-                dt.Columns["OVC_VEN_TITLE"].ColumnName = "得標商名稱";
-                dt.Columns["ONB_BID_VENDORS"].ColumnName = "投標廠商家數";
-
+                    dt.Columns["RANK"].ColumnName = "項次";
+                    dt.Columns["OVC_DOPEN"].ColumnName = "開標日期";
+                    dt.Columns["OVC_PUR_NSECTION"].ColumnName = "申購單位";
+                    dt.Columns["OVC_PURCH"].ColumnName = "購案案號";
+                    dt.Columns["ONB_GROUP"].ColumnName = "組別";
+                    dt.Columns["OVC_PURCH_6"].ColumnName = "契約尾號";
+                    dt.Columns["OVC_PUR_IPURCH"].ColumnName = "購案名稱";
+                    dt.Columns["OVC_PUR_ASS_VEN_CODE"].ColumnName = "招標方式";
+                    dt.Columns["ONB_TIMES"].ColumnName = "開標次數";
+                    dt.Columns["OVC_PUR_APPROVE_DEP"].ColumnName = "核定權責";
+                    dt.Columns["OVC_CURRENT"].ColumnName = "預算幣別";
+                    dt.Columns["ONB_BUDGET"].ColumnName = "預算金額";
+                    dt.Columns["OVC_BID_CURRENT"].ColumnName = "底價幣別";
+                    dt.Columns["ONB_BID_BUDGET"].ColumnName = "核定底價";
+                    dt.Columns["OVC_RESULT_CURRENT"].ColumnName = "決標幣別";
+                    dt.Columns["ONB_BID_RESULT"].ColumnName = "決標金額";
+                    dt.Columns["OVC_REMAIN_CURRENT"].ColumnName = "標餘款幣別";
+                    dt.Columns["ONB_REMAIN_BUDGET"].ColumnName = "標餘款";
+                    dt.Columns["PERSENT_BID"].ColumnName = "底價決標價";
+                    dt.Columns["OVC_VEN_TITLE"].ColumnName = "得標商名稱";
+                    dt.Columns["ONB_BID_VENDORS"].ColumnName = "投標廠商家數";
+                }
 
 
 
