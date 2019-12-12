@@ -776,7 +776,7 @@ namespace FCFDFE.pages.CIMS.G
                                 ONB_BID_RESULT = TBMBID_RESULT.ONB_BID_RESULT,
                                 OVC_REMAIN_CURRENT = TBMBID_RESULT.OVC_REMAIN_CURRENT ?? "",
                                 ONB_REMAIN_BUDGET = TBMBID_RESULT.ONB_REMAIN_BUDGET,
-                                PERSENT_BID = TBMBID_RESULT.ONB_BID_BUDGET == 0 ? 0 + "%" : Math.Truncate((Convert.ToDecimal(TBMBID_RESULT.ONB_BID_RESULT) / Convert.ToDecimal(TBMBID_RESULT.ONB_BID_BUDGET))*100) + "%",
+                                PERSENT_BID = (TBMBID_RESULT.ONB_BID_BUDGET == 0 || TBMBID_RESULT.ONB_BID_BUDGET == null) ? 0 + "%" : Math.Truncate((Convert.ToDecimal(TBMBID_RESULT.ONB_BID_RESULT) / Convert.ToDecimal(TBMBID_RESULT.ONB_BID_BUDGET))*100) + "%",
                                 OVC_VEN_TITLE=TBM1302.OVC_VEN_TITLE??"",
                                 ONB_BID_VENDORS=TBM1303.ONB_BID_VENDORS
 
