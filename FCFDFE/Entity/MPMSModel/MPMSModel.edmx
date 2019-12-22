@@ -2298,28 +2298,27 @@
           <Property Name="OVC_STATUS_SN" Type="guid raw" Nullable="false" />
         </EntityType>
         <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'SYSTEM.TBM1202_RESULT' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
-        <EntityType Name="TBM1202_RESULT">
-          <Key>
-            <PropertyRef Name="OVC_PURCH" />
-            <PropertyRef Name="OVC_DRECEIVE" />
-            <PropertyRef Name="OVC_CHECK_UNIT" />
-            <PropertyRef Name="ONB_CHECK_TIMES" />
-            <PropertyRef Name="OVC_ASSIGNER" />
-          </Key>
-          <Property Name="OVC_PURCH" Type="varchar2" MaxLength="8" Nullable="false" />
-          <Property Name="OVC_DRECEIVE" Type="varchar2" MaxLength="10" Nullable="false" />
-          <Property Name="OVC_CHECK_UNIT" Type="varchar2" MaxLength="6" Nullable="false" />
-          <Property Name="ONB_CHECK_TIMES" Type="number" Precision="3" Scale="0" Nullable="false" />
-          <Property Name="OVC_CHECK_OK" Type="varchar2" MaxLength="1" />
-          <Property Name="OVC_DRESULT" Type="varchar2" MaxLength="10" />
-          <Property Name="OVC_CHECKER" Type="varchar2" MaxLength="20" />
-          <Property Name="OVC_ASSIGNER" Type="varchar2" MaxLength="20" Nullable="false" />
-          <Property Name="OVC_DREJECT" Type="varchar2" MaxLength="10" />
-          <Property Name="OVC_INTEGRATED_REASON" Type="varchar2" MaxLength="3990" />
-          <Property Name="OVC_APPROVE_COMMENT" Type="varchar2" MaxLength="3990" />
-          <Property Name="OVC_DRECEIVE_PAPER" Type="varchar2" MaxLength="10" />
-        </EntityType>
+警告 6002: 資料表/檢視 'SYSTEM..' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+      <EntityType Name="TBM1202_RESULT">
+        <Key>
+          <PropertyRef Name="OVC_PURCH" />
+          <PropertyRef Name="OVC_DRECEIVE" />
+          <PropertyRef Name="OVC_CHECK_UNIT" />
+          <PropertyRef Name="ONB_CHECK_TIMES" />
+        </Key>
+        <Property Name="OVC_PURCH" Type="varchar2" MaxLength="8" Nullable="false" />
+        <Property Name="OVC_DRECEIVE" Type="varchar2" MaxLength="10" Nullable="false" />
+        <Property Name="OVC_CHECK_UNIT" Type="varchar2" MaxLength="6" Nullable="false" />
+        <Property Name="ONB_CHECK_TIMES" Type="number" Precision="3" Scale="0" Nullable="false" />
+        <Property Name="OVC_CHECK_OK" Type="varchar2" MaxLength="1" />
+        <Property Name="OVC_DRESULT" Type="varchar2" MaxLength="10" />
+        <Property Name="OVC_CHECKER" Type="varchar2" MaxLength="20" />
+        <Property Name="OVC_ASSIGNER" Type="varchar2" MaxLength="20" Nullable="false" />
+        <Property Name="OVC_DREJECT" Type="varchar2" MaxLength="10" />
+        <Property Name="OVC_INTEGRATED_REASON" Type="varchar2" MaxLength="3990" />
+        <Property Name="OVC_DRECEIVE_PAPER" Type="varchar2" MaxLength="10" />
+        <Property Name="OVC_APPROVE_COMMENT" Type="clob" />
+      </EntityType>
         <!--產生期間發現錯誤:
 警告 6002: 資料表/檢視 'SYSTEM.VIDELIVERY' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
         <EntityType Name="VIDELIVERY">
@@ -2537,7 +2536,7 @@
 "TBM5200_PPP"."OVC_LAST_LOGIN" AS "OVC_LAST_LOGIN"
 FROM "SYSTEM"."TBM5200_PPP" "TBM5200_PPP"</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="TBM1202_RESULT" EntityType="Self.TBM1202_RESULT" store:Type="Views" store:Schema="SYSTEM">
+         <!-- <EntitySet Name="TBM1202_RESULT" EntityType="Self.TBM1202_RESULT" store:Type="Views" store:Schema="SYSTEM">
             <DefiningQuery>SELECT 
 "TBM1202_RESULT"."OVC_PURCH" AS "OVC_PURCH", 
 "TBM1202_RESULT"."OVC_DRECEIVE" AS "OVC_DRECEIVE", 
@@ -2552,7 +2551,8 @@ FROM "SYSTEM"."TBM5200_PPP" "TBM5200_PPP"</DefiningQuery>
 "TBM1202_RESULT"."OVC_APPROVE_COMMENT" AS "OVC_APPROVE_COMMENT", 
 "TBM1202_RESULT"."OVC_DRECEIVE_PAPER" AS "OVC_DRECEIVE_PAPER"
 FROM "SYSTEM"."TBM1202_RESULT" "TBM1202_RESULT"</DefiningQuery>
-          </EntitySet>
+         </EntitySet>-->
+          <EntitySet Name="TBM1202_RESULT" EntityType="Self.TBM1202" Schema="SYSTEM" store:Type="Tables" />
           <EntitySet Name="VIDELIVERY" EntityType="Self.VIDELIVERY" store:Type="Views" store:Schema="SYSTEM">
             <DefiningQuery>SELECT 
 "VIDELIVERY"."PURCH" AS "PURCH", 
@@ -5025,7 +5025,7 @@ FROM "SYSTEM"."VIWORKSTATUS21" "VIWORKSTATUS21"</DefiningQuery>
           <Property Name="ONB_QDELIVERY" Type="Decimal" Precision="13" Scale="2" />
           <Property Name="ONB_MDELIVERY" Type="Decimal" Precision="13" Scale="2" />
         </EntityType>
-        <EntityType Name="TBM1202_RESULT">
+        <!--<EntityType Name="TBM1202_RESULT">
           <Key>
             <PropertyRef Name="OVC_PURCH" />
             <PropertyRef Name="OVC_DRECEIVE" />
@@ -5045,6 +5045,26 @@ FROM "SYSTEM"."VIWORKSTATUS21" "VIWORKSTATUS21"</DefiningQuery>
           <Property Name="OVC_INTEGRATED_REASON" Type="String" MaxLength="3990" FixedLength="false" Unicode="false" />
           <Property Name="OVC_APPROVE_COMMENT" Type="String" MaxLength="3990" FixedLength="false" Unicode="false" />
           <Property Name="OVC_DRECEIVE_PAPER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>-->
+        <EntityType Name="TBM1202_RESULT">
+          <Key>
+            <PropertyRef Name="OVC_PURCH" />
+            <PropertyRef Name="OVC_DRECEIVE" />
+            <PropertyRef Name="OVC_CHECK_UNIT" />
+            <PropertyRef Name="ONB_CHECK_TIMES" />
+          </Key>
+          <Property Name="OVC_PURCH" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_DRECEIVE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_CHECK_UNIT" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="ONB_CHECK_TIMES" Type="Byte" Nullable="false" />
+          <Property Name="OVC_CHECK_OK" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_DRESULT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_CHECKER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_ASSIGNER" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_DREJECT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_INTEGRATED_REASON" Type="String" MaxLength="3990" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_DRECEIVE_PAPER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OVC_APPROVE_COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VITBM1302">
           <Key>

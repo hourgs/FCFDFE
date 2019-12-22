@@ -36,7 +36,7 @@
                                             <asp:Button ID="btnQuery" CssClass="btn-success btnw4" runat="server" Text="查詢" OnClick="btnQuery_Click" /></td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" id="upload" runat="server" visible="false">
+                                        <td colspan="2" ID="upload" runat="server" >
                                             <asp:Button ID="btnUpload" CssClass="btn-warning btnw8" runat="server" Text="上傳本案底價表" Onclick="btnUpload_Click"/></td>
                                     </tr>
                                 </table>
