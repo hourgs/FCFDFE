@@ -61,7 +61,7 @@ namespace FCFDFE.pages.CIMS.C
             if (ful.HasFile)
             {
                 if (Path.GetExtension(ful.FileName) != ".xlsx") //副檔名必須要.xls
-                    FCommon.AlertShow(PnWarning, "danger", "系統訊息", "副檔名必須為.xls");
+                    FCommon.AlertShow(PnWarning, "danger", "系統訊息", "副檔名必須為.xlsx");
                 else
                 {
                     using (var excel = new ExcelPackage(ful.PostedFile.InputStream))

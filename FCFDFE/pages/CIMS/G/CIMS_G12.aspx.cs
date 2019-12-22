@@ -414,7 +414,7 @@ namespace FCFDFE.pages.CIMS.G
                      }).Distinct();
                 if (query.ToList().Count == 0)
                 {
-                    FCommon.AlertShow(PnMessage, "danger", "系統訊息", txtOVC_CONTRACT_START + "年度查無資料!");
+                    FCommon.AlertShow(PnMessage, "danger", "系統訊息", txtOVC_CONTRACT_START.Text + "年度查無資料!");
                     return;
                 }
                 var query2 =
@@ -471,7 +471,7 @@ namespace FCFDFE.pages.CIMS.G
                 dt = CommonStatic.LinqQueryToDataTable(query1);
                 if (dt.Rows.Count == 0)
                 {
-                    FCommon.AlertShow(PnMessage, "danger", "系統訊息", txtOVC_CONTRACT_START + "年度查無資料!");
+                    FCommon.AlertShow(PnMessage, "danger", "系統訊息", txtOVC_CONTRACT_START.Text + "年度查無資料!");
                     return;
                 }
                 DataColumn column = new DataColumn();
@@ -835,7 +835,7 @@ namespace FCFDFE.pages.CIMS.G
                         ONB_BID_RESULT = TBMBID_RESULT.ONB_BID_RESULT,
                         OVC_REMAIN_CURRENT = TBMBID_RESULT.OVC_REMAIN_CURRENT ?? "",
                         ONB_REMAIN_BUDGET = TBMBID_RESULT.ONB_REMAIN_BUDGET,
-                        PERSENT_BID = TBMBID_RESULT.ONB_BID_BUDGET == 0 ? 0 + "%" : Math.Truncate((Convert.ToDecimal(TBMBID_RESULT.ONB_BID_RESULT) / Convert.ToDecimal(TBMBID_RESULT.ONB_BID_BUDGET)) * 100) + "%",
+                        PERSENT_BID = (TBMBID_RESULT.ONB_BID_BUDGET == 0 || TBMBID_RESULT.ONB_BID_BUDGET == null) ? 0 + "%" : Math.Truncate((Convert.ToDecimal(TBMBID_RESULT.ONB_BID_RESULT) / Convert.ToDecimal(TBMBID_RESULT.ONB_BID_BUDGET)) * 100) + "%",
                         OVC_DBID = TBMBID_RESULT.OVC_DBID ?? "",
                     };
                 var query3 =
