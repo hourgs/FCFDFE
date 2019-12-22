@@ -101,7 +101,8 @@ namespace FCFDFE.pages.MPMS.C
                 {
                     var query =
                     from t1301 in mpms.TBM1301
-                    join t1202R in mpms.TBM1202_RESULT on t1301.OVC_PURCH equals t1202R.OVC_PURCH
+                        //join t1202R in mpms.TBM1202_RESULT on t1301.OVC_PURCH equals t1202R.OVC_PURCH
+                    join t1202R in mpms.TBM1202 on t1301.OVC_PURCH equals t1202R.OVC_PURCH
                     join t1301P in mpms.TBM1301_PLAN on t1301.OVC_PURCH equals t1301P.OVC_PURCH
                     where t1301.OVC_PURCH.Substring(2, 2).Equals(yearSub) && t1202R.OVC_CHECK_UNIT == dept
                         && t1202R.OVC_CHECKER == userName && (t1301P.OVC_AUDIT_UNIT == dept || t1301P.OVC_PUR_APPROVE_DEP == "A")
@@ -140,7 +141,8 @@ namespace FCFDFE.pages.MPMS.C
                 {
                     var query =
                     from t1301 in mpms.TBM1301
-                    join t1202R in mpms.TBM1202_RESULT on t1301.OVC_PURCH equals t1202R.OVC_PURCH
+                    //join t1202R in mpms.TBM1202_RESULT on t1301.OVC_PURCH equals t1202R.OVC_PURCH
+                    join t1202R in mpms.TBM1202 on t1301.OVC_PURCH equals t1202R.OVC_PURCH
                     join t1301P in mpms.TBM1301_PLAN on t1301.OVC_PURCH equals t1301P.OVC_PURCH
                     where t1301.OVC_PURCH.Substring(2, 2).Equals(yearSub) && t1202R.OVC_CHECK_UNIT == dept
                         && t1202R.OVC_CHECKER == userName
@@ -182,7 +184,8 @@ namespace FCFDFE.pages.MPMS.C
                 {
                     var query =
                     from t1301 in mpms.TBM1301
-                    join t1202R in mpms.TBM1202_RESULT on t1301.OVC_PURCH equals t1202R.OVC_PURCH
+                    //join t1202R in mpms.TBM1202_RESULT on t1301.OVC_PURCH equals t1202R.OVC_PURCH
+                    join t1202R in mpms.TBM1202 on t1301.OVC_PURCH equals t1202R.OVC_PURCH
                     join t1301P in mpms.TBM1301_PLAN on t1301.OVC_PURCH equals t1301P.OVC_PURCH
                     where t1301.OVC_PURCH.Substring(2, 2).Equals(yearSub) && t1202R.OVC_CHECK_UNIT == dept
                         && t1202R.OVC_CHECKER == userName && (t1301P.OVC_AUDIT_UNIT == dept || t1301P.OVC_PUR_APPROVE_DEP == "A")
@@ -221,7 +224,8 @@ namespace FCFDFE.pages.MPMS.C
                 {
                     var query =
                     from t1301 in mpms.TBM1301
-                    join t1202R in mpms.TBM1202_RESULT on t1301.OVC_PURCH equals t1202R.OVC_PURCH
+                    //join t1202R in mpms.TBM1202_RESULT on t1301.OVC_PURCH equals t1202R.OVC_PURCH
+                    join t1202R in mpms.TBM1202 on t1301.OVC_PURCH equals t1202R.OVC_PURCH
                     join t1301P in mpms.TBM1301_PLAN on t1301.OVC_PURCH equals t1301P.OVC_PURCH
                     where t1301.OVC_PURCH.Substring(2, 2).Equals(yearSub) && t1202R.OVC_CHECK_UNIT == dept
                         && t1202R.OVC_CHECKER == userName
