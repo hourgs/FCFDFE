@@ -152,7 +152,7 @@ namespace FCFDFE.pages.MPMS.C
             string dept = ViewState["DEPT_SN"].ToString();
             if (string.IsNullOrEmpty(txtOVC_DAUDIT_ASSIGN.Text))
             {
-                FCommon.AlertShow(PnMessage, "success", "系統訊息", "請先 輸入分派日");
+                FCommon.AlertShow(PnMessage, "danger", "系統訊息", "請先 輸入分派日");
             }
             else
             {
@@ -168,16 +168,7 @@ namespace FCFDFE.pages.MPMS.C
                     tbm1202.OVC_DRECEIVE_PAPER = txtOVC_DRECEIVE_PAPER.Text;
                     mpms.TBM1202.Add(tbm1202);
                     mpms.SaveChanges();
-                    TBM1202_RESULT tbm1202R = new TBM1202_RESULT();
-                    tbm1202R.OVC_PURCH = (lblOVC_PURCH.Text).Substring(0, lblOVC_PURCH.Text.Length - 1);
-                    tbm1202R.OVC_DRECEIVE = txtOVC_DAUDIT_ASSIGN.Text;
-                    tbm1202R.OVC_CHECK_UNIT = dept;
-                    tbm1202R.ONB_CHECK_TIMES = Convert.ToByte(txtONB_CHECK_TIMES.Text);
-                    tbm1202R.OVC_CHECKER = drpOVC_CHECKER.SelectedItem.Text;
-                    tbm1202R.OVC_ASSIGNER = lblOVC_ASSIGNER.Text;
-                    tbm1202R.OVC_DRECEIVE_PAPER = txtOVC_DRECEIVE_PAPER.Text;
-                    mpms.TBM1202_RESULT.Add(tbm1202R);
-                    mpms.SaveChanges();
+                    
                     FCommon.AlertShow(PnMessage, "success", "系統訊息", "成功指派承辦人");
                     FCommon.syslog_add(Session["userid"].ToString(), Request.ServerVariables["REMOTE_ADDR"].ToString()
                             , tbm1202.GetType().Name.ToString(), this, "新增");

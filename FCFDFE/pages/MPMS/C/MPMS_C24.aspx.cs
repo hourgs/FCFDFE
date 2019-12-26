@@ -102,13 +102,13 @@ namespace FCFDFE.pages.MPMS.C
                     var query =
                     from t1301 in mpms.TBM1301
                         //join t1202R in mpms.TBM1202_RESULT on t1301.OVC_PURCH equals t1202R.OVC_PURCH
-                    join t1202R in mpms.TBM1202 on t1301.OVC_PURCH equals t1202R.OVC_PURCH
+                    join t1202 in mpms.TBM1202 on t1301.OVC_PURCH equals t1202.OVC_PURCH
                     join t1301P in mpms.TBM1301_PLAN on t1301.OVC_PURCH equals t1301P.OVC_PURCH
-                    where t1301.OVC_PURCH.Substring(2, 2).Equals(yearSub) && t1202R.OVC_CHECK_UNIT == dept
-                        && t1202R.OVC_CHECKER == userName && (t1301P.OVC_AUDIT_UNIT == dept || t1301P.OVC_PUR_APPROVE_DEP == "A")
-                        && t1301.OVC_DOING_UNIT == dept && !string.IsNullOrEmpty(t1202R.OVC_DRESULT)
-                        && t1202R.OVC_CHECK_OK == "Y"
-                    orderby t1202R.OVC_PURCH, t1202R.ONB_CHECK_TIMES
+                    where t1301.OVC_PURCH.Substring(2, 2).Equals(yearSub) && t1202.OVC_CHECK_UNIT == dept
+                        && t1202.OVC_CHECKER == userName && (t1301P.OVC_AUDIT_UNIT == dept || t1301P.OVC_PUR_APPROVE_DEP == "A")
+                        && t1301.OVC_DOING_UNIT == dept && !string.IsNullOrEmpty(t1202.OVC_DRESULT)
+                        && t1202.OVC_CHECK_OK == "Y"
+                    orderby t1202.OVC_PURCH, t1202.ONB_CHECK_TIMES
                     select new
                     {
                         t1301.OVC_PUR_AGENCY,
@@ -121,13 +121,13 @@ namespace FCFDFE.pages.MPMS.C
                         t1301.OVC_PUR_APPROVE,
                         t1301.OVC_PUR_DAPPROVE,
                         t1301.OVC_PUR_ALLOW,
-                        t1202R.OVC_PURCH,
-                        t1202R.OVC_DRECEIVE,
-                        t1202R.OVC_CHECK_UNIT,
-                        t1202R.ONB_CHECK_TIMES,
-                        t1202R.OVC_DRESULT,
-                        t1202R.OVC_CHECKER,
-                        t1202R.OVC_CHECK_OK
+                        t1202.OVC_PURCH,
+                        t1202.OVC_DRECEIVE,
+                        t1202.OVC_CHECK_UNIT,
+                        t1202.ONB_CHECK_TIMES,
+                        t1202.OVC_DRESULT,
+                        t1202.OVC_CHECKER,
+                        t1202.OVC_CHECK_OK
                     };
                     DataTable dt = CommonStatic.LinqQueryToDataTable(query);
                     foreach (DataRow row in dt.Rows)
@@ -142,13 +142,13 @@ namespace FCFDFE.pages.MPMS.C
                     var query =
                     from t1301 in mpms.TBM1301
                     //join t1202R in mpms.TBM1202_RESULT on t1301.OVC_PURCH equals t1202R.OVC_PURCH
-                    join t1202R in mpms.TBM1202 on t1301.OVC_PURCH equals t1202R.OVC_PURCH
+                    join t1202 in mpms.TBM1202 on t1301.OVC_PURCH equals t1202.OVC_PURCH
                     join t1301P in mpms.TBM1301_PLAN on t1301.OVC_PURCH equals t1301P.OVC_PURCH
-                    where t1301.OVC_PURCH.Substring(2, 2).Equals(yearSub) && t1202R.OVC_CHECK_UNIT == dept
-                        && t1202R.OVC_CHECKER == userName
-                        && t1301.OVC_DOING_UNIT == dept && !string.IsNullOrEmpty(t1202R.OVC_DRESULT)
-                        && t1202R.OVC_CHECK_OK == "Y"
-                    orderby t1202R.OVC_PURCH, t1202R.ONB_CHECK_TIMES
+                    where t1301.OVC_PURCH.Substring(2, 2).Equals(yearSub) && t1202.OVC_CHECK_UNIT == dept
+                        && t1202.OVC_CHECKER == userName
+                        && t1301.OVC_DOING_UNIT == dept && !string.IsNullOrEmpty(t1202.OVC_DRESULT)
+                        && t1202.OVC_CHECK_OK == "Y"
+                    orderby t1202.OVC_PURCH, t1202.ONB_CHECK_TIMES
                     select new
                     {
                         t1301.OVC_PUR_AGENCY,
@@ -161,13 +161,13 @@ namespace FCFDFE.pages.MPMS.C
                         t1301.OVC_PUR_APPROVE,
                         t1301.OVC_PUR_DAPPROVE,
                         t1301.OVC_PUR_ALLOW,
-                        t1202R.OVC_PURCH,
-                        t1202R.OVC_DRECEIVE,
-                        t1202R.OVC_CHECK_UNIT,
-                        t1202R.ONB_CHECK_TIMES,
-                        t1202R.OVC_DRESULT,
-                        t1202R.OVC_CHECKER,
-                        t1202R.OVC_CHECK_OK
+                        t1202.OVC_PURCH,
+                        t1202.OVC_DRECEIVE,
+                        t1202.OVC_CHECK_UNIT,
+                        t1202.ONB_CHECK_TIMES,
+                        t1202.OVC_DRESULT,
+                        t1202.OVC_CHECKER,
+                        t1202.OVC_CHECK_OK
                     };
                     DataTable dt = CommonStatic.LinqQueryToDataTable(query);
                     foreach(DataRow row in dt.Rows)
@@ -185,13 +185,13 @@ namespace FCFDFE.pages.MPMS.C
                     var query =
                     from t1301 in mpms.TBM1301
                     //join t1202R in mpms.TBM1202_RESULT on t1301.OVC_PURCH equals t1202R.OVC_PURCH
-                    join t1202R in mpms.TBM1202 on t1301.OVC_PURCH equals t1202R.OVC_PURCH
+                    join t1202 in mpms.TBM1202 on t1301.OVC_PURCH equals t1202.OVC_PURCH
                     join t1301P in mpms.TBM1301_PLAN on t1301.OVC_PURCH equals t1301P.OVC_PURCH
-                    where t1301.OVC_PURCH.Substring(2, 2).Equals(yearSub) && t1202R.OVC_CHECK_UNIT == dept
-                        && t1202R.OVC_CHECKER == userName && (t1301P.OVC_AUDIT_UNIT == dept || t1301P.OVC_PUR_APPROVE_DEP == "A")
-                        && t1301.OVC_DOING_UNIT == dept && !string.IsNullOrEmpty(t1202R.OVC_DRESULT)
-                        && t1202R.OVC_CHECK_OK == "Y" && t1301.OVC_PUR_DAPPROVE == null
-                    orderby t1202R.OVC_PURCH, t1202R.ONB_CHECK_TIMES
+                    where t1301.OVC_PURCH.Substring(2, 2).Equals(yearSub) && t1202.OVC_CHECK_UNIT == dept
+                        && t1202.OVC_CHECKER == userName && (t1301P.OVC_AUDIT_UNIT == dept || t1301P.OVC_PUR_APPROVE_DEP == "A")
+                        && t1301.OVC_DOING_UNIT == dept && !string.IsNullOrEmpty(t1202.OVC_DRESULT)
+                        && t1202.OVC_CHECK_OK == "Y" && t1301.OVC_PUR_DAPPROVE == null
+                    orderby t1202.OVC_PURCH, t1202.ONB_CHECK_TIMES
                     select new
                     {
                         t1301.OVC_PUR_AGENCY,
@@ -204,13 +204,13 @@ namespace FCFDFE.pages.MPMS.C
                         t1301.OVC_PUR_APPROVE,
                         t1301.OVC_PUR_DAPPROVE,
                         t1301.OVC_PUR_ALLOW,
-                        t1202R.OVC_PURCH,
-                        t1202R.OVC_DRECEIVE,
-                        t1202R.OVC_CHECK_UNIT,
-                        t1202R.ONB_CHECK_TIMES,
-                        t1202R.OVC_DRESULT,
-                        t1202R.OVC_CHECKER,
-                        t1202R.OVC_CHECK_OK
+                        t1202.OVC_PURCH,
+                        t1202.OVC_DRECEIVE,
+                        t1202.OVC_CHECK_UNIT,
+                        t1202.ONB_CHECK_TIMES,
+                        t1202.OVC_DRESULT,
+                        t1202.OVC_CHECKER,
+                        t1202.OVC_CHECK_OK
                     };
                     DataTable dt = CommonStatic.LinqQueryToDataTable(query);
                     foreach (DataRow row in dt.Rows)
@@ -225,13 +225,13 @@ namespace FCFDFE.pages.MPMS.C
                     var query =
                     from t1301 in mpms.TBM1301
                     //join t1202R in mpms.TBM1202_RESULT on t1301.OVC_PURCH equals t1202R.OVC_PURCH
-                    join t1202R in mpms.TBM1202 on t1301.OVC_PURCH equals t1202R.OVC_PURCH
+                    join t1202 in mpms.TBM1202 on t1301.OVC_PURCH equals t1202.OVC_PURCH
                     join t1301P in mpms.TBM1301_PLAN on t1301.OVC_PURCH equals t1301P.OVC_PURCH
-                    where t1301.OVC_PURCH.Substring(2, 2).Equals(yearSub) && t1202R.OVC_CHECK_UNIT == dept
-                        && t1202R.OVC_CHECKER == userName
-                        && t1301.OVC_DOING_UNIT == dept && !string.IsNullOrEmpty(t1202R.OVC_DRESULT)
-                        && t1202R.OVC_CHECK_OK == "Y" && t1301.OVC_PUR_DAPPROVE == null
-                    orderby t1202R.OVC_PURCH, t1202R.ONB_CHECK_TIMES
+                    where t1301.OVC_PURCH.Substring(2, 2).Equals(yearSub) && t1202.OVC_CHECK_UNIT == dept
+                        && t1202.OVC_CHECKER == userName
+                        && t1301.OVC_DOING_UNIT == dept && !string.IsNullOrEmpty(t1202.OVC_DRESULT)
+                        && t1202.OVC_CHECK_OK == "Y" && t1301.OVC_PUR_DAPPROVE == null
+                    orderby t1202.OVC_PURCH, t1202.ONB_CHECK_TIMES
                     select new
                     {
                         t1301.OVC_PUR_AGENCY,
@@ -244,13 +244,13 @@ namespace FCFDFE.pages.MPMS.C
                         t1301.OVC_PUR_APPROVE,
                         t1301.OVC_PUR_DAPPROVE,
                         t1301.OVC_PUR_ALLOW,
-                        t1202R.OVC_PURCH,
-                        t1202R.OVC_DRECEIVE,
-                        t1202R.OVC_CHECK_UNIT,
-                        t1202R.ONB_CHECK_TIMES,
-                        t1202R.OVC_DRESULT,
-                        t1202R.OVC_CHECKER,
-                        t1202R.OVC_CHECK_OK
+                        t1202.OVC_PURCH,
+                        t1202.OVC_DRECEIVE,
+                        t1202.OVC_CHECK_UNIT,
+                        t1202.ONB_CHECK_TIMES,
+                        t1202.OVC_DRESULT,
+                        t1202.OVC_CHECKER,
+                        t1202.OVC_CHECK_OK
                     };
                     DataTable dt = CommonStatic.LinqQueryToDataTable(query);
                     foreach (DataRow row in dt.Rows)

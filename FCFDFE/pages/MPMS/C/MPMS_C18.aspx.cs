@@ -138,13 +138,13 @@ namespace FCFDFE.pages.MPMS.C
                                          && o.OVC_DRECEIVE.Equals(strDRecive))
                                 .FirstOrDefault();
             
-            TBM1202_RESULT tbm1202R = new TBM1202_RESULT();
-            tbm1202R =
-                    mpms.TBM1202_RESULT.Where(o => o.OVC_PURCH.Equals(strPurchNum)
-                                         && o.ONB_CHECK_TIMES == numCheckTimes
-                                         && o.OVC_CHECK_UNIT.Equals(deptSn)
-                                         && o.OVC_DRECEIVE.Equals(strDRecive))
-                                .FirstOrDefault();
+            //TBM1202_RESULT tbm1202R = new TBM1202_RESULT();
+            //tbm1202R =
+            //        mpms.TBM1202_RESULT.Where(o => o.OVC_PURCH.Equals(strPurchNum)
+            //                             && o.ONB_CHECK_TIMES == numCheckTimes
+            //                             && o.OVC_CHECK_UNIT.Equals(deptSn)
+            //                             && o.OVC_DRECEIVE.Equals(strDRecive))
+            //                    .FirstOrDefault();
             strCheckOK =  drpOVC_CHECK_OK.SelectedValue;
             if (strCheckOK.Equals("N") && !string.IsNullOrEmpty(txtOVC_DREJECTs.Text))
             {
@@ -178,9 +178,9 @@ namespace FCFDFE.pages.MPMS.C
                     tbm1202.OVC_CHECK_OK = strCheckOK;
                     tbm1202.OVC_DRECEIVE_PAPER = txtOVC_DRECEIVE_PAPER.Text;
                     tbm1202.OVC_DRESULT = txtOVC_DRESULT.Text;
-                    tbm1202R.OVC_CHECK_OK = strCheckOK;
-                    tbm1202R.OVC_DRECEIVE_PAPER = txtOVC_DRECEIVE_PAPER.Text;
-                    tbm1202R.OVC_DRESULT = txtOVC_DRESULT.Text;
+                    //tbm1202R.OVC_CHECK_OK = strCheckOK;
+                    //tbm1202R.OVC_DRECEIVE_PAPER = txtOVC_DRECEIVE_PAPER.Text;
+                    //tbm1202R.OVC_DRESULT = txtOVC_DRESULT.Text;
                     mpms.SaveChanges();
                     FCommon.syslog_add(Session["userid"].ToString(), Request.ServerVariables["REMOTE_ADDR"].ToString()
                            , tbm1202.GetType().Name.ToString(), this, "修改");
