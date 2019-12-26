@@ -1746,7 +1746,7 @@ namespace FCFDFE.pages.MPMS.F
                 if (intCount_Data > 0)// && false)
                 {
                     string strSheetText = "15";
-                    string strTitleText = "國防部所屬單位委託採購中心辦理購案暨委製案件採購作業節點管制表";
+                    string strTitleText = "國防部所屬單位委託採購室辦理購案暨委製案件採購作業節點管制表";
                     string strFileName = $"{ strTitleText }.xlsx";
 
                     MemoryStream Memory = ExcelNPOI.RenderDataTableToStream_Chief(dt, strSheetText, strTitleText, 3, strFormat); //取得Excel資料流

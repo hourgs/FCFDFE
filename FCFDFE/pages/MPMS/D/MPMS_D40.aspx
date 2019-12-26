@@ -74,7 +74,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="4" class="text-left">
-                                            <asp:Label CssClass="text-red control-label" runat="server">國防部軍備局採購中心履約驗結處：</asp:Label><br />
+                                            <asp:Label CssClass="text-red control-label" runat="server">國防採購室履約驗結處：</asp:Label><br />
                                             <asp:Label CssClass="control-label" runat="server">採購計畫未辦理修訂，應以原核定計畫清單正本移交，則以修訂後計畫清單移交</asp:Label>
                                         </td>
                                     </tr>

@@ -837,7 +837,7 @@ namespace FCFDFE.pages.MPMS.D
         {
             string strOVC_PURCH = ViewState["strOVC_PURCH"].ToString();
             string strOVC_PURCH_5 = ViewState["strOVC_PURCH_5"].ToString();
-
+            //query1302 = 1301_plan join 1302 的ovc_purch
             var query1302 =
                 (from tbm1301 in mpms.TBM1301_PLAN
                  join tbm1302 in mpms.TBM1302 on tbm1301.OVC_PURCH equals tbm1302.OVC_PURCH

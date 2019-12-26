@@ -188,7 +188,7 @@
                                             <asp:ListItem value="國防部軍備局生產製造中心第二０三廠">國防部軍備局生產製造中心第二０三廠</asp:ListItem> 
                                             <asp:ListItem value="國防部軍備局生產製造中心第四０一廠">國防部軍備局生產製造中心第四０一廠</asp:ListItem> 
                                             <asp:ListItem value="國防部軍備局生產製造中心第四０二廠">國防部軍備局生產製造中心第四０二廠</asp:ListItem> 
-                                            <asp:ListItem value="國防部軍備局採購中心">國防部軍備局採購中心</asp:ListItem> 
+                                            <asp:ListItem value="國防採購室">國防採購室</asp:ListItem> 
                                             <asp:ListItem value="國防部軍備局採購中心工程發包處">國防部軍備局採購中心工程發包處</asp:ListItem> 
                                             <asp:ListItem value="國防部軍備局採購中心駐美採購組">國防部軍備局採購中心駐美採購組</asp:ListItem> 
                                             <asp:ListItem value="國防部軍備局規格鑑測中心">國防部軍備局規格鑑測中心</asp:ListItem> 

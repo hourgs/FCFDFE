@@ -225,7 +225,7 @@
                                 </tr>
                                 <tr>
                                     <td class="text-center" style="background-color:gray">
-                                        <asp:Label CssClass="control-label" runat="server">採購中心</asp:Label>
+                                        <asp:Label CssClass="control-label" runat="server">採購室</asp:Label>
                                     </td>
                                     <td style="background-color:gray">
                                         <asp:Label CssClass="control-label" runat="server">AG</asp:Label>

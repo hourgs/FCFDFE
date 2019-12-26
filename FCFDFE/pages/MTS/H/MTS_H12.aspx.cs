@@ -75,11 +75,11 @@ namespace FCFDFE.pages.MTS.H
                             System.Data.Entity.Core.Objects.ObjectParameter rTN_MSG =
                                 new System.Data.Entity.Core.Objects.ObjectParameter("rTN_MSG", typeof(string));
                             MTSE.MRP_ITEM_LOG_SUMMARIZE(strDateStart, rTN_MSG);
-                            FCommon.AlertShow(PnMessage, "success", "系統訊息", "採購中心 細項Log 產生成功。");
+                            FCommon.AlertShow(PnMessage, "success", "系統訊息", "採購室 細項Log 產生成功。");
                         }
                         catch
                         {
-                            FCommon.AlertShow(PnMessage, "danger", "系統訊息", "採購中心 細項Log 產生失敗！");
+                            FCommon.AlertShow(PnMessage, "danger", "系統訊息", "採購室 細項Log 產生失敗！");
                         }
                     }
                 }
@@ -142,7 +142,7 @@ namespace FCFDFE.pages.MTS.H
                     #region 細項 MRP_ITEM
                     setDeleteAllItem(strOVC_SECTION, dateStart); //先刪除目前之細項
 
-                    if (strOVC_SECTION.Equals("採購中心"))
+                    if (strOVC_SECTION.Equals("採購室"))
                     {
                         try
                         {
@@ -151,11 +151,11 @@ namespace FCFDFE.pages.MTS.H
                             System.Data.Entity.Core.Objects.ObjectParameter rTN_MSG =
                                 new System.Data.Entity.Core.Objects.ObjectParameter("rTN_MSG", typeof(string));
                             MTSE.MRP_ITEM_LOG_SUMMARIZE(strDateStart, rTN_MSG);
-                            FCommon.AlertShow(PnMessage, "success", "系統訊息", "採購中心 細項Log 產生成功。");
+                            FCommon.AlertShow(PnMessage, "success", "系統訊息", "採購室 細項Log 產生成功。");
                         }
                         catch
                         {
-                            FCommon.AlertShow(PnMessage, "danger", "系統訊息", "採購中心 細項Log 產生失敗！");
+                            FCommon.AlertShow(PnMessage, "danger", "系統訊息", "採購室 細項Log 產生失敗！");
                         }
                     }
                     else
@@ -1879,7 +1879,7 @@ namespace FCFDFE.pages.MTS.H
                     {
                         intAuth = 2;
                         if (!FCommon.getQueryString(this, "section", out strOVC_SECTION, true))
-                            strOVC_SECTION = "採購中心"; //預設為採購中心
+                            strOVC_SECTION = "採購室"; //預設為採購中心
                         FCommon.list_setValue(drpOVC_SECTION, strOVC_SECTION);
                         btnStatisticItem.Enabled = false;
                         isSelectSECTION = true;
@@ -2259,7 +2259,7 @@ namespace FCFDFE.pages.MTS.H
                 }
                 #endregion
                 string strMessage_Section = "";
-                if (strOVC_SECTION.Equals("採購中心"))
+                if (strOVC_SECTION.Equals("採購室"))
                     if (getIsAllClosedtExist(strDateStart, out strMessage_Section))
                     {
                         try
@@ -2329,7 +2329,7 @@ namespace FCFDFE.pages.MTS.H
                 string strTableName = "";
                 bool isLeastNoe = true; //是否至少有一筆資料
 
-                if (strOVC_SECTION.Equals("採購中心"))
+                if (strOVC_SECTION.Equals("採購室"))
                 {
                     string strMessage_Section;
                     if (!getIsAllClosedtExist(strDateStart, out strMessage_Section))

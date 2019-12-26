@@ -172,7 +172,7 @@
                                         <asp:Button ID="Button3" CssClass="btn btn-info" runat="server" Text="單位查詢" />
                                     </div>
                                 </div>
-                                <asp:Label ID="Label3" CssClass="control-label col-lg-12" runat="server" Text="(若仍由採購中心下授委辦單位履約者，仍請選定採購中心為履約驗結單位)" ForeColor="Red"></asp:Label>
+                                <asp:Label ID="Label3" CssClass="control-label col-lg-12" runat="server" Text="(若仍由採購室下授委辦單位履約者，仍請選定採購中心為履約驗結單位)" ForeColor="Red"></asp:Label>
                             </div>
                             <div class="form-group">
                                 <div class="form-group-inner">

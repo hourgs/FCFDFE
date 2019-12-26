@@ -61,7 +61,7 @@ namespace FCFDFE.pages.MPMS.F
 
             string[] strName_OVC_PUR_APPROVE_DEP = { "A(部核)<br>國防部核定權責", "B(非部核)<br>國防部授權單位自行核定權責", "C(非部核)<br>國防部授權單位自行下授核定權責", "X(非部核)<br>其他核定權責" };
             string[] strSql_OVC_PUR_APPROVE_DEP = { "A", "B", "C", "X" };
-            string[] strName_OVC_PUR_AGENCY = { "A<br>非軍事機關(外購)", "B<br>非軍事機關(內購)", "C<br>駐美採購組", "E<br>駐歐採購組", "F<br>單位自辦外購", "L<br>軍備局採購中心(內購)", "M<br>軍售案(美)", "P<br>單位自辦內購", "S<br>軍售案(法)", "W<br>軍備局採購中心(外購)" };
+            string[] strName_OVC_PUR_AGENCY = { "A<br>非軍事機關(外購)", "B<br>非軍事機關(內購)", "C<br>駐美採購組", "E<br>駐歐採購組", "F<br>單位自辦外購", "L<br>採購室(內購)", "M<br>軍售案(美)", "P<br>單位自辦內購", "S<br>軍售案(法)", "W<br>採購室(外購)" };
             string[] strSql_OVC_PUR_AGENCY = { "A", "B", "C", "E", "F", "L", "M", "P", "S", "W" };
             string[] strName_OVC_PUR_ASS_VEN_CODE = { "A<br>公開招標", "B<br>選擇性招標", "C<br>限制性招標", "D<br>公開取得企劃書或抱報價單" };
             string[] strSql_OVC_PUR_ASS_VEN_CODE = { "A", "B", "C", "D" };

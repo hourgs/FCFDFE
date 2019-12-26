@@ -255,6 +255,7 @@ namespace FCFDFE.pages.MPMS.E
             {
                 var id = Session["userid"].ToString();
                 var queryunit = mpms.ACCOUNT.Where(o => o.USER_ID.Equals(id)).FirstOrDefault();
+                //queryunit 登入者的account資料
                 Session["userunit"] = queryunit.DEPT_SN;
                 var userunit = Session["userunit"].ToString();
 

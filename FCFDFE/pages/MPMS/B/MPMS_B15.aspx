@@ -185,7 +185,7 @@
                                     <asp:RequiredFieldValidator ID="valOVC_CONTRACT_UNIT" ControlToValidate="txtOVC_CONTRACT_UNIT"  runat="server" Forecolor="Red" ErrorMessage="必填"></asp:RequiredFieldValidator>
                                     <asp:TextBox id="txtOVC_CONTRACT_UNIT_1" CssClass="tb tb-m" runat="server"></asp:TextBox>
                                     <asp:Button ID="btnQueryOVC_CONTRACT_UNIT" onclick="btnQueryOVC_CONTRACT_UNIT_Click" OnClientClick="OpenWindow('txtOVC_CONTRACT_UNIT','txtOVC_CONTRACT_UNIT_1')" cssclass="btn-warning" runat="server" Text="單位查詢"/><br />
-                                    <asp:Label ID="lblCONTRACT" CssClass="control-label" runat="server">(若仍由採購中心下委辦單位履約者，仍請選定採購中心為履約驗結單位)</asp:Label><br />
+                                    <asp:Label ID="lblCONTRACT" CssClass="control-label" runat="server">(若仍由採購室下委辦單位履約者，仍請選定採購室為履約驗結單位)</asp:Label><br />
                                     <asp:Label ID="lblCONTRACT_CHANGE" CssClass="control-label" runat="server">(此欄位為採購預劃之履約驗結單位，如果採購預劃輸入請再此更改，將寫回採購預劃之履約驗結單位)</asp:Label>
                                 </td>
                             </tr>

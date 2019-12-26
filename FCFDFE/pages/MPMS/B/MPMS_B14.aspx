@@ -121,7 +121,7 @@
                                      </FooterTemplate>
                                  </asp:Repeater>
                                 <div style="text-align:center">
-                                    <asp:Button ID="btnPresented" CssClass="btn-success" Text="澄清無誤轉呈採購中心" OnClick="btnPresented_Click" runat="server"/>
+                                    <asp:Button ID="btnPresented" CssClass="btn-success" Text="澄清無誤轉呈採購室" OnClick="btnPresented_Click" runat="server"/>
                                     <asp:Button ID="btnToOtherPurch" OnClick="btnToOtherPurch_Click" CssClass="btn-success" Text="處理其他購案" runat="server"/>
                                     <asp:Button ID="btnShowMain" CssClass="btn-success" OnClick="btnShowMain_Click"  Text="回上一頁" runat="server"/>
                                 </div>

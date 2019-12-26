@@ -86,7 +86,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <asp:Label CssClass="control-label text-red" runat="server">注意事項：若上一版本未顯示，或上一級版本與目前版本資訊相同，表示委購單位尚未完成資料重新轉呈採購中心或委辦單位毋需澄覆</asp:Label>
+                                        <asp:Label CssClass="control-label text-red" runat="server">注意事項：若上一版本未顯示，或上一級版本與目前版本資訊相同，表示委購單位尚未完成資料重新轉呈採購室或委辦單位毋需澄覆</asp:Label>
                                     </td>
                                 </tr>
                             </table>

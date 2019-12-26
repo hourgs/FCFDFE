@@ -256,7 +256,7 @@
                                     <td colspan="2">
                                         <asp:DropDownList ID="drpYear_MNDPur" CssClass="tb drp-year" runat="server"></asp:DropDownList>
                                         <asp:Label CssClass="control-label text-blue" runat="server">年度</asp:Label>
-                                        <asp:Label CssClass="control-label text-blue" runat="server">國防部所屬單位委託採購中心辦理購案暨委製案件採購作業節點管制表</asp:Label>
+                                        <asp:Label CssClass="control-label text-blue" runat="server">國防部所屬單位委託採購室辦理購案暨委製案件採購作業節點管制表</asp:Label>
                                     </td>
                                 </tr>
 

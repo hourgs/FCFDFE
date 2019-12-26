@@ -126,7 +126,7 @@ namespace FCFDFE.pages.CIMS.G
                     titlefont.Boldweight = (short)NPOI.SS.UserModel.FontBoldWeight.Bold;
                     title.SetFont(titlefont);
                     //第一欄標題
-                    ws.CreateRow(0).CreateCell(0).SetCellValue(year + "年度採購中心收辦購案執行現況表(收辦案數之購案明細)");
+                    ws.CreateRow(0).CreateCell(0).SetCellValue(year + "年度採購室收辦購案執行現況表(收辦案數之購案明細)");
                     for (int i = 1; i <= 6; i++)
                     {
                         ws.GetRow(0).CreateCell(i);
@@ -188,7 +188,7 @@ namespace FCFDFE.pages.CIMS.G
                     ws.SetColumnWidth(5, 20 * 256);
                     ws.SetColumnWidth(6, 40 * 256);
                     wb.Write(ms);
-                    string filename = year + "年度採購中心收辦購案執行現況表(收辦案數之購案明細).xls";
+                    string filename = year + "年度採購室收辦購案執行現況表(收辦案數之購案明細).xls";
                     Response.AddHeader("Content-Disposition", string.Format("attachment; filename=" + filename));
                     Response.BinaryWrite(ms.ToArray());
                     wb = null;
@@ -320,7 +320,7 @@ namespace FCFDFE.pages.CIMS.G
                 titlefont.Boldweight = (short)NPOI.SS.UserModel.FontBoldWeight.Bold;
                 title.SetFont(titlefont);
                 //第一欄標題
-                ws.CreateRow(0).CreateCell(0).SetCellValue(year+ "年度採購中心收辦購案執行現況表(決標案數之購案明細)");
+                ws.CreateRow(0).CreateCell(0).SetCellValue(year+ "年度採購室收辦購案執行現況表(決標案數之購案明細)");
                 for (int i = 1; i <= 6; i++)
                 {
                     ws.GetRow(0).CreateCell(i);
@@ -382,7 +382,7 @@ namespace FCFDFE.pages.CIMS.G
                 ws.SetColumnWidth(5, 20 * 256);
                 ws.SetColumnWidth(6, 40 * 256);
                 wb.Write(ms);
-                string filename = year + "年度採購中心收辦購案執行現況表(決標案數之購案明細).xls";
+                string filename = year + "年度採購室收辦購案執行現況表(決標案數之購案明細).xls";
                 Response.AddHeader("Content-Disposition", string.Format("attachment; filename=" + filename));
                 Response.BinaryWrite(ms.ToArray());
                 wb = null;
@@ -515,7 +515,7 @@ namespace FCFDFE.pages.CIMS.G
                 titlefont.Boldweight = (short)NPOI.SS.UserModel.FontBoldWeight.Bold;
                 title.SetFont(titlefont);
                 //第一欄標題
-                ws.CreateRow(0).CreateCell(0).SetCellValue(year + "年度採購中心收辦購案執行現況表(收辦案數之購案明細)");
+                ws.CreateRow(0).CreateCell(0).SetCellValue(year + "年度採購室收辦購案執行現況表(收辦案數之購案明細)");
                 for (int i = 1; i <= 10; i++)
                 {
                     ws.GetRow(0).CreateCell(i);
@@ -581,7 +581,7 @@ namespace FCFDFE.pages.CIMS.G
                 ws.SetColumnWidth(9, 20 * 256);
                 ws.SetColumnWidth(10, 40 * 256);
                 wb.Write(ms);
-                string filename = year + "年度採購中心收辦購案執行現況表(收辦案數之購案明細).xls";
+                string filename = year + "年度採購室收辦購案執行現況表(收辦案數之購案明細).xls";
                 Response.AddHeader("Content-Disposition", string.Format("attachment; filename=" + filename));
                 Response.BinaryWrite(ms.ToArray());
                 wb = null;
@@ -2233,7 +2233,7 @@ namespace FCFDFE.pages.CIMS.G
                 txttotal_2.Text = total_2.ToString();
                 txttotal_3.Text = total_3.ToString();
                 txttotal_4.Text = total_1 == 0 ? "0" + "%" : Math.Truncate((Convert.ToDecimal(total_2) / Convert.ToDecimal(total_1)) * 100) + "%";
-                Title1.Text = year + "年度採購中心收辦購案執行現況";
+                Title1.Text = year + "年度採購室收辦購案執行現況";
 
                 Panel1.Visible = false;
                 Panel2.Visible = true;
