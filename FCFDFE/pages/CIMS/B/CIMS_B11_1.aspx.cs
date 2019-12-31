@@ -101,7 +101,7 @@ namespace FCFDFE.pages.CIMS.B
                         string path = tbm_file_download.OVC_FILE_NAME;
 
                         string appPath = Request.PhysicalApplicationPath;
-                        string location = appPath + "\\Upload\\CIMS\\";
+                        string location = appPath + "\\Uploadfile\\CIMS\\";
                         string download = location + path;
                         System.Net.WebClient wc = new System.Net.WebClient();
                         byte[] xfile = null;
@@ -214,7 +214,7 @@ namespace FCFDFE.pages.CIMS.B
                 {
 
                     appPath = Request.PhysicalApplicationPath;
-                    location = appPath + "\\Upload\\CIMS\\";
+                    location = appPath + "\\Uploadfile\\CIMS\\";
                     Path = location + id + "\\";
 
                     if (!Directory.Exists(Path))
