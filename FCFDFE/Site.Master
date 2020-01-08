@@ -63,7 +63,7 @@
     <form runat="server">
         <asp:ScriptManager runat="server">
             </asp:ScriptManager>
-        <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick" Interval="600000"></asp:Timer>
+<%--        <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick" Interval="600000"></asp:Timer>--%>
     <!--header start-->
     <header class="header white-bg">
         <div class="sidebar-toggle-box">

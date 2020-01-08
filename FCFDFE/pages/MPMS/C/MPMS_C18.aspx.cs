@@ -74,6 +74,7 @@ namespace FCFDFE.pages.MPMS.C
         }
 
         #region OnClick
+        //列印
         protected void btnPrint_Command(object sender, CommandEventArgs e)
         {
             string filePath = "";
@@ -964,7 +965,7 @@ namespace FCFDFE.pages.MPMS.C
             var t1301 =
                 (from t in gm.TBM1301
                  join t1407 in gm.TBM1407 on t.OVC_PUR_CURRENT equals t1407.OVC_PHR_ID
-                 where t.OVC_PURCH.Equals(strPurchNum) && t1407.OVC_PHR_CATE.Equals("B0")
+                 where t.OVC_PURCH.Equals(strPurchNum) && t1407.OVC_PHR_CATE.Equals("B0")//幣別
                  select new
                  {
                      t.OVC_PUR_AGENCY,

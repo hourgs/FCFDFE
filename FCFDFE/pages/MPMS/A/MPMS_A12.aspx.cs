@@ -31,6 +31,7 @@ namespace FCFDFE.pages.MPMS.A
                 {
                     //設置readonly屬性
                     FCommon.Controls_Attributes("readonly", "true", txtOVC_DPROPOSE, txtOVC_DAPPROVE, txtOVC_DCONTRACT, txtOVC_PUR_USER, txtOVC_PJNAME, txtONB_DELIVER_DATE, drpOVC_PLAN_PURCH, txtOVC_DCLOSE);
+                    //交貨天數的radiobutton
                     rdoONB_DELIVER_DAYS.Enabled = false;
                     rdoONB_DELIVER_DATE.Enabled = false;
                     if (!IsPostBack)
@@ -192,7 +193,7 @@ namespace FCFDFE.pages.MPMS.A
                 gm.TBM1301_PLAN.Add(plan1301);
             gm.SaveChanges();
             FCommon.AlertShow(PnMessage, "success", "系統訊息", "存檔成功");
-
+            //預劃年度，科目，金額的panel
             divCheck.Visible = true;
             list_dataImport(drpOVC_BUDGET_YEAR);
         }
@@ -374,6 +375,7 @@ namespace FCFDFE.pages.MPMS.A
         #endregion
 
         #region On~~~Changed
+        //採購單位及方式
         protected void drpOVC_PUR_AGENCY_SelectedIndexChanged(object sender, EventArgs e)
         {
             string strOVC_PUR_AGENCY = drpOVC_PUR_AGENCY.SelectedValue.ToString();
@@ -383,34 +385,40 @@ namespace FCFDFE.pages.MPMS.A
             switch (strOVC_PUR_AGENCY)
             {
                 case "F":
+                    //drpOVC_PUR_ASS_VEN_CODE 招標方式drpdown
                     dtOVC_PUR_ASS_VEN_CODE = CommonStatic.ListToDataTable(query.Where(table => table.OVC_PHR_CATE == "C7").Where(table => table.OVC_PHR_ID.Equals("F")).ToList());
                     FCommon.list_dataImportV(drpOVC_PUR_ASS_VEN_CODE, dtOVC_PUR_ASS_VEN_CODE, "OVC_PHR_DESC", "OVC_PHR_ID", ":", false);
                     txtOVC_PURCH_MILITARY.Visible = false;
                     lblDescription.Visible = false;
+                    drpOVC_MILITARY_TYPE.Visible = false;
                     break;
                 case "M":
                     dtOVC_PUR_ASS_VEN_CODE = CommonStatic.ListToDataTable(query.Where(table => table.OVC_PHR_CATE == "C7").Where(table => table.OVC_PHR_ID.Equals("C") || table.OVC_PHR_ID.Equals("D") || table.OVC_PHR_ID.Equals("E")).ToList());
                     FCommon.list_dataImportV(drpOVC_PUR_ASS_VEN_CODE, dtOVC_PUR_ASS_VEN_CODE, "OVC_PHR_DESC", "OVC_PHR_ID", ":", true);
                     txtOVC_PURCH_MILITARY.Visible = true;
                     lblDescription.Visible = true;
+                    drpOVC_MILITARY_TYPE.Visible = true;
                     break;
                 case "P":
                     dtOVC_PUR_ASS_VEN_CODE = CommonStatic.ListToDataTable(query.Where(table => table.OVC_PHR_CATE == "C7").Where(table => table.OVC_PHR_ID.Equals("F")).ToList());
                     FCommon.list_dataImportV(drpOVC_PUR_ASS_VEN_CODE, dtOVC_PUR_ASS_VEN_CODE, "OVC_PHR_DESC", "OVC_PHR_ID", ":", false);
                     txtOVC_PURCH_MILITARY.Visible = false;
                     lblDescription.Visible = false;
+                    drpOVC_MILITARY_TYPE.Visible = false;
                     break;
                 case "S":
                     dtOVC_PUR_ASS_VEN_CODE = CommonStatic.ListToDataTable(query.Where(table => table.OVC_PHR_CATE == "C7").Where(table => table.OVC_PHR_ID.Equals("C") || table.OVC_PHR_ID.Equals("D") || table.OVC_PHR_ID.Equals("E")).ToList());
                     FCommon.list_dataImportV(drpOVC_PUR_ASS_VEN_CODE, dtOVC_PUR_ASS_VEN_CODE, "OVC_PHR_DESC", "OVC_PHR_ID", ":", true);
                     txtOVC_PURCH_MILITARY.Visible = false;
                     lblDescription.Visible = false;
+                    drpOVC_MILITARY_TYPE.Visible = true;
                     break;
                 default:
                     dtOVC_PUR_ASS_VEN_CODE = CommonStatic.ListToDataTable(query.Where(table => table.OVC_PHR_CATE == "C7").ToList());
                     FCommon.list_dataImportV(drpOVC_PUR_ASS_VEN_CODE, dtOVC_PUR_ASS_VEN_CODE, "OVC_PHR_DESC", "OVC_PHR_ID", ":", false);
                     txtOVC_PURCH_MILITARY.Visible = false;
                     lblDescription.Visible = false;
+                    drpOVC_MILITARY_TYPE.Visible = false;
                     break;
             }
         }
@@ -500,6 +508,7 @@ namespace FCFDFE.pages.MPMS.A
             //美軍案號
             txtOVC_PURCH_MILITARY.Visible = false;
             lblDescription.Visible = false;
+            drpOVC_MILITARY_TYPE.Visible = false;
             //招標方式
             DataTable dtOVC_PUR_ASS_VEN_CODE = CommonStatic.ListToDataTable(query.Where(table => table.OVC_PHR_CATE == "C7").ToList());
             FCommon.list_dataImportV(drpOVC_PUR_ASS_VEN_CODE, dtOVC_PUR_ASS_VEN_CODE, "OVC_PHR_DESC", "OVC_PHR_ID", ":", true);

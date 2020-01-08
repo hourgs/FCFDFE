@@ -226,9 +226,9 @@ namespace FCFDFE.pages.MPMS.B
                     var queryM4Aff = mpms.TBM1220_1.Where(o => o.OVC_PURCH.Equals(strPurchNum) && o.OVC_IKIND.Equals("M4A") && o.OVC_CHECK.Equals("ff")).FirstOrDefault();
                     var queryM4Agg = mpms.TBM1220_1.Where(o => o.OVC_PURCH.Equals(strPurchNum) && o.OVC_IKIND.Equals("M4A") && o.OVC_CHECK.Equals("gg")).FirstOrDefault();
                     if (queryM47 == null)
-                        strMessage += "<p>【物資申請書之備註欄中】(8)政府協購協定項目不得空白！</p>";
+                        strMessage += "<p>【物資申請書之備考欄中】(8.1)政府協購協定項目不得空白！</p>";
                     if (queryM4Aee == null && queryM4Aff == null && queryM4Agg == null)
-                        strMessage += "<p>【物資申請書之備註欄中】(11)其他 第1、2、3項大陸地區相關項目不得空白！</p>";
+                        strMessage += "<p>【物資申請書之備考欄中】(11)其他 第1、2、3項大陸地區相關項目不得空白！</p>";
 
                 }
                 switch (item)
