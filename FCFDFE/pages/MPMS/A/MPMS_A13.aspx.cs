@@ -21,7 +21,8 @@ namespace FCFDFE.pages.MPMS.A
             FCommon.getPageNode(this, ref strMenuName, ref strMenuNameItem);
             if (!IsPostBack)
             {
-                list_dataImport(drpOVC_BUDGET_YEAR);
+                list_dataImport(drpOVC_BUDGET_YEAR);// line:68
+                dataImport();
             }
         }
         
@@ -77,6 +78,7 @@ namespace FCFDFE.pages.MPMS.A
                 list.Items.Add(Convert.ToString(num));
                 num = num - 1;
             }
+            
         }
         #endregion
         protected void btnQuery_OVC_BUDGET_YEAR_Click(object sender, EventArgs e)

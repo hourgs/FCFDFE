@@ -15,7 +15,7 @@ using System.IO;
 using TemplateEngine.Docx;
 using Xceed.Words.NET;
 using Microsoft.International.Formatters;
-
+using System.Web;
 
 namespace FCFDFE.pages.MPMS.C
 {
@@ -1452,8 +1452,11 @@ namespace FCFDFE.pages.MPMS.C
             #endregion
 
             doc1.Close();
+            //不然IE的下載會有亂碼
+            string fileName=HttpUtility.UrlEncode(strPurchNum+ "物資申請書.pdf");
             Response.Clear();//瀏覽器上顯示
-            Response.AddHeader("Content-disposition", "attachment;filename=" + strPurchNum + "物資申請書.pdf");
+            //Response.AddHeader("Content-disposition", "attachment;filename=" + strPurchNum + "物資申請書.pdf");
+            Response.AddHeader("Content-disposition", "attachment;filename=" + fileName);
             Response.ContentType = "application/octet-stream";
             Response.OutputStream.Write(Memory.GetBuffer(), 0, Memory.GetBuffer().Length);
             Response.OutputStream.Flush();
@@ -1707,8 +1710,10 @@ namespace FCFDFE.pages.MPMS.C
             string path_d = Path.Combine(Request.PhysicalApplicationPath, "Tempprint/b.docx");
             WordcvDdf(path_d, wordfilepath);
             FileInfo file = new FileInfo(wordfilepath);
+            string fileName=HttpUtility.HtmlEncode(strPurchNum+purAgency+"物資申請書.pdf");
             Response.Clear();
-            Response.AppendHeader("Content-Disposition", "attachment; filename=" + strPurchNum + purAgency + "物資申請書.pdf");
+            //Response.AppendHeader("Content-Disposition", "attachment; filename=" + strPurchNum + purAgency + "物資申請書.pdf");
+            Response.AppendHeader("Content-Disposition", "attachment; filename=" + fileName);
             Response.ContentType = "application/octet-stream";
             Response.WriteFile(file.FullName);
             Response.OutputStream.Flush();
@@ -2425,7 +2430,9 @@ namespace FCFDFE.pages.MPMS.C
 
             doc1.Close();
             Response.Clear();//瀏覽器上顯示
-            Response.AddHeader("Content-disposition", "attachment;filename=" + strPurchNum + "新物資申請書.pdf");
+            string fileName = HttpUtility.UrlEncode(strPurchNum + "新物資申請書.pdf");
+            //Response.AddHeader("Content-disposition", "attachment;filename=" + strPurchNum + "新物資申請書.pdf");
+            Response.AddHeader("Content-disposition", "attachment;filename=" + fileName);
             Response.ContentType = "application/octet-stream";
             Response.OutputStream.Write(Memory.GetBuffer(), 0, Memory.GetBuffer().Length);
             Response.OutputStream.Flush();
@@ -2655,7 +2662,7 @@ namespace FCFDFE.pages.MPMS.C
      
         #endregion
 
-        #region 列印預算分配明細表
+        #region 列印預算分配明細表pdf
         private void PrintBudgetPDF()
         {
             //預算年度分配明細表按鈕功能

@@ -1490,7 +1490,7 @@ namespace FCFDFE.Content
                 dt.Rows.Add(dr);
             }
         }
-
+        #region 身分檢驗
         // 身份證檢驗
         public bool CheckPersonalID(string strPersonalID)
         {
@@ -1524,8 +1524,8 @@ namespace FCFDFE.Content
             //(10 - ((seed[0] + .... + seed[9]) % 10)) % 10 == 身分證字號的最後一碼             
             return (10 - (intSeed.Sum() % 10)) % 10 == Convert.ToInt32(strPersonalID.Substring(9, 1));
         }
-
         // 關閉頁面 可判斷是否出現彈跳視窗
+        #endregion
         public void ClosePage(Panel panelContent, string strMessage, bool isShowMessage)
         {
             string strScript = "<script language='javascript'>";
@@ -1535,7 +1535,7 @@ namespace FCFDFE.Content
                         "</script>";
             panelContent.Controls.Add(new LiteralControl(strScript));
         }
-
+        #region 小寫金額轉大寫(國字)金額
         //小寫金額轉大寫(國字)金額(string in string out)
         public string MoneyToChinese(string LowerMoney)
         {
@@ -1715,7 +1715,8 @@ namespace FCFDFE.Content
                 return functionReturnValue;
             }
         }
-
+        #endregion
+        #region 直接下載
         //直接下載檔案
         public void DownloadFile(Page thePage, string strFileName, MemoryStream Memory)
         {
@@ -1742,7 +1743,7 @@ namespace FCFDFE.Content
             thePage.Response.Flush();
             thePage.Response.End();
         }
-
+        #endregion
         #region 轉檔+下載
         //word轉pdf
         public void WordToPDF(Page thisPage, string FilePath, string FileTemp, string FileName)
@@ -1922,7 +1923,7 @@ namespace FCFDFE.Content
         }
         #endregion
 
-        #region
+        #region 寄信
         public void SendOtherMail(string Content, string pRecipient)
         {
 

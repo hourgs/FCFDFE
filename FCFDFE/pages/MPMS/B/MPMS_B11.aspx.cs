@@ -42,6 +42,7 @@ namespace FCFDFE.pages.MPMS.B
                     {
                         list_dataImport(drpOVC_BUDGET_YEAR);
                         FCommon.GridView_setEmpty(GV_OVC_BUDGET, strField);
+                        dataImport(drpOVC_BUDGET_YEAR.SelectedItem.ToString());
                     }
                 }
             }
