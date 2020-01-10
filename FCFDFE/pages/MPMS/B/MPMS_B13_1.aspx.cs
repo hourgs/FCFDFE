@@ -77,7 +77,7 @@ namespace FCFDFE.pages.MPMS.B
         Common FCommon = new Common();
         GMEntities gm = new GMEntities();
         MPMSEntities mpms = new MPMSEntities();
-        string strPurchNum = "";//JC96001 EO96001
+        string strPurchNum = "";
         string[] strField_1 = { "OVC_ISOURCE", "ONB_MONEY" , "OVC_ISAPPR" };
         string[] strField_2 = { "OVC_ISOURCE", "OVC_IBDGPJNAME", "OVC_IKIND", "OVC_YY", "OVC_MM", "ONB_MBUD" };
         //GV_LoginBudget.FooterRow.Cells[0].Text; 拿footer合計資料

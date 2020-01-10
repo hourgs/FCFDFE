@@ -305,6 +305,7 @@ namespace FCFDFE.pages.MPMS.B
                     strPurchNum = Request.QueryString["PurchNum"];
                     if (!IsPostBack)
                     {
+                        //txtOVC_AGNT_IN_SHOW_IN 內購計畫清單 txtOVC_AGNT_IN_SHOW 外購計畫清單的採購單位
                         FCommon.Controls_Attributes("readonly", "true", txtOVC_AGNT_IN_SHOW_IN, txtOVC_AGNT_IN_SHOW);
                         TBM1301 table1301 = new TBM1301();
                         table1301 = gm.TBM1301.Where(table => table.OVC_PURCH.Equals(strPurchNum)).FirstOrDefault();
@@ -316,11 +317,11 @@ namespace FCFDFE.pages.MPMS.B
                         ViewState["OVC_PUR_AGENCY"] = strOVC_PUR_AGENCY;
                         if (table1301plan.OVC_PUR_AGENCY == "B" || table1301plan.OVC_PUR_AGENCY == "L" || table1301plan.OVC_PUR_AGENCY == "P")
                         {
-                            lblStubIn.Visible = true;
-                            divSecContentIN.Visible = true;
-                            lblStubOut.Visible = false;
-                            divSecContentOUT.Visible = false;
-                            OutPart.Visible = false;
+                            lblStubIn.Visible = true;   //label 內購案物資申請書存根
+                            divSecContentIN.Visible = true;     //panel 內購計畫清單
+                            lblStubOut.Visible = false; //label 外購案物資申請書存根
+                            divSecContentOUT.Visible = false;       //panel 外購計畫清單
+                            OutPart.Visible = false;            //div/table 外購理由
                             ViewState["strOVC_PURCH_KIND"] = "1";
                         }
                         else
@@ -373,6 +374,7 @@ namespace FCFDFE.pages.MPMS.B
                             //外購理由編輯按鈕
                             btnOutPurEditing.Visible = true;
                             //頁籤3頭+內容 如果有就要開
+                            //FCommon.AlertShow(PnMessage, "danger", "系統訊息", "11111");
                             ModifyLoginScreen();
                             //列印物資申請書按鈕
                             btnGOOD_APPLICATION_PRINT.Visible = true;
@@ -382,7 +384,7 @@ namespace FCFDFE.pages.MPMS.B
                     }
                     if (GridView1.Rows.Count > 0)
                         FooterSum(GridView1);
-                    if (GridView1_IN.Rows.Count > 0)
+                    if (GridView1_IN.Rows.Count > 0)    //內購計畫清單編制
                         FooterSum(GridView1_IN);
 
                 }
@@ -415,8 +417,8 @@ namespace FCFDFE.pages.MPMS.B
 
             if (plan1301 != null)
             {
-                //左上
-                if (string.IsNullOrEmpty(plan1301.OVC_PUR_NSECTION))
+                //左上 OVC_PUR_NECTION為單位全稱
+                if(string.IsNullOrEmpty(plan1301.OVC_PUR_NSECTION))
                     txtOVC_KIND_APPLY.Text = "國防部政務辦公室";
                 else
                     txtOVC_KIND_APPLY.Text = plan1301.OVC_PUR_NSECTION;
@@ -656,8 +658,7 @@ namespace FCFDFE.pages.MPMS.B
                     break;
             }
             txtBoxInIt(Tbm12201, txtOVC_MEMO, ovcIkind);
-            
-           
+
             if (ViewState["strOVC_PURCH_KIND"].ToString().Equals("2"))
             {    
                 //外購
@@ -704,7 +705,7 @@ namespace FCFDFE.pages.MPMS.B
             else
             {
                 //內購
-                //軍品類別---以下都在第二頁
+                //軍品類別下拉---以下都在第二頁
                 if (table1301.OVC_PUR_NPURCH != null)
                     drpOVC_PUR_NPURCH_IN.SelectedValue = table1301.OVC_PUR_NPURCH;
                 //計畫清單編制-奉准日期.文號
@@ -721,6 +722,8 @@ namespace FCFDFE.pages.MPMS.B
                 txtOVC_RECEIVE_NSECTION_IN.Text = table1301.OVC_RECEIVE_NSECTION;
                 //交貨時間
                 txtOVC_SHIP_TIMES_IN.Text = table1301.OVC_SHIP_TIMES;
+                //採購單位下拉 好像不能這麼改 他的選單是onselected的 會去postback所以可能要研究的深一點
+                //drpOVC_AGNT_IN_IN.SelectedValue = table1301.OVC_AGNT_IN;
                 //交貨地點
                 txtOVC_RECEIVE_PLACE_IN.Text = table1301.OVC_RECEIVE_PLACE;
                 //檢驗方法
@@ -3326,7 +3329,7 @@ namespace FCFDFE.pages.MPMS.B
                         strOVC_CURR_MPRICE_BEF = "";
                     else
                         table1301.OVC_PUR_CURRENT = strOVC_CURR_MPRICE_BEF;
-
+                    table1301.OVC_PUR_NPURCH = drpOVC_PUR_NPURCH_IN.SelectedValue;
                     table1301.OVC_AGNT_IN = txtOVC_AGNT_IN_SHOW_IN.Text;
                     table1301.OVC_RECEIVE_NSECTION = txtOVC_RECEIVE_NSECTION_IN.Text;
                     table1301.OVC_SHIP_TIMES = txtOVC_SHIP_TIMES_IN.Text;

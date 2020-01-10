@@ -400,7 +400,7 @@
                                             </table>
                                             <div class="text-center" style="letter-spacing: 15px; margin-top:30px;">
                                                 <asp:Button ID="btnSave_New" CssClass="btn-success btnw2" runat="server" onclick="btnSave_New_Click" Text="儲存" />
-                                                <asp:Button ID="btnSave_Modify" CssClass="btn-warning btnw2" runat="server" onclick="btnSave_Modify_Click" Text="儲存" />
+                                                <asp:Button ID="btnSave_Modify" CssClass="btn-warning btnw4" runat="server" onclick="btnSave_Modify_Click" Text="儲存修改" />
                                                 <asp:Button ID="btnReturn" CssClass="btn-success" runat="server" onclick="btnReturn_Click" Text="處理其他購案" />
                                                 <asp:Button ID="btnGOOD_APPLICATION_PRINT" CssClass="btn-success" CommandName="PrintSupPDF" OnCommand="btnPrint_Command" Visible ="false" runat="server" Text="物資申請書預覽列印" /><!--綠色-->
                                                 <asp:Button ID="btnOLD_GOOD_APPLICATION_PRINT" CssClass="btn-success" runat="server" CommandName="PrintNewSupPDF" Visible ="false" OnCommand="btnPrint_Command" Text="新物資申請書預覽列印" /><!--綠色-->

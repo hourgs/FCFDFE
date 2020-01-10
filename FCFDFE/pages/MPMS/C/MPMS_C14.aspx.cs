@@ -2791,7 +2791,9 @@ namespace FCFDFE.pages.MPMS.C
             doc1.Add(finaltable);
             doc1.Close();
             Response.Clear();//瀏覽器上顯示
-            Response.AddHeader("Content-disposition", "attachment;filename=" + strPurchNum + "預算年度分配明細表.pdf");
+            string fileName = HttpUtility.UrlEncode(strPurchNum + "預算年度分配明細表.pdf");
+            Response.AddHeader("Content-disposition", "attachment;filename=" + fileName);
+            //Response.AddHeader("Content-disposition", "attachment;filename=" + strPurchNum + "預算年度分配明細表.pdf");
             Response.ContentType = "application/octet-stream";
             Response.OutputStream.Write(Memory.GetBuffer(), 0, Memory.GetBuffer().Length);
             Response.OutputStream.Flush();
