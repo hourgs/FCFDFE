@@ -80,8 +80,8 @@ namespace FCFDFE.pages.MPMS.B
             lblOVC_PURCH.Text = strPurchNum;
             lblbtnText.Visible = false;
         }
-        
-       
+
+
         protected void btn_Click(object sender, EventArgs e)
         {
             txtNewOVC_MEMO.Text = "";
@@ -97,7 +97,7 @@ namespace FCFDFE.pages.MPMS.B
             GridviewRowSpan();
         }
 
-        
+
         protected void btn_change_Click(object sender, EventArgs e)
         {
             //上方GV的異動按鈕
@@ -176,12 +176,12 @@ namespace FCFDFE.pages.MPMS.B
             }
         }
         #region 副程式
-        private void SaveMemo(string strMemo,string strCheck)
+        private void SaveMemo(string strMemo, string strCheck)
         {
             //存檔
             string strOVC_IKIND = ViewState["BtnId"].ToString();
             var queryExist = mpms.TBM1220_1.Where(table => table.OVC_PURCH.Equals(strPurchNum)
-                                && table.OVC_IKIND.Equals(strOVC_IKIND)).OrderByDescending(o=>o.ONB_NO).FirstOrDefault();
+                                && table.OVC_IKIND.Equals(strOVC_IKIND)).OrderByDescending(o => o.ONB_NO).FirstOrDefault();
             if (queryExist == null)
             {
                 //null表示沒資料要新增
@@ -282,7 +282,7 @@ namespace FCFDFE.pages.MPMS.B
             {
                 FCommon.AlertShow(PnMessage, "danger", "系統訊息", "請先 選擇種類！");
             }
-            
+
         }
 
         private void MemoMainImport()
@@ -353,7 +353,7 @@ namespace FCFDFE.pages.MPMS.B
                     TextBox txtOVC_MEMO = (TextBox)this.GV_OVC_ISOURCE.Rows[i].Cells[0].FindControl("txtOVC_MEMO");
                     if (txtOVC_MEMO != null)
                     {
-                        txtOVC_MEMO.Text += "，購案編號：" + strPurchNum + "。"; 
+                        txtOVC_MEMO.Text += "，購案編號：" + strPurchNum + "。";
                     }
                 }
             }
@@ -404,6 +404,18 @@ namespace FCFDFE.pages.MPMS.B
                     theButton.ID = dt.Rows[i]["Value"].ToString();
                     theButton.Text = dt.Rows[i]["Field"].ToString();
                     theButton.CssClass = "btn-default";
+                    var query1 =
+                    from table in mpms.TBM1220_1
+                    where table.OVC_PURCH.Equals(strPurchNum) && table.OVC_IKIND.Equals(theButton.ID)
+                    select new
+                    {
+                        table.ONB_NO,
+                        table.OVC_MEMO
+                    };
+                    if (query1.Any())
+                    {
+                        theButton.ForeColor = System.Drawing.Color.Red;
+                    }
                     theButton.Click += new EventHandler(btn_Click);
                     pn_Button.Controls.Add(theButton);
                     pn_Button.Controls.Add(new LiteralControl(" "));

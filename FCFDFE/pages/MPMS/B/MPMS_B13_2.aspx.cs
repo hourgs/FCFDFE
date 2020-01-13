@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using FCFDFE.Content;
+﻿using FCFDFE.Content;
 using FCFDFE.Entity.GMModel;
 using FCFDFE.Entity.MPMSModel;
-using System.Linq;
+using System;
 using System.Data;
 using System.Data.Entity;
+using System.Linq;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace FCFDFE.pages.MPMS.B
 {
@@ -35,7 +33,7 @@ namespace FCFDFE.pages.MPMS.B
                         if (tb1301 != null)
                         {
                             if (tb1301.OVC_PUR_AGENCY.Equals("B") || tb1301.OVC_PUR_AGENCY.Equals("L") || tb1301.OVC_PUR_AGENCY.Equals("P"))
-                            {
+                            {//內購
                                 pn_Button.Controls.Clear();
                                 Buttonevent("M3");
                                 ViewState["Field"] = "M3";
@@ -44,7 +42,7 @@ namespace FCFDFE.pages.MPMS.B
                                 ViewState["OVC_PURCH_KIND"] = 1;
                             }
                             else if (tb1301.OVC_PUR_AGENCY.Equals("M") || tb1301.OVC_PUR_AGENCY.Equals("S"))
-                            {
+                            {//軍售
                                 pn_Button.Controls.Clear();
                                 Buttonevent("F3");
                                 ViewState["Field"] = "F3";
@@ -53,7 +51,7 @@ namespace FCFDFE.pages.MPMS.B
                                 ViewState["OVC_PURCH_KIND"] = 2;
                             }
                             else
-                            {
+                            {//外購
                                 pn_Button.Controls.Clear();
                                 Buttonevent("W3");
                                 ViewState["Field"] = "W3";
@@ -82,8 +80,8 @@ namespace FCFDFE.pages.MPMS.B
                 hasRows = Convert.ToBoolean(ViewState["hasRows"]);
             FCommon.GridView_PreRenderInit(sender, hasRows);
         }
-        
-      
+
+
         protected void btn_Click(object sender, EventArgs e)
         {
             txtNewOVC_MEMO.Text = "";
@@ -98,7 +96,7 @@ namespace FCFDFE.pages.MPMS.B
             GV_OVC_ISOURCE.Rows[0].Cells[0].Text = "目前編輯：" + btn.Text;
             GridviewRowSpan();
         }
-        
+
         protected void btn_save_Click(object sender, EventArgs e)
         {
             //GV裡的直接存檔按鈕
@@ -108,7 +106,7 @@ namespace FCFDFE.pages.MPMS.B
             TextBox txtMemo = (TextBox)GV_OVC_ISOURCE.Rows[gvRowIndex].Cells[2].FindControl("txtOVC_MEMO");
             HiddenField hidCHECK = (HiddenField)GV_OVC_ISOURCE.Rows[gvRowIndex].Cells[2].FindControl("hidOVC_CHECK");
             //存檔至1220_1
-            SaveMemo(txtMemo.Text,hidCHECK.Value);
+            SaveMemo(txtMemo.Text, hidCHECK.Value);
             //刷新上方GV
             MemoMainImport();
             //改顏色
@@ -122,13 +120,13 @@ namespace FCFDFE.pages.MPMS.B
                 //編輯區的存檔按鈕
                 //存檔至1220_1
                 EditSave(txtNewOVC_MEMO.Text);
-               
+
             }
             else
             {
                 FCommon.AlertShow(PnMessage, "danger", "系統訊息", "請先 輸入內容");
             }
-            
+
         }
 
         protected void btn_change_Click(object sender, EventArgs e)
@@ -154,7 +152,7 @@ namespace FCFDFE.pages.MPMS.B
             HiddenField hidField = (HiddenField)GV_EDITMEMO.Rows[gvRowIndex].Cells[1].FindControl("hidONB_NO");
             short index = short.Parse(hidField.Value);
             TBM1220_1 tbm1220_1 = new TBM1220_1();
-            tbm1220_1 = mpms.TBM1220_1.Where(o => o.OVC_PURCH.Equals(strPurchNum) 
+            tbm1220_1 = mpms.TBM1220_1.Where(o => o.OVC_PURCH.Equals(strPurchNum)
                                                 && o.OVC_IKIND.Equals(btnid) && o.ONB_NO == index).FirstOrDefault();
             mpms.Entry(tbm1220_1).State = EntityState.Deleted;
             mpms.SaveChanges();
@@ -164,7 +162,7 @@ namespace FCFDFE.pages.MPMS.B
             //刷新
             MemoMainImport();
         }
-        
+
         #region 副程式
 
         private void ChangeColor()
@@ -185,7 +183,7 @@ namespace FCFDFE.pages.MPMS.B
             //創建按鈕
             var query =
                from tableSys in gm.TBM1220_2.AsEnumerable()
-               where tableSys.OVC_IKIND.StartsWith(field)
+               where tableSys.OVC_IKIND.StartsWith(field)//field:M3,F3,W3
                select new
                {
                    Value = tableSys.OVC_IKIND,
@@ -194,8 +192,8 @@ namespace FCFDFE.pages.MPMS.B
             DataTable dt = CommonStatic.LinqQueryToDataTable(query);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                string strSysId = dt.Rows[i]["Value"].ToString();
-                string strSysName = dt.Rows[i]["Field"].ToString();
+                string strSysId = dt.Rows[i]["Value"].ToString();//IKIND
+                string strSysName = dt.Rows[i]["Field"].ToString();//MEMO
                 var queryInner =
                 from tableSys in gm.TBM1220_2
                 where tableSys.OVC_IKIND.StartsWith(field)
@@ -207,9 +205,25 @@ namespace FCFDFE.pages.MPMS.B
                 DataTable chkItems = CommonStatic.LinqQueryToDataTable(queryInner);
                 if (chkItems.Rows.Count > 0)
                 {
+                    
                     Button theButton = new Button();
                     theButton.ID = dt.Rows[i]["Value"].ToString();
                     theButton.Text = dt.Rows[i]["Field"].ToString();
+
+                    #region 有資料的欄位變成紅色
+                    var query1 =
+                    from table in mpms.TBM1220_1//購案備註
+                    where table.OVC_PURCH.Equals(strPurchNum) && table.OVC_IKIND.Equals(theButton.ID)
+                    select new
+                    {
+                      table.ONB_NO,
+                      table.OVC_IKIND
+                    };
+                    if (query1.Any())
+                    {
+                        theButton.ForeColor = System.Drawing.Color.Red;
+                    }
+                    #endregion
                     theButton.CssClass = "btn-default";
                     theButton.Click += new EventHandler(btn_Click);
                     pn_Button.Controls.Add(theButton);
@@ -343,7 +357,7 @@ namespace FCFDFE.pages.MPMS.B
         {
             //上方GV資料載入
             string strOVC_IKIND = ViewState["BtnId"].ToString();
-            string[] strItem = { "ONB_NO", "OVC_MEMO"};
+            string[] strItem = { "ONB_NO", "OVC_MEMO" };
             var query =
                 from table in mpms.TBM1220_1
                 where table.OVC_PURCH.Equals(strPurchNum) && table.OVC_IKIND.Equals(strOVC_IKIND)

@@ -104,7 +104,7 @@ namespace FCFDFE.pages.MPMS.B
             HiddenField hidThis = (HiddenField)GV_OVC_ISOURCE.Rows[gvRowIndex].Cells[4].FindControl("hidOVC_FILE_NAME");
             string strOVC_FILE_NAME = hidThis.Value;
             string strOVC_ATTACH_NAME = GV_OVC_ISOURCE.Rows[gvRowIndex].Cells[2].Text;
-            TBM1119 tbm1119 = new TBM1119();
+            TBM1119 tbm1119 = new TBM1119();//購案附件檔
             tbm1119 = mpms.TBM1119.Where(o => o.OVC_PURCH.Equals(strPurchNum) && o.OVC_IKIND.Equals(strOVC_IKIND) 
                                             && o.OVC_ATTACH_NAME.Equals(strOVC_ATTACH_NAME)).FirstOrDefault();
             if (tbm1119 != null)

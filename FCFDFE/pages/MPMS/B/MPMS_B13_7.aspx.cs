@@ -399,6 +399,17 @@ namespace FCFDFE.pages.MPMS.B
                     theButton.ID = dt.Rows[i]["Value"].ToString();
                     theButton.Text = dt.Rows[i]["Field"].ToString();
                     theButton.CssClass = "btn-default";
+                    var query1 = from table in mpms.TBM1220_1
+                                 where table.OVC_IKIND.Equals(theButton.ID) && table.OVC_PURCH.Equals(strPurchNum)
+                                 select new
+                                 {
+                                     table.OVC_IKIND
+                                 };
+                    if(query1.Any())
+                    {
+                        theButton.ForeColor = System.Drawing.Color.Red;
+                    }
+                       
                     theButton.Click += new EventHandler(btn_Click);
                     if (i <= 5)
                     {
