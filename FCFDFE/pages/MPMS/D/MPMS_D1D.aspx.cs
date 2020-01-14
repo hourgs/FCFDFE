@@ -34,9 +34,9 @@ namespace FCFDFE.pages.MPMS.D
                 {
                     if (!IsPostBack && IsOVC_DO_NAME())
                     {
-                        PnCompany.Visible = false;
-                        PnContract.Visible = true;
-                        PnEscrow.Visible = false;
+                        PnCompany.Visible = false;//異動合約商
+                        PnContract.Visible = true;//簽約
+                        PnEscrow.Visible = false;//保證金收繳
                         lblTitle.Text = "簽約";
 
                         #region drp

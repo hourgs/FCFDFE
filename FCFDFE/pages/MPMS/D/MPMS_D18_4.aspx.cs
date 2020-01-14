@@ -667,8 +667,8 @@ namespace FCFDFE.pages.MPMS.D
 
 
                 mpms.SaveChanges();
+                FCommon.syslog_add(Session["userid"].ToString(), Request.ServerVariables["REMOTE_ADDR"].ToString(), tbm1313_ITEM.GetType().Name.ToString(), this, "更新");
             }
-            FCommon.syslog_add(Session["userid"].ToString(), Request.ServerVariables["REMOTE_ADDR"].ToString(), tbm1313_ITEM.GetType().Name.ToString(), this, "更新");
         }
 
 

@@ -1819,7 +1819,7 @@ namespace FCFDFE.pages.MPMS.D
             foreach (var item in query1201)
             {
                 decimal qty = Convert.ToDecimal(item.ONB_POI_QORDER_PLAN);
-                decimal price = Convert.ToDecimal(item.ONB_POI_QORDER_PLAN);
+                decimal price = Convert.ToDecimal(item.ONB_POI_MPRICE_PLAN);
                 decimal total = qty * price;
                 string strIPURCH_BEF = " ";
                 string strCURR_MPRICE_BEF = " ";
@@ -1832,7 +1832,6 @@ namespace FCFDFE.pages.MPMS.D
                     strPOI_MPRICE_BEF = "價格：" + item.ONB_POI_MPRICE_BEF.ToString();
                     strQORDER_BEF = "數量：" + item.ONB_POI_QORDER_BEF.ToString();
                 }
-
                 tableContent.AddRow(
                         new FieldContent("head_count", "(11)\r\n項次"),
                         new FieldContent("head_name", "(12)\r\n品名料號及規格"),
@@ -2016,7 +2015,7 @@ namespace FCFDFE.pages.MPMS.D
             foreach (var item in query1201)
             {
                 decimal qty = Convert.ToDecimal(item.ONB_POI_QORDER_PLAN);
-                decimal price = Convert.ToDecimal(item.ONB_POI_QORDER_PLAN);
+                decimal price = Convert.ToDecimal(item.ONB_POI_MPRICE_PLAN);
                 decimal total = qty * price;
                 string strIPURCH_BEF = " ";
                 string strQORDER_BEF = " ";
