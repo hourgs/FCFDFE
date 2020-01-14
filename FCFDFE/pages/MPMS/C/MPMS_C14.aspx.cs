@@ -1001,6 +1001,7 @@ namespace FCFDFE.pages.MPMS.C
                  where t.OVC_PURCH.Equals(strPurchNum)
                  select new
                  {
+                     t.OVC_PURCH_KIND,
                      t.OVC_PUR_AGENCY,
                      t.OVC_PUR_NSECTION,
                      t.OVC_PUR_DAPPROVE,
@@ -1014,7 +1015,7 @@ namespace FCFDFE.pages.MPMS.C
                      t.OVC_SECTION_CHIEF,
                      t.OVC_AGNT_IN
                  }).FirstOrDefault();
-            if (t1301.OVC_PUR_AGENCY.Equals("1"))
+            if (t1301.OVC_PURCH_KIND.Equals("1"))
                 angcy = "內購";
             else
                 angcy = "外購";

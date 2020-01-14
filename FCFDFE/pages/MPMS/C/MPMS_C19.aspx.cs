@@ -143,9 +143,9 @@ namespace FCFDFE.pages.MPMS.C
                     TextBox txtOVC_PUR_DAPPR_PLAN = (TextBox)item.FindControl("txtOVC_PUR_DAPPR_PLAN");
                     TextBox txtOVC_PUR_APPR_PLAN = (TextBox)item.FindControl("txtOVC_PUR_APPR_PLAN");
                     TBM1231 query1231 = mpms.TBM1231.Where(o => o.OVC_PURCH.Equals(strPurchNum) && o.OVC_ISOURCE.Equals(lblOVC_ISOURCE.Text)).FirstOrDefault();
-                    if(query1231 != null)
+                    if(query1231!=null)
                     {
-                        query1231.OVC_PUR_DAPPR_PLAN = txtOVC_PUR_APPR_PLAN.Text;
+                        query1231.OVC_PUR_DAPPR_PLAN = txtOVC_PUR_DAPPR_PLAN.Text;
                         query1231.OVC_PUR_APPR_PLAN = txtOVC_PUR_APPR_PLAN.Text;
                         mpms.SaveChanges();
                     }
