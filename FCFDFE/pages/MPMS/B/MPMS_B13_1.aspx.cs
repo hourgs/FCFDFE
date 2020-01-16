@@ -1015,6 +1015,7 @@ namespace FCFDFE.pages.MPMS.B
         protected void btn_change_Click(object sender, EventArgs e)
         {
             //異動按鈕
+            btnSave.Visible = false;
             btnModify.Visible = true;
             Button btn = (Button)sender;
             GridViewRow gvr = (GridViewRow)btn.NamingContainer;
